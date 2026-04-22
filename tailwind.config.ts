@@ -27,6 +27,23 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        patina: {
+          DEFAULT: "hsl(var(--patina))",
+          deep: "hsl(var(--patina-deep))",
+          light: "hsl(var(--patina-light))",
+          glow: "hsl(var(--patina-glow))",
+        },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          deep: "hsl(var(--gold-deep))",
+        },
+        vermilion: {
+          DEFAULT: "hsl(var(--vermilion))",
+          deep: "hsl(var(--vermilion-deep))",
+        },
+        terracotta: "hsl(var(--terracotta))",
+        clay: "hsl(var(--clay))",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
