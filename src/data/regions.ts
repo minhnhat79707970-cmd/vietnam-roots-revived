@@ -19,6 +19,17 @@ export interface RegionDetailData {
   heritages: HeritagePoint[];
   cuisine: string[];
   accentClass: string; // text accent
+  intangible: IntangibleHeritage[];
+  intangibleNote: string;
+}
+
+export interface IntangibleHeritage {
+  name: string;
+  type: string; // Loại hình: Âm nhạc, Tín ngưỡng, Lễ hội, Nghề thủ công…
+  origin: string; // Nơi/Vùng phát tích cụ thể
+  era: string;
+  unesco?: string; // Năm UNESCO ghi danh nếu có
+  desc: string;
 }
 
 export const regionsData: Record<RegionSlug, RegionDetailData> = {
