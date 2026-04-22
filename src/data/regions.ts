@@ -19,6 +19,17 @@ export interface RegionDetailData {
   heritages: HeritagePoint[];
   cuisine: string[];
   accentClass: string; // text accent
+  intangible: IntangibleHeritage[];
+  intangibleNote: string;
+}
+
+export interface IntangibleHeritage {
+  name: string;
+  type: string; // Loại hình: Âm nhạc, Tín ngưỡng, Lễ hội, Nghề thủ công…
+  origin: string; // Nơi/Vùng phát tích cụ thể
+  era: string;
+  unesco?: string; // Năm UNESCO ghi danh nếu có
+  desc: string;
 }
 
 export const regionsData: Record<RegionSlug, RegionDetailData> = {
@@ -51,6 +62,82 @@ export const regionsData: Record<RegionSlug, RegionDetailData> = {
     ],
     cuisine: ["Phở Hà Nội", "Bún chả", "Bánh cuốn Thanh Trì", "Chả cá Lã Vọng", "Cốm làng Vòng"],
     accentClass: "text-patina",
+    intangibleNote:
+      "Văn hoá phi vật thể Bắc Bộ gắn liền với làng xã đồng bằng sông Hồng, mang đậm tính cộng đồng, nghi lễ nông nghiệp lúa nước và tín ngưỡng dân gian bản địa.",
+    intangible: [
+      {
+        name: "Dân ca Quan họ Bắc Ninh",
+        type: "Âm nhạc dân gian",
+        origin: "49 làng Quan họ gốc — Bắc Ninh & Bắc Giang",
+        era: "Thế kỷ XIII",
+        unesco: "2009",
+        desc: "Lối hát đối đáp giao duyên giữa liền anh — liền chị với hơn 200 làn điệu cổ và tục kết chạ đặc sắc.",
+      },
+      {
+        name: "Ca trù",
+        type: "Nghệ thuật hát thơ bác học",
+        origin: "Đồng bằng Bắc Bộ — Hà Nội, Hải Dương, Hải Phòng",
+        era: "Thế kỷ XI",
+        unesco: "2009 (cần bảo vệ khẩn cấp)",
+        desc: "Nghệ thuật hát thơ tinh tế của giới nho sĩ, hoà quyện phách, đàn đáy và trống chầu trong giáo phường.",
+      },
+      {
+        name: "Tín ngưỡng thờ Mẫu Tam phủ",
+        type: "Tín ngưỡng bản địa",
+        origin: "Phủ Dầy — Nam Định, đền Sòng — Thanh Hoá",
+        era: "Thế kỷ XVI",
+        unesco: "2016",
+        desc: "Tín ngưỡng thờ Mẹ với nghi lễ hầu đồng, hệ thống 36 giá đồng và âm nhạc hát văn đặc sắc.",
+      },
+      {
+        name: "Hội Gióng đền Phù Đổng & đền Sóc",
+        type: "Lễ hội truyền thống",
+        origin: "Gia Lâm & Sóc Sơn — Hà Nội",
+        era: "Hàng nghìn năm",
+        unesco: "2010",
+        desc: "Tái hiện huyền thoại Thánh Gióng đánh giặc Ân — biểu tượng tinh thần thượng võ Việt.",
+      },
+      {
+        name: "Tín ngưỡng thờ Hùng Vương",
+        type: "Tín ngưỡng tổ tiên",
+        origin: "Đền Hùng — Phú Thọ",
+        era: "Hàng nghìn năm",
+        unesco: "2012",
+        desc: "Tín ngưỡng thờ Quốc Tổ — biểu trưng cho truyền thống 'uống nước nhớ nguồn' của dân tộc Việt.",
+      },
+      {
+        name: "Hát Xoan Phú Thọ",
+        type: "Hát nghi lễ cửa đình",
+        origin: "Bốn phường Xoan gốc — Phú Thọ",
+        era: "Thời Hùng Vương (truyền thuyết)",
+        unesco: "2011 (khẩn cấp) → 2017 (đại diện)",
+        desc: "Hát thờ vua Hùng tại các cửa đình mỗi dịp xuân về — di sản đầu tiên được rút khỏi danh sách khẩn cấp.",
+      },
+      {
+        name: "Thực hành Then của người Tày, Nùng, Thái",
+        type: "Diễn xướng tâm linh",
+        origin: "Vùng núi phía Bắc — Lạng Sơn, Cao Bằng, Tuyên Quang",
+        era: "Hàng trăm năm",
+        unesco: "2019",
+        desc: "Nghi lễ Then với tiếng đàn tính — sợi dây nối giữa con người, tổ tiên và thần linh.",
+      },
+      {
+        name: "Nghệ thuật Xoè Thái",
+        type: "Múa cộng đồng",
+        origin: "Tây Bắc — Yên Bái, Sơn La, Điện Biên, Lai Châu",
+        era: "Hàng trăm năm",
+        unesco: "2021",
+        desc: "Vòng xoè đoàn kết của người Thái — nơi mọi người nắm tay nhau quanh ngọn lửa hội mường.",
+      },
+      {
+        name: "Nghi lễ kéo co",
+        type: "Trò chơi nghi lễ",
+        origin: "Hữu Chấp — Bắc Ninh, Trấn Vũ — Hà Nội",
+        era: "Hàng trăm năm",
+        unesco: "2015 (đa quốc gia)",
+        desc: "Trò kéo co cầu mùa, biểu trưng cho sức mạnh cộng đồng và ước vọng mưa thuận gió hoà.",
+      },
+    ],
   },
   trung: {
     slug: "trung",
@@ -81,6 +168,71 @@ export const regionsData: Record<RegionSlug, RegionDetailData> = {
     ],
     cuisine: ["Bún bò Huế", "Cơm hến", "Mì Quảng", "Cao lầu Hội An", "Bánh xèo Phan Thiết"],
     accentClass: "text-vermilion",
+    intangibleNote:
+      "Di sản phi vật thể miền Trung mang dấu ấn hoàng cung triều Nguyễn, nghi lễ Chăm Pa cổ và tiếng cồng chiêng đại ngàn Tây Nguyên — sự giao thoa hiếm có giữa cung đình, biển cả và núi rừng.",
+    intangible: [
+      {
+        name: "Nhã nhạc cung đình Huế",
+        type: "Âm nhạc cung đình",
+        origin: "Cố đô Huế",
+        era: "Thế kỷ XIII — XIX",
+        unesco: "2003",
+        desc: "Âm nhạc nghi lễ của các vua chúa triều Nguyễn — di sản phi vật thể đầu tiên của Việt Nam.",
+      },
+      {
+        name: "Không gian văn hoá Cồng Chiêng Tây Nguyên",
+        type: "Âm nhạc nghi lễ",
+        origin: "Kon Tum, Gia Lai, Đắk Lắk, Đắk Nông, Lâm Đồng",
+        era: "Hơn 3.500 năm",
+        unesco: "2005",
+        desc: "Linh hồn của 17 dân tộc bản địa Tây Nguyên — Ê Đê, Ba Na, Gia Rai, Mnông, Xơ Đăng…",
+      },
+      {
+        name: "Nghệ thuật Bài Chòi Trung Bộ",
+        type: "Trò chơi & diễn xướng dân gian",
+        origin: "Quảng Bình → Khánh Hoà",
+        era: "Thế kỷ XVII",
+        unesco: "2017",
+        desc: "Trò chơi đầu xuân kết hợp âm nhạc, thi ca và thẻ bài — sinh hoạt văn hoá đặc trưng dải đất miền Trung.",
+      },
+      {
+        name: "Dân ca Ví, Giặm Nghệ Tĩnh",
+        type: "Dân ca lao động",
+        origin: "Nghệ An & Hà Tĩnh",
+        era: "Hàng trăm năm",
+        unesco: "2014",
+        desc: "Lối hát mộc mạc cất lên từ ruộng đồng, bến nước, võng đưa — chở nặng giọng nói và tâm hồn xứ Nghệ.",
+      },
+      {
+        name: "Lễ hội Cầu Ngư",
+        type: "Lễ hội ngư dân",
+        origin: "Các làng chài duyên hải Trung Bộ — Huế, Đà Nẵng, Khánh Hoà",
+        era: "Hàng trăm năm",
+        desc: "Nghi lễ thờ cá Ông (cá Voi) cầu mưa thuận gió hoà, tôm cá đầy khoang cho ngư dân miền Trung.",
+      },
+      {
+        name: "Lễ hội Katê của người Chăm",
+        type: "Lễ hội tôn giáo",
+        origin: "Tháp Po Klong Garai, Po Sah Inư — Ninh Thuận, Bình Thuận",
+        era: "Hàng nghìn năm",
+        desc: "Tết cổ truyền của người Chăm Bà-la-môn — tưởng nhớ thần linh, tổ tiên và các vị vua Chăm.",
+      },
+      {
+        name: "Sử thi Tây Nguyên (Khan, H'amon, H'ri)",
+        type: "Văn học truyền khẩu",
+        origin: "Buôn làng Ê Đê, Ba Na, Mnông",
+        era: "Hàng trăm năm",
+        desc: "Những áng sử thi dài hàng vạn câu kể về Đam San, Xinh Nhã… được nghệ nhân hát kể qua nhiều đêm.",
+      },
+      {
+        name: "Nghệ thuật làm gốm Chăm",
+        type: "Nghề thủ công truyền thống",
+        origin: "Bàu Trúc — Ninh Thuận",
+        era: "Hơn 800 năm",
+        unesco: "2022 (cần bảo vệ khẩn cấp)",
+        desc: "Làng gốm cổ nhất Đông Nam Á còn giữ kỹ thuật làm gốm bằng tay — không bàn xoay, nung lộ thiên.",
+      },
+    ],
   },
   nam: {
     slug: "nam",
@@ -111,5 +263,67 @@ export const regionsData: Record<RegionSlug, RegionDetailData> = {
     ],
     cuisine: ["Hủ tiếu Nam Vang", "Cơm tấm Sài Gòn", "Bún mắm", "Lẩu mắm", "Bánh xèo miền Tây"],
     accentClass: "text-gold-deep",
+    intangibleNote:
+      "Di sản phi vật thể Nam Bộ là kết tinh của dòng chảy bốn dân tộc Việt — Hoa — Khmer — Chăm trên vùng đất mới, mang đậm âm hưởng sông nước, hào sảng và phóng khoáng.",
+    intangible: [
+      {
+        name: "Đờn ca tài tử Nam Bộ",
+        type: "Âm nhạc thính phòng",
+        origin: "21 tỉnh thành Nam Bộ — TP.HCM, Bạc Liêu, Cần Thơ…",
+        era: "Cuối thế kỷ XIX",
+        unesco: "2013",
+        desc: "Loại hình âm nhạc dân gian ra đời từ nhạc lễ và nhã nhạc Huế, trở thành 'nhạc tài tử' của miền Nam phóng khoáng.",
+      },
+      {
+        name: "Nghệ thuật Cải lương",
+        type: "Sân khấu kịch hát",
+        origin: "Mỹ Tho — Sài Gòn",
+        era: "Đầu thế kỷ XX (1918)",
+        desc: "Loại hình sân khấu kết hợp đờn ca tài tử, kịch nói và tuồng — tiếng nói nghệ thuật đặc trưng phương Nam.",
+      },
+      {
+        name: "Lễ hội Vía Bà Chúa Xứ núi Sam",
+        type: "Lễ hội tâm linh",
+        origin: "Châu Đốc — An Giang",
+        era: "Thế kỷ XIX",
+        unesco: "2024",
+        desc: "Lễ hội tâm linh lớn nhất Nam Bộ, thu hút hàng triệu lượt hành hương mỗi năm — tín ngưỡng Mẫu của miền Tây.",
+      },
+      {
+        name: "Lễ hội Ok Om Bok của người Khmer",
+        type: "Lễ hội nông nghiệp",
+        origin: "Trà Vinh, Sóc Trăng, Bạc Liêu",
+        era: "Hàng trăm năm",
+        desc: "Lễ cúng trăng tạ ơn Thần Mặt Trăng cuối mùa mưa, kèm hội đua ghe Ngo rộn ràng trên sông.",
+      },
+      {
+        name: "Nghệ thuật Dù kê của người Khmer Nam Bộ",
+        type: "Sân khấu dân gian",
+        origin: "Sóc Trăng, Trà Vinh, Kiên Giang",
+        era: "Đầu thế kỷ XX",
+        desc: "Loại hình ca kịch cổ điển của người Khmer Nam Bộ — kết hợp ca, múa, võ và hoá trang đặc sắc.",
+      },
+      {
+        name: "Lễ hội Nghinh Ông",
+        type: "Lễ hội ngư dân",
+        origin: "Cần Giờ — TP.HCM, Vũng Tàu, Bến Tre",
+        era: "Hàng trăm năm",
+        desc: "Tín ngưỡng thờ cá Ông của ngư dân Nam Bộ — nghi lễ rước Ông trên biển cầu mùa cá bội thu.",
+      },
+      {
+        name: "Nghệ thuật Hát Bội (Tuồng) Nam Bộ",
+        type: "Sân khấu cổ truyền",
+        origin: "Đình làng Nam Bộ — Bình Dương, TP.HCM",
+        era: "Thế kỷ XVIII",
+        desc: "Hát bội cúng đình — loại hình tuồng cổ được lưu giữ tại các đình thần Nam Bộ qua bao đời.",
+      },
+      {
+        name: "Văn hoá chợ nổi miền Tây",
+        type: "Sinh hoạt cộng đồng sông nước",
+        origin: "Cái Răng, Cái Bè, Ngã Bảy — ĐBSCL",
+        era: "Thế kỷ XIX",
+        desc: "Hình thức buôn bán trên ghe thuyền với 'cây bẹo' treo hàng — bản sắc thương hồ độc đáo Nam Bộ.",
+      },
+    ],
   },
 };
