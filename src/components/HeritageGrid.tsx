@@ -154,29 +154,32 @@ export const HeritageGrid = () => {
         </div>
 
         {/* Other heritage chips */}
-        <div className="mt-16">
+        <div className="mt-24 pt-16 border-t border-gold/15">
           <div className="text-center text-xs tracking-[0.3em] uppercase text-gold/70 mb-6">
-            Và nhiều di sản khác
+            Và nhiều di sản khác đã được UNESCO ghi danh
           </div>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {[
-              "Hát Xoan Phú Thọ",
-              "Tín ngưỡng thờ Mẫu Tam phủ",
-              "Hội Gióng",
-              "Đờn ca tài tử Nam Bộ",
-              "Dân ca Ví, Giặm Nghệ Tĩnh",
-              "Nghi lễ kéo co",
-              "Bài Chòi Trung Bộ",
-              "Then Tày, Nùng, Thái",
-              "Nghệ thuật Xòe Thái",
-              "Nghệ thuật làm gốm Chăm",
-              "Tín ngưỡng thờ Hùng Vương",
+              { name: "Hội Gióng (đền Phù Đổng & đền Sóc)", year: "2010" },
+              { name: "Hát Xoan Phú Thọ", year: "2011 / 2017" },
+              { name: "Tín ngưỡng thờ Hùng Vương", year: "2012" },
+              { name: "Đờn ca tài tử Nam Bộ", year: "2013" },
+              { name: "Dân ca Ví, Giặm Nghệ Tĩnh", year: "2014" },
+              { name: "Nghi lễ kéo co", year: "2015" },
+              { name: "Tín ngưỡng thờ Mẫu Tam phủ", year: "2016" },
+              { name: "Bài Chòi Trung Bộ", year: "2017" },
+              { name: "Thực hành Then Tày, Nùng, Thái", year: "2019" },
+              { name: "Nghệ thuật Xòe Thái", year: "2021" },
+              { name: "Nghệ thuật làm gốm Chăm", year: "2022" },
             ].map((h) => (
               <span
-                key={h}
-                className="text-sm px-4 py-2 border border-gold/30 text-background/80 hover:border-gold hover:text-gold transition-colors cursor-pointer"
+                key={h.name}
+                className="group text-sm px-4 py-2 border border-gold/30 text-background/80 hover:border-gold hover:text-gold transition-colors cursor-pointer flex items-center gap-2"
               >
-                {h}
+                {h.name}
+                <span className="text-[10px] tracking-widest text-gold/60 group-hover:text-gold">
+                  · {h.year}
+                </span>
               </span>
             ))}
           </div>
