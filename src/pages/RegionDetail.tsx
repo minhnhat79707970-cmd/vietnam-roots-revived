@@ -147,6 +147,76 @@ const RegionDetail = () => {
         </div>
       </section>
 
+      {/* INTANGIBLE HERITAGE — phân chia theo miền */}
+      <section className="relative py-28 px-6 bg-secondary/40 border-y border-border overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.05] pointer-events-none"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, hsl(var(--patina-deep)) 1px, transparent 0)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 text-xs tracking-[0.4em] uppercase text-vermilion mb-4">
+              <Sparkles className="w-3.5 h-3.5" />
+              Di sản phi vật thể của {data.name}
+            </div>
+            <h2 className="font-display text-5xl md:text-6xl text-patina-deep">
+              Hồn cốt <span className="italic text-gradient-bronze">vùng đất</span>
+            </h2>
+            <p className="text-foreground/70 max-w-3xl mx-auto mt-6 leading-relaxed font-serif-vn italic text-lg">
+              {data.intangibleNote}
+            </p>
+            <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {data.intangible.map((it, i) => (
+              <article
+                key={it.name}
+                className="group relative bg-background border border-border p-7 hover:border-vermilion/50 hover:shadow-bronze transition-all duration-700 flex flex-col"
+              >
+                <div className="flex items-start justify-between mb-5">
+                  <div className="font-display text-5xl text-gold/30 leading-none group-hover:text-gold/60 transition-colors">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  {it.unesco && (
+                    <span className="text-[9px] tracking-[0.25em] uppercase border border-gold/50 text-gold-deep bg-gold/5 px-2.5 py-1">
+                      UNESCO · {it.unesco}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-vermilion mb-3">
+                  <Music2 className="w-3 h-3" />
+                  {it.type}
+                </div>
+
+                <h3 className="font-display text-2xl text-patina-deep mb-3 leading-tight group-hover:text-vermilion transition-colors">
+                  {it.name}
+                </h3>
+
+                <p className="text-foreground/70 leading-relaxed text-sm mb-5 flex-1">
+                  {it.desc}
+                </p>
+
+                <div className="pt-4 border-t border-border/70 space-y-1.5">
+                  <div className="flex items-start gap-2 text-xs">
+                    <MapPin className="w-3 h-3 text-patina mt-0.5 shrink-0" />
+                    <span className="text-muted-foreground">{it.origin}</span>
+                  </div>
+                  <div className="text-xs font-serif-vn italic text-gold-deep pl-5">
+                    {it.era}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CUISINE */}
       <section className="py-20 px-6 bg-patina-deep text-background">
         <div className="max-w-5xl mx-auto text-center">
