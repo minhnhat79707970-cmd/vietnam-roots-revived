@@ -16,7 +16,7 @@ const regions = (Object.keys(regionsData) as RegionSlug[]).map((slug) => {
 
 export const Regions = () => {
   return (
-    <section className="relative py-32 px-6 overflow-hidden">
+    <section id="regions" className="relative py-32 px-6 overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 -z-10">
         <img src={templeImg} alt="" aria-hidden className="w-full h-full object-cover opacity-15" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
