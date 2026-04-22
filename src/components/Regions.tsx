@@ -1,30 +1,22 @@
+import { Link } from "react-router-dom";
 import templeImg from "@/assets/heritage-temple.jpg";
 import { SunStar } from "./DrumOrnament";
+import { regionsData, RegionSlug } from "@/data/regions";
 
-const regions = [
-  {
-    code: "I",
-    name: "Miền Bắc",
-    sub: "Cái nôi văn hoá Việt",
-    items: ["Văn Miếu — Quốc Tử Giám", "Hoàng thành Thăng Long", "Vịnh Hạ Long", "Tràng An — Hoa Lư", "Sa Pa — ruộng bậc thang"],
-  },
-  {
-    code: "II",
-    name: "Miền Trung",
-    sub: "Đất kinh kỳ — Chăm Pa",
-    items: ["Cố đô Huế", "Phố cổ Hội An", "Thánh địa Mỹ Sơn", "Phong Nha — Kẻ Bàng", "Tháp Chăm Po Nagar"],
-  },
-  {
-    code: "III",
-    name: "Miền Nam",
-    sub: "Văn hoá sông nước",
-    items: ["Địa đạo Củ Chi", "Chợ nổi Cái Răng", "Đờn ca tài tử", "Lễ hội Bà Chúa Xứ", "Mũi Cà Mau"],
-  },
-];
+const regions = (Object.keys(regionsData) as RegionSlug[]).map((slug) => {
+  const r = regionsData[slug];
+  return {
+    slug,
+    code: r.code,
+    name: r.name,
+    sub: r.sub,
+    items: r.heritages.slice(0, 5).map((h) => h.name),
+  };
+});
 
 export const Regions = () => {
   return (
-    <section className="relative py-32 px-6 overflow-hidden">
+    <section id="regions" className="relative py-32 px-6 overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 -z-10">
         <img src={templeImg} alt="" aria-hidden className="w-full h-full object-cover opacity-15" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
@@ -42,9 +34,10 @@ export const Regions = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {regions.map((r) => (
-            <div
+            <Link
               key={r.name}
-              className="group relative bg-card border border-border p-8 hover:shadow-bronze transition-all duration-700"
+              to={`/mien/${r.slug}`}
+              className="group relative bg-card border border-border p-8 hover:shadow-bronze hover:border-gold/50 transition-all duration-700 block"
             >
               <div className="absolute top-0 right-0 w-24 h-24 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
                 <SunStar className="w-full h-full text-patina" />
@@ -69,7 +62,11 @@ export const Regions = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+
+              <div className="mt-8 pt-6 border-t border-border text-xs tracking-[0.3em] uppercase text-gold-deep group-hover:text-vermilion flex items-center gap-2 transition-colors">
+                Khám phá chi tiết <span aria-hidden>→</span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
