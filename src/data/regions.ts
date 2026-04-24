@@ -21,6 +21,10 @@ export interface RegionDetailData {
   accentClass: string; // text accent
   intangible: IntangibleHeritage[];
   intangibleNote: string;
+  landmarks: Landmark[];
+  landmarksNote: string;
+  tangible: TangibleHeritage[];
+  tangibleNote: string;
 }
 
 export interface IntangibleHeritage {
@@ -29,6 +33,22 @@ export interface IntangibleHeritage {
   origin: string; // Nơi/Vùng phát tích cụ thể
   era: string;
   unesco?: string; // Năm UNESCO ghi danh nếu có
+  desc: string;
+}
+
+export interface Landmark {
+  name: string;
+  province: string; // Tỉnh / thành
+  type: string; // Danh thắng, Đô thị, Núi, Biển đảo, Sông hồ…
+  highlight: string; // Câu mô tả ngắn gọn
+}
+
+export interface TangibleHeritage {
+  name: string;
+  location: string;
+  era: string;
+  type: "Kiến trúc" | "Khảo cổ" | "Di tích lịch sử" | "Đô thị cổ" | "Cảnh quan";
+  unesco?: string;
   desc: string;
 }
 
@@ -138,6 +158,30 @@ export const regionsData: Record<RegionSlug, RegionDetailData> = {
         desc: "Trò kéo co cầu mùa, biểu trưng cho sức mạnh cộng đồng và ước vọng mưa thuận gió hoà.",
       },
     ],
+    landmarksNote:
+      "Từ phố cổ ngàn năm Thăng Long đến biển ngọc Hạ Long và những thửa ruộng bậc thang Tây Bắc — miền Bắc là bản đồ của núi sông, đô thị cổ và kỳ quan thiên nhiên.",
+    landmarks: [
+      { name: "Hồ Hoàn Kiếm & Phố cổ Hà Nội", province: "Hà Nội", type: "Đô thị cổ", highlight: "Trái tim ngàn năm văn hiến với 36 phố phường, đền Ngọc Sơn và cầu Thê Húc." },
+      { name: "Vịnh Hạ Long", province: "Quảng Ninh", type: "Biển đảo", highlight: "Gần 2.000 hòn đảo đá vôi giữa biển ngọc — kỳ quan thiên nhiên thế giới." },
+      { name: "Sa Pa & Fansipan", province: "Lào Cai", type: "Núi", highlight: "Nóc nhà Đông Dương 3.143m, ruộng bậc thang Mường Hoa, chợ tình bản Cát Cát." },
+      { name: "Tràng An — Tam Cốc", province: "Ninh Bình", type: "Danh thắng", highlight: "'Hạ Long trên cạn' với hệ thống hang động xuyên thuỷ và cố đô Hoa Lư." },
+      { name: "Hồ Ba Bể", province: "Bắc Kạn", type: "Sông hồ", highlight: "Hồ nước ngọt tự nhiên lớn nhất Việt Nam giữa rừng nguyên sinh đá vôi." },
+      { name: "Cao nguyên đá Đồng Văn", province: "Hà Giang", type: "Danh thắng", highlight: "Công viên địa chất toàn cầu UNESCO với đèo Mã Pí Lèng và sông Nho Quế." },
+      { name: "Mù Cang Chải", province: "Yên Bái", type: "Danh thắng", highlight: "Ruộng bậc thang vàng óng mùa lúa chín — kiệt tác canh tác của người H'Mông." },
+      { name: "Chùa Hương", province: "Hà Nội", type: "Danh thắng tâm linh", highlight: "Quần thể Hương Sơn với động Hương Tích — 'Nam thiên đệ nhất động'." },
+    ],
+    tangibleNote:
+      "Di sản văn hoá vật thể miền Bắc trải dài từ thành luỹ Cổ Loa, kinh đô Thăng Long đến những ngôi chùa cổ Lý — Trần — biên niên đá của bốn nghìn năm dựng nước.",
+    tangible: [
+      { name: "Khu di tích Trung tâm Hoàng thành Thăng Long", location: "Hà Nội", era: "Thế kỷ XI — XIX", type: "Kiến trúc", unesco: "2010", desc: "Trung tâm quyền lực Đại Việt suốt 13 thế kỷ với điện Kính Thiên, Đoan Môn và Hậu Lâu." },
+      { name: "Quần thể danh thắng Tràng An", location: "Ninh Bình", era: "Thế kỷ X — nay", type: "Cảnh quan", unesco: "2014 (hỗn hợp)", desc: "Cố đô Hoa Lư, chùa Bái Đính và hệ thống hang động karst — di sản hỗn hợp duy nhất Đông Nam Á." },
+      { name: "Thành Cổ Loa", location: "Đông Anh — Hà Nội", era: "Thế kỷ III TCN", type: "Khảo cổ", desc: "Toà thành ốc ba vòng của An Dương Vương — kinh đô nước Âu Lạc cổ." },
+      { name: "Văn Miếu — Quốc Tử Giám", location: "Hà Nội", era: "1070", type: "Kiến trúc", desc: "Trường đại học đầu tiên của Việt Nam với 82 bia tiến sĩ — Ký ức Thế giới UNESCO." },
+      { name: "Chùa Một Cột (Diên Hựu)", location: "Hà Nội", era: "1049", type: "Kiến trúc", desc: "Ngôi chùa hình bông sen mọc giữa hồ — biểu tượng kiến trúc thời Lý." },
+      { name: "Đền Hùng", location: "Phú Thọ", era: "Thế kỷ III TCN", type: "Di tích lịch sử", desc: "Quần thể đền thờ Quốc Tổ Hùng Vương trên núi Nghĩa Lĩnh — nơi cội nguồn dân tộc." },
+      { name: "Khu di tích Côn Sơn — Kiếp Bạc", location: "Hải Dương", era: "Thế kỷ XIII — XIV", type: "Di tích lịch sử", desc: "Gắn với Trần Hưng Đạo và Nguyễn Trãi — danh nhân quân sự và văn hoá kiệt xuất." },
+      { name: "Chùa Bút Tháp", location: "Bắc Ninh", era: "Thế kỷ XVII", type: "Kiến trúc", desc: "Kiệt tác chùa cổ Bắc Bộ với tượng Quan Âm nghìn mắt nghìn tay bằng gỗ thếp vàng." },
+    ],
   },
   trung: {
     slug: "trung",
@@ -233,6 +277,30 @@ export const regionsData: Record<RegionSlug, RegionDetailData> = {
         desc: "Làng gốm cổ nhất Đông Nam Á còn giữ kỹ thuật làm gốm bằng tay — không bàn xoay, nung lộ thiên.",
       },
     ],
+    landmarksNote:
+      "Miền Trung là dải đất của hoàng cung Huế trầm mặc, phố cổ Hội An đèn lồng, đền tháp Chăm cổ kính và những hang động kỳ vĩ Phong Nha — Sơn Đoòng.",
+    landmarks: [
+      { name: "Quần thể Cố đô Huế", province: "Thừa Thiên Huế", type: "Đô thị cổ", highlight: "Hoàng thành, sông Hương, núi Ngự và 13 lăng tẩm vua Nguyễn — kinh kỳ vàng son một thuở." },
+      { name: "Phố cổ Hội An", province: "Quảng Nam", type: "Đô thị cổ", highlight: "Thương cảng quốc tế Việt — Hoa — Nhật — Pháp với chùa Cầu và đêm rằm đèn lồng." },
+      { name: "Hang Sơn Đoòng & Phong Nha — Kẻ Bàng", province: "Quảng Bình", type: "Danh thắng", highlight: "Hang động lớn nhất thế giới giữa rừng nguyên sinh karst hơn 400 triệu năm." },
+      { name: "Bà Nà Hills & bán đảo Sơn Trà", province: "Đà Nẵng", type: "Danh thắng", highlight: "Cầu Vàng trên đôi bàn tay khổng lồ và rừng nguyên sinh ven biển độc đáo." },
+      { name: "Vịnh Lăng Cô & đèo Hải Vân", province: "Huế — Đà Nẵng", type: "Biển đảo", highlight: "Một trong những vịnh biển đẹp nhất thế giới, nhìn xuống từ 'thiên hạ đệ nhất hùng quan'." },
+      { name: "Mũi Né & đồi cát Bàu Trắng", province: "Bình Thuận", type: "Biển đảo", highlight: "Bãi biển nắng vàng, đồi cát đỏ và làng chài Mũi Né nguyên sơ." },
+      { name: "Cao nguyên Lâm Viên — Đà Lạt", province: "Lâm Đồng", type: "Núi", highlight: "Thành phố ngàn hoa giữa rừng thông, hồ Xuân Hương và biệt thự Pháp cổ." },
+      { name: "Biển Nha Trang & vịnh Vân Phong", province: "Khánh Hoà", type: "Biển đảo", highlight: "Vịnh biển trong xanh, đảo Hòn Mun và bùn khoáng Tháp Bà nức tiếng." },
+    ],
+    tangibleNote:
+      "Di sản vật thể miền Trung là sự đối thoại giữa hai nền văn minh: hoàng cung Việt triều Nguyễn và đền tháp Chăm Pa cổ — cùng cảnh quan thiên nhiên kỳ vĩ bậc nhất Đông Nam Á.",
+    tangible: [
+      { name: "Quần thể di tích Cố đô Huế", location: "Thừa Thiên Huế", era: "1802 — 1945", type: "Kiến trúc", unesco: "1993", desc: "Hoàng thành, Đại Nội, Tử Cấm Thành và 13 lăng tẩm vua Nguyễn bên dòng Hương Giang." },
+      { name: "Đô thị cổ Hội An", location: "Quảng Nam", era: "Thế kỷ XVI — XIX", type: "Đô thị cổ", unesco: "1999", desc: "Thương cảng quốc tế còn nguyên vẹn với hơn 1.100 di tích kiến trúc Việt — Hoa — Nhật — Pháp." },
+      { name: "Khu đền tháp Mỹ Sơn", location: "Quảng Nam", era: "Thế kỷ IV — XIII", type: "Khảo cổ", unesco: "1999", desc: "Trung tâm tôn giáo của vương quốc Chăm Pa với hơn 70 đền tháp gạch nung thờ Shiva." },
+      { name: "Vườn Quốc gia Phong Nha — Kẻ Bàng", location: "Quảng Bình", era: "Hơn 400 triệu năm", type: "Cảnh quan", unesco: "2003 & 2015", desc: "Hệ thống hang động karst lớn nhất thế giới với hang Sơn Đoòng kỳ vĩ." },
+      { name: "Thành nhà Hồ", location: "Thanh Hoá", era: "1397", type: "Kiến trúc", unesco: "2011", desc: "Toà thành đá độc đáo của triều Hồ với những khối đá nặng hơn 20 tấn ghép kín không vữa." },
+      { name: "Tháp Po Klong Garai", location: "Ninh Thuận", era: "Thế kỷ XIII — XIV", type: "Kiến trúc", desc: "Cụm tháp Chăm còn nguyên vẹn nhất, thờ vua Po Klong Garai — vị thần thuỷ lợi của người Chăm." },
+      { name: "Tháp Bà Po Nagar", location: "Khánh Hoà", era: "Thế kỷ VIII — XIII", type: "Kiến trúc", desc: "Quần thể đền tháp Chăm bên cửa sông Cái Nha Trang, thờ nữ thần Yang Po Inư Nagar." },
+      { name: "Di tích Chiến trường Điện Biên Phủ — A1", location: "Điện Biên", era: "1954", type: "Di tích lịch sử", desc: "Chứng tích chiến thắng 'lừng lẫy năm châu, chấn động địa cầu' kết thúc thực dân Pháp." },
+    ],
   },
   nam: {
     slug: "nam",
@@ -324,6 +392,30 @@ export const regionsData: Record<RegionSlug, RegionDetailData> = {
         era: "Thế kỷ XIX",
         desc: "Hình thức buôn bán trên ghe thuyền với 'cây bẹo' treo hàng — bản sắc thương hồ độc đáo Nam Bộ.",
       },
+    ],
+    landmarksNote:
+      "Miền Nam là vùng đất của Sài Gòn năng động, miệt vườn sông nước Cửu Long, biển đảo Phú Quốc — Côn Đảo và những cánh rừng tràm U Minh ngút ngàn.",
+    landmarks: [
+      { name: "Trung tâm Sài Gòn — TP.HCM", province: "TP. Hồ Chí Minh", type: "Đô thị", highlight: "Nhà thờ Đức Bà, Bưu điện Trung tâm, phố đi bộ Nguyễn Huệ — 'Hòn ngọc Viễn Đông'." },
+      { name: "Đảo ngọc Phú Quốc", province: "Kiên Giang", type: "Biển đảo", highlight: "Đảo lớn nhất Việt Nam với bãi Sao, bãi Khem và rừng nguyên sinh phía Bắc đảo." },
+      { name: "Côn Đảo", province: "Bà Rịa — Vũng Tàu", type: "Biển đảo", highlight: "Quần đảo của 'địa ngục trần gian' xưa, nay là vườn quốc gia với bãi Đầm Trầu thiên đường." },
+      { name: "Chợ nổi Cái Răng", province: "Cần Thơ", type: "Sông nước", highlight: "Chợ nổi sầm uất nhất miền Tây với 'cây bẹo' treo hàng trên ghe thương hồ." },
+      { name: "Mũi Cà Mau", province: "Cà Mau", type: "Danh thắng", highlight: "Điểm cực Nam Tổ quốc, khu dự trữ sinh quyển thế giới với rừng đước Năm Căn." },
+      { name: "Núi Bà Đen", province: "Tây Ninh", type: "Núi", highlight: "'Nóc nhà Nam Bộ' cao 986m với chùa Bà linh thiêng và cáp treo kỷ lục thế giới." },
+      { name: "Rừng tràm Trà Sư", province: "An Giang", type: "Danh thắng", highlight: "Rừng ngập nước với thảm bèo xanh ngắt, cò trắng bay rợp trời mùa nước nổi." },
+      { name: "Địa đạo Củ Chi", province: "TP. Hồ Chí Minh", type: "Di tích", highlight: "250 km đường hầm ba tầng — 'thành phố ngầm' huyền thoại của kháng chiến Nam Bộ." },
+    ],
+    tangibleNote:
+      "Di sản vật thể Nam Bộ kết tinh dòng chảy bốn dân tộc Việt — Hoa — Khmer — Chăm: từ chùa cổ Khmer, hội quán Hoa kiều đến công trình Pháp thuộc và chứng tích kháng chiến.",
+    tangible: [
+      { name: "Dinh Độc Lập (Hội trường Thống Nhất)", location: "TP. Hồ Chí Minh", era: "1868 / 1966", type: "Di tích lịch sử", desc: "Nhân chứng lịch sử của ngày 30/4/1975 — thời khắc thống nhất non sông." },
+      { name: "Nhà thờ Đức Bà Sài Gòn", location: "TP. Hồ Chí Minh", era: "1880", type: "Kiến trúc", desc: "Vương cung thánh đường Roman — Gothic xây bằng gạch Marseille không tô trát." },
+      { name: "Bưu điện Trung tâm Sài Gòn", location: "TP. Hồ Chí Minh", era: "1891", type: "Kiến trúc", desc: "Công trình Pháp thuộc do Gustave Eiffel thiết kế — biểu tượng kiến trúc thuộc địa." },
+      { name: "Địa đạo Củ Chi", location: "TP. Hồ Chí Minh", era: "1948 — 1975", type: "Di tích lịch sử", desc: "Hệ thống đường hầm ba tầng dài 250 km — kỳ tích quân sự của nhân dân Nam Bộ." },
+      { name: "Khu di tích khảo cổ Óc Eo", location: "An Giang", era: "Thế kỷ I — VII", type: "Khảo cổ", desc: "Cảng thị quốc tế của vương quốc Phù Nam — minh chứng giao thương Đông — Tây cổ đại." },
+      { name: "Chùa Vĩnh Tràng", location: "Tiền Giang", era: "Thế kỷ XIX", type: "Kiến trúc", desc: "Ngôi chùa giao thoa kiến trúc Á — Âu độc đáo nhất Nam Bộ với cổng tam quan khảm sành sứ." },
+      { name: "Chùa Dơi (Mahatup)", location: "Sóc Trăng", era: "Thế kỷ XVI", type: "Kiến trúc", desc: "Ngôi chùa Khmer cổ với hàng vạn con dơi quạ treo mình trên những cây sao cổ thụ." },
+      { name: "Nhà tù Côn Đảo", location: "Bà Rịa — Vũng Tàu", era: "1862 — 1975", type: "Di tích lịch sử", desc: "Hệ thống nhà tù 'chuồng cọp' — chứng tích đấu tranh kiên cường của các chiến sĩ cách mạng." },
     ],
   },
 };
