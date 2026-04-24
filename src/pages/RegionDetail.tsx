@@ -1,5 +1,5 @@
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowLeft, MapPin, Music2, Sparkles } from "lucide-react";
+import { ArrowLeft, MapPin, Music2, Sparkles, Landmark as LandmarkIcon, Building2 } from "lucide-react";
 import { regionsData, RegionSlug } from "@/data/regions";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import templeImg from "@/assets/heritage-temple.jpg";
@@ -141,6 +141,119 @@ const RegionDetail = () => {
                   {it.name}
                 </h3>
                 <p className="text-foreground/75 leading-relaxed">{it.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAMOUS LANDMARKS */}
+      <section className="py-24 px-6 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 text-xs tracking-[0.4em] uppercase text-vermilion mb-4">
+              <LandmarkIcon className="w-3.5 h-3.5" />
+              Địa danh nổi tiếng
+            </div>
+            <h2 className="font-display text-5xl md:text-6xl text-patina-deep">
+              Dấu chân <span className="italic text-gradient-bronze">non sông</span>
+            </h2>
+            <p className="text-foreground/70 max-w-3xl mx-auto mt-6 leading-relaxed font-serif-vn italic text-lg">
+              {data.landmarksNote}
+            </p>
+            <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+            {data.landmarks.map((l) => (
+              <article
+                key={l.name}
+                className="group relative bg-card p-6 hover:bg-secondary/40 transition-colors duration-500 flex flex-col"
+              >
+                <div className="text-[10px] tracking-[0.3em] uppercase text-gold-deep mb-3">
+                  {l.type}
+                </div>
+                <h3 className="font-display text-xl text-patina-deep mb-2 leading-tight group-hover:text-vermilion transition-colors">
+                  {l.name}
+                </h3>
+                <div className="flex items-center gap-1.5 text-xs text-vermilion font-serif-vn italic mb-4">
+                  <MapPin className="w-3 h-3" />
+                  {l.province}
+                </div>
+                <p className="text-foreground/70 leading-relaxed text-sm flex-1">
+                  {l.highlight}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TANGIBLE HERITAGE — Di sản văn hoá vật thể */}
+      <section className="relative py-28 px-6 bg-patina-deep text-background overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, hsl(var(--gold)) 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+        <div className="absolute -top-20 -right-20 w-[420px] h-[420px] opacity-10">
+          <SunStar className="w-full h-full text-gold animate-spin-slow" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 text-xs tracking-[0.4em] uppercase text-gold mb-4">
+              <Building2 className="w-3.5 h-3.5" />
+              Di sản văn hoá vật thể
+            </div>
+            <h2 className="font-display text-5xl md:text-6xl">
+              Trầm tích <span className="italic text-gradient-bronze">thời gian</span>
+            </h2>
+            <p className="text-gold-light/80 max-w-3xl mx-auto mt-6 leading-relaxed font-serif-vn italic text-lg">
+              {data.tangibleNote}
+            </p>
+            <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {data.tangible.map((t, i) => (
+              <article
+                key={t.name}
+                className="group relative border border-gold/20 bg-background/[0.03] backdrop-blur-sm p-7 hover:border-gold/60 hover:bg-background/[0.06] transition-all duration-700"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="font-display text-5xl text-gold/30 leading-none group-hover:text-gold/70 transition-colors">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  {t.unesco && (
+                    <span className="text-[9px] tracking-[0.25em] uppercase border border-gold/50 text-gold bg-gold/10 px-2.5 py-1">
+                      UNESCO · {t.unesco}
+                    </span>
+                  )}
+                </div>
+
+                <div className="text-[10px] tracking-[0.3em] uppercase text-gold/80 mb-3">
+                  {t.type}
+                </div>
+
+                <h3 className="font-display text-2xl mb-3 leading-tight group-hover:text-gold-light transition-colors">
+                  {t.name}
+                </h3>
+
+                <p className="text-background/75 leading-relaxed text-sm mb-5">
+                  {t.desc}
+                </p>
+
+                <div className="pt-4 border-t border-gold/15 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-1.5 text-background/70">
+                    <MapPin className="w-3 h-3 text-gold" />
+                    {t.location}
+                  </div>
+                  <span className="font-serif-vn italic text-gold-light/80">{t.era}</span>
+                </div>
               </article>
             ))}
           </div>
