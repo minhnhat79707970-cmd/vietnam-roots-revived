@@ -19,6 +19,18 @@ export interface HistoryEra {
   note: string;
 }
 
+export interface ExtendedSection {
+  heading: string;
+  body: string;
+}
+
+export interface Reference {
+  title: string;
+  source: string;
+  url?: string;
+  year?: string;
+}
+
 export interface HeritageDetail {
   slug: string;
   img: string;
@@ -33,6 +45,8 @@ export interface HeritageDetail {
   history: HistoryEra[];
   characteristics: { label: string; value: string }[];
   preservation: string;
+  extended?: ExtendedSection[];
+  references?: Reference[];
 }
 
 export const heritages: HeritageDetail[] = [
