@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, MapPin, Calendar, Award, Sparkles } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Award, Sparkles, BookOpen, ExternalLink, Layers } from "lucide-react";
 import { getHeritageBySlug, heritages } from "@/data/heritages";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import { Footer } from "@/components/Footer";
@@ -187,6 +187,114 @@ const HeritageDetail = () => {
           </p>
         </div>
       </section>
+
+      {/* Mô tả mở rộng — chuyên đề */}
+      {heritage.extended && heritage.extended.length > 0 && (
+        <section className="py-24 px-6 md:px-12 bg-background">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <Layers className="w-8 h-8 text-patina mx-auto mb-4" />
+              <span className="text-[10px] tracking-[0.4em] uppercase text-patina">
+                Đào sâu di sản
+              </span>
+              <h2 className="font-display text-4xl md:text-5xl text-patina-deep mt-4 leading-tight">
+                Những lát cắt <span className="italic text-gradient-bronze">chuyên sâu</span>
+              </h2>
+              <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-6" />
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              {heritage.extended.map((sec, i) => (
+                <article
+                  key={i}
+                  className="group relative bg-secondary border-l-2 border-gold p-8 hover:bg-accent transition-colors"
+                >
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-gold-deep mb-3">
+                    Chuyên đề · {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="font-display text-2xl md:text-3xl text-patina-deep mb-4 leading-tight">
+                    {sec.heading}
+                  </h3>
+                  <p className="text-foreground/75 leading-relaxed text-base">
+                    {sec.body}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Nguồn tham khảo */}
+      {heritage.references && heritage.references.length > 0 && (
+        <section className="py-24 px-6 md:px-12 bg-patina-deep text-background">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-3 mb-12">
+              <BookOpen className="w-6 h-6 text-gold" />
+              <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
+                Nguồn tham khảo
+              </span>
+              <div className="flex-1 h-px bg-gold/30" />
+            </div>
+
+            <h2 className="font-display text-4xl md:text-5xl mb-12 leading-tight">
+              Tư liệu <span className="italic text-gradient-bronze">trích dẫn</span>
+            </h2>
+
+            <ol className="space-y-6">
+              {heritage.references.map((ref, i) => {
+                const inner = (
+                  <>
+                    <span className="font-serif-vn italic text-gold text-2xl shrink-0 w-10">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-serif-vn text-lg md:text-xl text-background leading-snug mb-1 group-hover:text-gold transition-colors">
+                        {ref.title}
+                        {ref.url && (
+                          <ExternalLink className="inline w-3.5 h-3.5 ml-2 opacity-50 group-hover:opacity-100" />
+                        )}
+                      </div>
+                      <div className="text-xs tracking-[0.15em] uppercase text-background/60 flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <span>{ref.source}</span>
+                        {ref.year && (
+                          <>
+                            <span className="text-gold/40">·</span>
+                            <span className="text-gold/80">{ref.year}</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </>
+                );
+                return (
+                  <li key={i}>
+                    {ref.url ? (
+                      <a
+                        href={ref.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex gap-5 py-5 border-b border-gold/15 hover:border-gold transition-colors"
+                      >
+                        {inner}
+                      </a>
+                    ) : (
+                      <div className="group flex gap-5 py-5 border-b border-gold/15">
+                        {inner}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+
+            <p className="mt-10 text-xs italic text-background/50 font-serif-vn leading-relaxed">
+              * Nguồn tham khảo được tổng hợp từ hồ sơ UNESCO, các công trình nghiên cứu khoa học,
+              tài liệu của Cục Di sản Văn hoá và các trung tâm bảo tồn chuyên ngành.
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Điều hướng prev / next */}
       <section className="py-20 px-6 md:px-12 bg-background border-t border-gold/15">
