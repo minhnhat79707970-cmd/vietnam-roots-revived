@@ -80,6 +80,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Không gian diễn xướng", value: "Thế Miếu, Đại Nội, Đàn Nam Giao" },
     ],
     preservation: "Hiện được bảo tồn và biểu diễn thường xuyên tại Nhà hát Duyệt Thị Đường (Đại Nội Huế) và Học viện Âm nhạc Huế. Hơn 200 nhạc công, vũ công đang theo nghề.",
+    extended: [
+      { heading: "Cấu trúc nghi lễ", body: "Mỗi buổi tế lễ cung đình tuân thủ trình tự nghiêm ngặt: Khải nhạc khai lễ — Thượng hương — Hiến tửu (ba tuần rượu) — Đọc chúc văn — Tống thần. Nhạc và múa được thiết kế chính xác cho từng giai đoạn, không thể đảo lộn." },
+      { heading: "Hệ thống nhạc khí", body: "Sử dụng hơn 30 loại nhạc khí chia làm tám nhóm 'bát âm': kim (chuông), thạch (khánh), thổ (huân), cách (trống), ti (đàn dây), trúc (sáo, tiêu), bào (sênh, sáo bầu), mộc (mõ). Đây là hệ thống bát âm phong phú nhất Đông Nam Á còn lưu giữ." },
+      { heading: "Vai trò xã hội", body: "Nhã nhạc không chỉ là âm nhạc giải trí mà là công cụ chính trị — khẳng định 'thiên mệnh' của vua, gắn kết triều đình với trời đất, tổ tiên. Mỗi nốt nhạc, mỗi điệu múa đều mang ý nghĩa biểu tượng vũ trụ quan Nho giáo." },
+    ],
+    references: [
+      { title: "Nhã nhạc — Music of the Vietnamese Court", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/nha-nhac-vietnamese-court-music-00074", year: "2008" },
+      { title: "Âm nhạc cung đình Việt Nam — Nhã nhạc triều Nguyễn", source: "Tô Ngọc Thanh, NXB Âm nhạc", year: "2003" },
+      { title: "Trung tâm Bảo tồn Di tích Cố đô Huế", source: "hueworldheritage.org.vn", url: "https://hueworldheritage.org.vn/" },
+    ],
   },
   {
     slug: "khong-gian-cong-chieng",
@@ -110,6 +120,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Nghi lễ tiêu biểu", value: "Lễ bỏ mả, mừng lúa mới, đâm trâu" },
     ],
     preservation: "Tỉnh Đắk Lắk, Gia Lai duy trì hơn 2.000 đội chiêng. Tổ chức Festival Cồng Chiêng quốc tế định kỳ tại Pleiku.",
+    extended: [
+      { heading: "Bộ chiêng và biên chế", body: "Mỗi dân tộc có biên chế chiêng riêng: người Ê Đê có bộ chiêng Knăh 9 chiếc, người Ba Na bộ chiêng Aráp 10 chiếc, người Mnông bộ chiêng 6 chiếc. Mỗi chiêng có tên riêng và vai trò riêng — chiêng mẹ, chiêng bố, chiêng con." },
+      { heading: "Kỹ thuật trình diễn", body: "Chiêng được đánh bằng dùi gỗ bọc da hoặc bằng tay trần. Người đánh đi vòng quanh không gian lễ hội, phối hợp với nhau theo thứ tự nghiêm ngặt. Một bài chiêng có thể kéo dài từ vài phút đến nhiều giờ." },
+      { heading: "Quan niệm tâm linh", body: "Người Tây Nguyên tin mỗi chiếc chiêng có một vị thần (Yang) trú ngụ. Tiếng chiêng là cầu nối giữa con người và Yang, giữa người sống và người chết. Lễ bỏ mả (Pơ thi) là dịp tiếng chiêng vang lên trọn vẹn nhất." },
+    ],
+    references: [
+      { title: "Space of Gong Culture in the Central Highlands", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/space-of-gong-culture-in-the-central-highlands-of-viet-nam-00120", year: "2008" },
+      { title: "Cồng chiêng Tây Nguyên — Giá trị và bản sắc", source: "Linh Nga Niê Kdăm, NXB Văn hoá Dân tộc", year: "2007" },
+      { title: "Festival Cồng chiêng Quốc tế", source: "Sở VHTT&DL Gia Lai" },
+    ],
   },
   {
     slug: "dan-ca-quan-ho",
@@ -140,6 +160,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Trang phục", value: "Áo tứ thân, nón quai thao, khăn mỏ quạ" },
     ],
     preservation: "Hơn 369 câu lạc bộ Quan họ tại Bắc Ninh, Bắc Giang. Đưa Quan họ vào trường học. Nghệ nhân ưu tú và nghệ nhân nhân dân được hỗ trợ truyền dạy.",
+    extended: [
+      { heading: "Bốn kỹ thuật hát đặc trưng", body: "Quan họ có bốn yêu cầu kỹ thuật bậc thầy: Vang (giọng vang xa), Rền (rung và ngân dài), Nền (giữ hơi đều), Nẩy (luyến láy giữa các nốt). Đây là tiêu chuẩn để công nhận liền anh, liền chị thực thụ." },
+      { heading: "Tục kết chạ", body: "Hai làng kết chạ trở thành 'anh em', con cháu hai làng không kết hôn với nhau. Hằng năm, các bọn Quan họ kết bạn qua lại hát giao lưu, ăn uống, ngủ lại nhà bạn — duy trì tình bạn tinh thần qua nhiều đời." },
+      { heading: "Trình tự một canh hát", body: "Một canh Quan họ cổ truyền gồm ba chặng: Hát giọng cổ (mở đầu trang nghiêm) — Hát giọng vặt (vui tươi, tự do) — Hát giã bạn (chia tay, lưu luyến). Câu 'Người ở đừng về' là câu giã bạn nổi tiếng nhất." },
+    ],
+    references: [
+      { title: "Quan Họ Bắc Ninh folk songs", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/quan-ho-bac-ninh-folk-songs-00183", year: "2009" },
+      { title: "Văn hoá Quan họ Bắc Ninh — 49 làng và bí mật của một di sản", source: "Trần Linh Quý, NXB Văn hoá Thông tin", year: "2010" },
+      { title: "Sở Văn hoá Thể thao và Du lịch Bắc Ninh", source: "svhttdl.bacninh.gov.vn" },
+    ],
   },
   {
     slug: "ca-tru",
@@ -170,6 +200,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Số làn điệu", value: "Khoảng 56 thể cách" },
     ],
     preservation: "15 tỉnh thành có Ca trù; hơn 30 câu lạc bộ và giáo phường đang hoạt động tại Hà Nội, Hải Dương, Hải Phòng, Bắc Ninh, Hà Tĩnh, Nghệ An.",
+    extended: [
+      { heading: "Ba thành tố nghệ thuật", body: "Ca nương vừa hát vừa giữ phách bằng hai lá phách gỗ — đòi hỏi vừa hát vừa đếm nhịp chính xác. Kép đàn chơi đàn đáy ba dây cổ — loại đàn chỉ Việt Nam có. Quan viên đánh trống chầu để khen, chê — không chỉ thưởng thức mà còn đánh giá tài nghệ." },
+      { heading: "56 thể cách", body: "Ca trù có khoảng 56 thể cách (làn điệu) khác nhau, từ Bắc phản, Mưỡu, Hát nói, Tỳ bà hành đến Gửi thư, Hãm, Hát giai. Mỗi thể có cấu trúc nhịp phách và lối đàn riêng — đòi hỏi nhiều năm khổ luyện mới thuộc trọn vẹn." },
+      { heading: "Mối liên hệ với văn học", body: "Thể thơ hát nói gắn với Ca trù đã trở thành thể thơ bác học của giới sĩ phu Việt Nam. Nguyễn Công Trứ với 'Bài ca ngất ngưởng', Cao Bá Quát, Dương Khuê với 'Hồng hồng Tuyết Tuyết', Tản Đà — tất cả đều viết hát nói cho Ca trù." },
+    ],
+    references: [
+      { title: "Ca trù singing", source: "UNESCO ICH (Urgent Safeguarding)", url: "https://ich.unesco.org/en/USL/ca-tru-singing-00309", year: "2009" },
+      { title: "Đặc khảo về Ca trù Việt Nam", source: "Nguyễn Xuân Diện, NXB Khoa học Xã hội", year: "2007" },
+      { title: "Câu lạc bộ Ca trù Thăng Long", source: "catruthanglong.com" },
+    ],
   },
   {
     slug: "hoi-giong",
@@ -199,6 +239,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Quy mô", value: "Hàng trăm diễn viên nghi lễ" },
     ],
     preservation: "Cộng đồng làng Phù Đổng và 8 xã quanh đền Sóc duy trì truyền dạy các vai nghi lễ cha truyền con nối.",
+    extended: [
+      { heading: "Hai trung tâm hai mùa hội", body: "Hội đền Sóc (Sóc Sơn) mở mùng 6 tháng Giêng — tái hiện cảnh Thánh Gióng bay về trời, có lễ rước giò hoa tre và voi chiến. Hội đền Phù Đổng (Gia Lâm) mở mùng 9 tháng 4 — tái hiện cảnh đánh giặc, với trận chiến giả ngoạn mục giữa quân Gióng và quân Ân." },
+      { heading: "Vai diễn nghi lễ", body: "Hệ thống vai diễn cha truyền con nối: 4 ông Hiệu (Hiệu Cờ, Hiệu Trống, Hiệu Chiêng, Hiệu Trung quân), 28 cô tướng đại diện 28 đạo quân Ân, đoàn phù giá, đoàn rước nước. Mỗi vai phải tập luyện hàng tháng và phải sống thanh tịnh trong lễ hội." },
+      { heading: "Biểu tượng văn hoá", body: "Hội Gióng được xem là 'Sử thi sống' — mỗi năm một lần dân làng cùng nhau diễn lại huyền thoại dựng nước, giữ nước. Đây là cách trao truyền lịch sử và tinh thần thượng võ qua hành động chứ không qua sách vở." },
+    ],
+    references: [
+      { title: "Giong festival of Phu Dong and Soc temples", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/giong-festival-of-phu-dong-and-soc-temples-00443", year: "2010" },
+      { title: "Hội Gióng — Một sử thi nghi lễ", source: "Cao Huy Đỉnh, NXB Khoa học Xã hội", year: "1969" },
+      { title: "Cục Di sản Văn hoá", source: "dsvh.gov.vn" },
+    ],
   },
   {
     slug: "hat-xoan",
@@ -229,6 +279,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Tín ngưỡng gắn với", value: "Thờ Vua Hùng" },
     ],
     preservation: "Bốn phường Xoan gốc được phục hồi đầy đủ; đưa Hát Xoan vào hơn 100 trường học tại Phú Thọ.",
+    extended: [
+      { heading: "Mười bốn quả cách", body: "Một canh Xoan cổ gồm 14 quả cách diễn xướng theo trình tự bắt buộc: Giáo trống — Giáo pháo — Thơ nhang — Đóng đám (4 quả mở đầu hát thờ); 9 quả cách trình diễn nghi thức; cuối cùng là Bợm gái và Mó cá thuộc phần hát hội giao duyên." },
+      { heading: "Bốn phường Xoan gốc", body: "Phường An Thái, Thét, Phù Đức, Kim Đới — đều thuộc xã Kim Đức và Phượng Lâu (TP Việt Trì). Mỗi phường có một ông Trùm (chủ phường), kép đàn, đào hát và một bộ trống phách riêng — duy trì cha truyền con nối." },
+      { heading: "Trường hợp đặc biệt của UNESCO", body: "Hát Xoan là di sản đầu tiên trên thế giới được UNESCO chuyển từ Danh sách 'Cần bảo vệ khẩn cấp' (2011) sang Danh sách 'Đại diện' (2017) sau chỉ 6 năm — minh chứng cho hiệu quả phục hồi vượt bậc của cộng đồng và chính quyền Phú Thọ." },
+    ],
+    references: [
+      { title: "Xoan singing of Phu Tho province", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/xoan-singing-of-phu-tho-province-viet-nam-01260", year: "2017" },
+      { title: "Hát Xoan — Di sản văn hoá thế giới", source: "Nguyễn Khắc Xương, NXB Văn hoá Dân tộc", year: "2012" },
+      { title: "Sở VHTT&DL Phú Thọ", source: "svhttdl.phutho.gov.vn" },
+    ],
   },
   {
     slug: "tin-nguong-tho-hung-vuong",
@@ -259,6 +319,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Lễ vật truyền thống", value: "Bánh chưng, bánh giầy" },
     ],
     preservation: "Nhà nước đầu tư trùng tu Khu di tích Đền Hùng; tổ chức Giỗ Tổ quy mô lớn hằng năm với sự tham dự của lãnh đạo cao cấp và hàng triệu lượt khách.",
+    extended: [
+      { heading: "Quần thể Đền Hùng", body: "Khu di tích trải dài trên núi Nghĩa Lĩnh (175m) gồm: Đền Hạ (nơi Âu Cơ sinh bọc trăm trứng), Đền Trung (nơi vua Hùng họp bàn việc nước), Đền Thượng (nơi tế trời đất), Lăng Hùng Vương thứ 6, Đền Giếng (giếng Ngọc nơi hai công chúa Tiên Dung — Ngọc Hoa soi gương)." },
+      { heading: "Mạng lưới đền thờ", body: "Hơn 1.400 di tích thờ Hùng Vương trải khắp 63 tỉnh thành — từ Đền Hùng (TP.HCM) đến các đình làng xa xôi. Đây là tín ngưỡng có mạng lưới rộng nhất, chứng minh ý thức 'một nguồn gốc' của người Việt khắp ba miền." },
+      { heading: "Lễ vật tổ tiên", body: "Bánh chưng và bánh giầy — gắn với truyền thuyết Lang Liêu — là lễ vật bắt buộc. Bánh chưng vuông tượng trưng cho Đất, bánh giầy tròn tượng trưng cho Trời. Đây là biểu tượng vũ trụ quan 'Trời tròn — Đất vuông' của người Việt cổ." },
+    ],
+    references: [
+      { title: "Worship of Hùng Kings in Phú Thọ", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/worship-of-hung-kings-in-phu-tho-00735", year: "2012" },
+      { title: "Tín ngưỡng thờ cúng Hùng Vương ở Việt Nam", source: "Ngô Đức Thịnh, NXB Văn hoá Thông tin", year: "2013" },
+      { title: "Khu Di tích lịch sử Đền Hùng", source: "denhung.org.vn" },
+    ],
   },
   {
     slug: "don-ca-tai-tu",
@@ -288,6 +358,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Liên quan", value: "Khởi nguồn của Cải lương" },
     ],
     preservation: "Hơn 2.500 câu lạc bộ Đờn ca tài tử trên cả Nam Bộ. Festival Đờn ca tài tử quốc gia được tổ chức luân phiên giữa các tỉnh.",
+    extended: [
+      { heading: "Hai mươi bản tổ", body: "Toàn bộ Đờn ca tài tử dựa trên 20 bản tổ chia 4 điệu: 6 bản Bắc (vui tươi), 3 bản Nam (trang nghiêm), 4 bản Oán (buồn thương) và 7 bản Hạ (nghi lễ). Người chơi phải thuộc trọn 20 bản này trước khi được công nhận là 'tài tử' chính danh." },
+      { heading: "Đặc điểm 'tài tử'", body: "Khác với chuyên nghiệp, các 'tài tử' chơi nhạc vì đam mê — không nhận tiền công, không trình diễn trên sân khấu lớn. Họ tụ họp tại nhà nhau, dưới gốc cây hoặc trên thuyền — tạo nên không khí 'thính phòng' đậm chất Nam Bộ." },
+      { heading: "Khởi nguồn của Cải lương", body: "Năm 1916, từ lối 'ca ra bộ' (vừa ca vừa diễn động tác minh hoạ) trên sân khấu Đờn ca tài tử, sân khấu Cải lương ra đời tại Mỹ Tho. Bài 'Dạ cổ hoài lang' (1919) của Cao Văn Lầu trở thành nền tảng của bản 'Vọng cổ' — linh hồn Cải lương." },
+    ],
+    references: [
+      { title: "Art of Đờn ca tài tử music and song", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/art-of-don-ca-tai-tu-music-and-song-in-southern-viet-nam-00601", year: "2013" },
+      { title: "Đờn ca tài tử Nam Bộ — 100 năm hình thành và phát triển", source: "Trần Văn Khê, NXB Trẻ", year: "2014" },
+      { title: "Festival Đờn ca tài tử Quốc gia", source: "Bộ VHTT&DL" },
+    ],
   },
   {
     slug: "vi-giam-nghe-tinh",
@@ -316,6 +396,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Phạm vi", value: "Nghệ An và Hà Tĩnh" },
     ],
     preservation: "Hơn 100 câu lạc bộ tại Nghệ An và Hà Tĩnh; đưa vào chương trình giáo dục địa phương.",
+    extended: [
+      { heading: "Hát Ví theo phường nghề", body: "Mỗi nghề có làn Ví riêng: Ví phường vải (dệt vải), Ví phường cấy (cấy lúa), Ví phường nón (làm nón), Ví đò đưa (chèo đò), Ví trèo non (đi rừng), Ví phường củi (đốn củi). Lời hát phản ánh chính công việc và tâm tình người lao động." },
+      { heading: "Hát Giặm có cấu trúc rõ ràng", body: "Khác với Ví tự do, Giặm có nhịp 5 chữ cố định, mỗi câu thường có 5 từ. Có Giặm kể (kể chuyện), Giặm vè (châm biếm), Giặm nam nữ (đối đáp giao duyên). Giặm dễ thuộc nên trở thành phương tiện truyền thông dân gian hữu hiệu." },
+      { heading: "Văn hoá xứ Nghệ trong dân ca", body: "Ngôn ngữ Ví, Giặm sử dụng phương ngữ Nghệ Tĩnh đặc trưng — 'mô', 'tê', 'răng', 'rứa', 'chi'. Lời ca thấm đẫm triết lý sống cần kiệm, chung thuỷ, hiếu thảo — phản ánh tâm hồn người dân vùng đất khắc nghiệt nhưng giàu nghị lực." },
+    ],
+    references: [
+      { title: "Ví and Giặm folk songs of Nghệ Tĩnh", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/vi-and-giam-folk-songs-of-nghe-tinh-01008", year: "2014" },
+      { title: "Dân ca Ví, Giặm Nghệ Tĩnh", source: "Ninh Viết Giao, NXB Nghệ An", year: "2012" },
+      { title: "Trung tâm Bảo tồn Dân ca xứ Nghệ", source: "Sở VHTT Nghệ An" },
+    ],
   },
   {
     slug: "nghi-le-keo-co",
@@ -344,6 +434,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Ý nghĩa", value: "Cầu mưa, cầu mùa" },
     ],
     preservation: "Cộng đồng địa phương duy trì nghi lễ trong các lễ hội đầu xuân; tổ chức giao lưu định kỳ với 3 quốc gia còn lại.",
+    extended: [
+      { heading: "Kéo co ngồi đền Trấn Vũ", body: "Hình thức độc đáo nhất Việt Nam tại đền Trấn Vũ (Long Biên, Hà Nội): các trai làng ngồi bệt, hai chân kẹp vào nhau, dùng dây song luồn qua một lỗ trên cột gỗ rồi kéo. Nghi lễ có từ thế kỷ XVII, gắn với việc thờ Huyền Thiên Trấn Vũ." },
+      { heading: "Kéo co của người Tày, Giáy", body: "Tại Lào Cai, người Tày và Giáy dùng dây mây dài tới 30m, nam nữ chia hai phe, kéo trong nghi lễ cầu mưa đầu năm. Bên thắng tượng trưng cho mùa được dự đoán — nếu nam thắng là năm khô hạn, nữ thắng là năm mưa thuận." },
+      { heading: "Di sản đa quốc gia", body: "Đây là một trong số ít di sản UNESCO ghi danh đa quốc gia (multinational) — đòi hỏi 4 nước cùng nộp hồ sơ chung và cam kết bảo tồn. Việc này phản ánh sự chia sẻ văn hoá lúa nước giữa các dân tộc Đông Á và Đông Nam Á." },
+    ],
+    references: [
+      { title: "Tugging rituals and games", source: "UNESCO ICH (Multinational)", url: "https://ich.unesco.org/en/RL/tugging-rituals-and-games-01080", year: "2015" },
+      { title: "Nghi lễ kéo co ở Việt Nam", source: "Viện Văn hoá Nghệ thuật Quốc gia Việt Nam", year: "2015" },
+      { title: "Cục Di sản Văn hoá", source: "dsvh.gov.vn" },
+    ],
   },
   {
     slug: "tho-mau-tam-phu",
@@ -374,6 +474,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Trung tâm", value: "Phủ Dầy (Nam Định), Phủ Tây Hồ (Hà Nội)" },
     ],
     preservation: "Hàng nghìn thanh đồng và cung văn duy trì nghi lễ trên khắp miền Bắc và lan rộng vào miền Nam.",
+    extended: [
+      { heading: "Ba mươi sáu giá đồng", body: "Mỗi giá đồng là một vị Thánh: Quan lớn (5 vị), Chầu Bà (12 vị), Ông Hoàng (10 vị), Cô (12 vị), Cậu (10 vị). Khi 'thăng đồng', thanh đồng thay trang phục tương ứng — áo đỏ Quan Đệ nhất, áo xanh Chầu Đệ nhị, áo vàng Ông Hoàng Mười..." },
+      { heading: "Hát chầu văn", body: "Âm nhạc nghi lễ đặc trưng do dàn cung văn (3-5 người) trình diễn với nhạc khí: đàn nguyệt, trống cái, phách, cảnh, sáo. Mỗi giá đồng có một làn điệu riêng — bồng mạc, sa mạc, cờn, dọc, xá — với lời ca ca ngợi vị Thánh đó." },
+      { heading: "Vai trò xã hội của Đạo Mẫu", body: "Đạo Mẫu đề cao vai trò người phụ nữ — Mẫu là đấng tối cao. Đây là tín ngưỡng hiếm hoi trên thế giới đặt nữ thần ở vị trí trung tâm. Phủ Dầy (Nam Định) là 'thủ đô' của Đạo Mẫu, gắn với Mẫu Liễu Hạnh." },
+    ],
+    references: [
+      { title: "Practices related to the Viet beliefs in the Mother Goddesses of Three Realms", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/practices-related-to-the-viet-beliefs-in-the-mother-goddesses-of-three-realms-01064", year: "2016" },
+      { title: "Đạo Mẫu Việt Nam (2 tập)", source: "Ngô Đức Thịnh, NXB Tôn giáo", year: "2009" },
+      { title: "Hội Di sản Văn hoá Việt Nam", source: "vietnamheritage.org.vn" },
+    ],
   },
   {
     slug: "bai-choi",
@@ -402,6 +512,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Bộ bài", value: "30 quân — chia 3 pho" },
     ],
     preservation: "Tổ chức định kỳ tại Hội An, Bình Định trong các dịp Tết và lễ hội. Nhiều câu lạc bộ Bài chòi tại các tỉnh miền Trung.",
+    extended: [
+      { heading: "Bộ bài 30 quân", body: "Bài chòi dùng bộ bài riêng 30 quân, chia thành 3 pho mỗi pho 10 quân: pho Văn (Nhứt Trò, Nhì Bí, Tam Quăng...), pho Vạn (Nhứt Gối, Nhì Nghèo, Tam Trò...), pho Sách (Nhứt Nọc, Nhì Nghèo, Ông Ầm...). Mỗi quân có một câu thai (câu đố hát) riêng." },
+      { heading: "Vai trò anh Hiệu", body: "Người dẫn trò gọi là 'anh Hiệu' — vừa rút bài vừa hát câu thai bằng giọng kéo dài, hài hước, châm biếm. Anh Hiệu giỏi có thể ngẫu hứng thêm thắt câu thai theo tình hình cuộc chơi, tạo nên không khí sôi động." },
+      { heading: "Từ trò chơi sang sân khấu", body: "Thế kỷ XX, các vở Bài chòi sân khấu ra đời với cốt truyện hoàn chỉnh — Thoại Khanh Châu Tuấn, Lâm Sanh Xuân Nương — tạo nên loại hình kịch hát mới. Hội An (Quảng Nam) là nơi bảo tồn cả hai hình thức trò chơi và sân khấu Bài chòi tốt nhất." },
+    ],
+    references: [
+      { title: "Art of Bài Chòi card game and singing of Central Vietnam", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/the-art-of-bai-choi-card-game-and-singing-of-central-viet-nam-01222", year: "2017" },
+      { title: "Bài Chòi — Di sản dân gian miền Trung", source: "Viện Âm nhạc Việt Nam", year: "2016" },
+      { title: "Trung tâm Bảo tồn Di sản Hội An", source: "hoianheritage.net" },
+    ],
   },
   {
     slug: "thuc-hanh-then",
@@ -430,6 +550,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Phạm vi", value: "11 tỉnh miền núi phía Bắc" },
     ],
     preservation: "Hơn 800 thầy Then đang hành nghề; đưa hát Then vào các trường nghệ thuật và trường phổ thông tại Cao Bằng, Lạng Sơn, Tuyên Quang.",
+    extended: [
+      { heading: "Đàn tính — linh hồn của Then", body: "Đàn tính (tính tẩu) làm từ quả bầu khô, cần đàn gỗ dâu, 2 hoặc 3 dây tơ. Tiếng đàn trầm ấm, có khả năng tạo ra những giai điệu lặp đi lặp lại như tiếng tụng — đưa thầy Then vào trạng thái xuất thần để 'lên đường' tới các cõi Then." },
+      { heading: "Hành trình tâm linh trong Then", body: "Một cuộc Then là cuộc hành trình tưởng tượng của thầy Then dẫn 'đoàn quân Then' đi qua nhiều cõi: cõi trần, cõi âm, cõi Then. Hành trình được kể bằng hát — qua sông, leo núi, vượt rừng, đến gặp các vị Then để xin lộc, chữa bệnh, cấp sắc." },
+      { heading: "Then khao và Then cấp sắc", body: "Hai nghi lễ quan trọng nhất: Then khao (cầu phúc đầu năm cho gia đình) và Then cấp sắc (lễ tấn phong cho thầy Then mới — kéo dài 3 ngày 3 đêm với hàng chục bài hát Then liên tiếp)." },
+    ],
+    references: [
+      { title: "Practices of Then by Tày, Nùng and Thái groups", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/practices-of-then-by-tay-nung-and-thai-ethnic-groups-in-viet-nam-01379", year: "2019" },
+      { title: "Then Tày — Nghi lễ và nghệ thuật", source: "Nguyễn Thị Yên, NXB Văn hoá Dân tộc", year: "2010" },
+      { title: "Bảo tàng Văn hoá các Dân tộc Việt Nam", source: "baotangvhcdt.vn" },
+    ],
   },
   {
     slug: "xoe-thai",
@@ -458,6 +588,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Đặc trưng", value: "Múa vòng tròn nắm tay quanh lửa" },
     ],
     preservation: "Hơn 1.500 đội xòe ở 4 tỉnh Tây Bắc; xòe được biểu diễn thường xuyên tại Mù Cang Chải, Mường Lò, Điện Biên Phủ.",
+    extended: [
+      { heading: "Sáu điệu xòe cổ", body: "Khắm khen (nắm tay đoàn kết), Khắm khăn mời lảu (cầm khăn mời rượu — biểu tượng hiếu khách), Phá xí (bốn người tụ lại — sức mạnh tập thể), Đổn hôn (tiến lùi — vũ điệu sinh sôi), Nhôm khăn (tung khăn — niềm vui), Ỏm lọm tốp mư (đi vòng vỗ tay)." },
+      { heading: "Xòe trong đời sống", body: "Xòe diễn ra trong mọi sự kiện cộng đồng người Thái — từ cưới hỏi, mừng nhà mới, mừng được mùa, đến lễ Xíp xí (rằm tháng 7), Tết Then. Quy mô có thể từ vài chục đến hàng nghìn người cùng nắm tay quanh đống lửa lớn." },
+      { heading: "Mường Lò — cái nôi của Xòe", body: "Vùng Mường Lò (thị xã Nghĩa Lộ, Yên Bái) được xem là cái nôi của nghệ thuật Xòe Thái. Festival Xòe Mường Lò được tổ chức định kỳ với hàng nghìn nghệ nhân tham gia, tạo vòng xòe khổng lồ ghi vào sách kỷ lục." },
+    ],
+    references: [
+      { title: "Art of Xòe dance of the Thái people", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/art-of-xoe-dance-of-the-thai-people-in-viet-nam-01670", year: "2021" },
+      { title: "Xoè Thái — Di sản văn hoá Tây Bắc", source: "Hoàng Lương, NXB Văn hoá Dân tộc", year: "2018" },
+      { title: "Sở VHTT&DL Yên Bái", source: "svhttdl.yenbai.gov.vn" },
+    ],
   },
   {
     slug: "gom-cham",
@@ -486,6 +626,16 @@ export const heritages: HeritageDetail[] = [
       { label: "Cách nung", value: "Lộ thiên — rơm, củi, phân bò" },
     ],
     preservation: "Phát triển Bàu Trúc thành làng nghề du lịch; mở lớp truyền dạy cho thế hệ trẻ; sản phẩm xuất khẩu sang nhiều nước.",
+    extended: [
+      { heading: "Kỹ thuật 'người đi quanh đất'", body: "Không dùng bàn xoay — người thợ đặt khối đất giữa, tự mình đi vòng quanh, dùng vòng tre, vỏ sò, miếng vải ướt để vuốt và tạo hình. Kỹ thuật này có từ thời tiền sử, là một trong những phương pháp làm gốm cổ xưa nhất còn tồn tại trên thế giới." },
+      { heading: "Đất sét và pha trộn", body: "Đất sét được lấy từ đồng ruộng quanh làng Bàu Trúc, trộn với cát mịn từ sông Quao theo tỷ lệ bí truyền. Đất phải được nhào kỹ bằng chân, ủ qua đêm trước khi tạo hình — đảm bảo độ dẻo và không nứt khi nung." },
+      { heading: "Nung lộ thiên", body: "Sản phẩm được phơi khô 5-7 ngày, sau đó xếp thành đống ngoài trời, phủ rơm, củi và phân bò khô rồi đốt. Lửa cháy 4-6 giờ ở nhiệt độ 700-900°C tạo nên màu đỏ nâu đặc trưng và những vệt cháy ngẫu nhiên — không sản phẩm nào giống sản phẩm nào." },
+    ],
+    references: [
+      { title: "Art of pottery-making of Chăm people", source: "UNESCO ICH (Urgent Safeguarding)", url: "https://ich.unesco.org/en/USL/art-of-pottery-making-of-cham-people-01831", year: "2022" },
+      { title: "Gốm Chăm Bàu Trúc — Nghề và đời", source: "Sakaya, NXB Văn hoá Dân tộc", year: "2008" },
+      { title: "Sở VHTT&DL Ninh Thuận", source: "svhttdl.ninhthuan.gov.vn" },
+    ],
   },
 ];
 
