@@ -41,6 +41,7 @@ export interface Landmark {
   province: string; // Tỉnh / thành
   type: string; // Danh thắng, Đô thị, Núi, Biển đảo, Sông hồ…
   highlight: string; // Câu mô tả ngắn gọn
+  image?: string; // Đường dẫn ảnh thực tế
 }
 
 export interface TangibleHeritage {
