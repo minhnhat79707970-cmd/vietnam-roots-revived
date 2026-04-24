@@ -5,6 +5,61 @@ import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import templeImg from "@/assets/heritage-temple.jpg";
 import { Footer } from "@/components/Footer";
 
+// Landmark images — Bắc
+import imgHanoi from "@/assets/landmarks/hanoi-old-quarter.jpg";
+import imgHalong from "@/assets/landmarks/halong-bay.jpg";
+import imgSapa from "@/assets/landmarks/sapa-fansipan.jpg";
+import imgTrangAn from "@/assets/landmarks/trang-an.jpg";
+import imgBaBe from "@/assets/landmarks/ba-be-lake.jpg";
+import imgHaGiang from "@/assets/landmarks/ha-giang.jpg";
+import imgMuCangChai from "@/assets/landmarks/mu-cang-chai.jpg";
+import imgChuaHuong from "@/assets/landmarks/chua-huong.jpg";
+// Trung
+import imgHue from "@/assets/landmarks/hue-citadel.jpg";
+import imgHoiAn from "@/assets/landmarks/hoi-an.jpg";
+import imgSonDoong from "@/assets/landmarks/son-doong.jpg";
+import imgBaNa from "@/assets/landmarks/ba-na-hills.jpg";
+import imgHaiVan from "@/assets/landmarks/hai-van-lang-co.jpg";
+import imgMuiNe from "@/assets/landmarks/mui-ne.jpg";
+import imgDaLat from "@/assets/landmarks/da-lat.jpg";
+import imgNhaTrang from "@/assets/landmarks/nha-trang.jpg";
+// Nam
+import imgSaigon from "@/assets/landmarks/saigon.jpg";
+import imgPhuQuoc from "@/assets/landmarks/phu-quoc.jpg";
+import imgConDao from "@/assets/landmarks/con-dao.jpg";
+import imgCaiRang from "@/assets/landmarks/cai-rang.jpg";
+import imgCaMau from "@/assets/landmarks/ca-mau.jpg";
+import imgNuiBaDen from "@/assets/landmarks/nui-ba-den.jpg";
+import imgTraSu from "@/assets/landmarks/tra-su.jpg";
+import imgCuChi from "@/assets/landmarks/cu-chi.jpg";
+
+const landmarkImages: Record<string, string> = {
+  "hanoi-old-quarter": imgHanoi,
+  "halong-bay": imgHalong,
+  "sapa-fansipan": imgSapa,
+  "trang-an": imgTrangAn,
+  "ba-be-lake": imgBaBe,
+  "ha-giang": imgHaGiang,
+  "mu-cang-chai": imgMuCangChai,
+  "chua-huong": imgChuaHuong,
+  "hue-citadel": imgHue,
+  "hoi-an": imgHoiAn,
+  "son-doong": imgSonDoong,
+  "ba-na-hills": imgBaNa,
+  "hai-van-lang-co": imgHaiVan,
+  "mui-ne": imgMuiNe,
+  "da-lat": imgDaLat,
+  "nha-trang": imgNhaTrang,
+  "saigon": imgSaigon,
+  "phu-quoc": imgPhuQuoc,
+  "con-dao": imgConDao,
+  "cai-rang": imgCaiRang,
+  "ca-mau": imgCaMau,
+  "nui-ba-den": imgNuiBaDen,
+  "tra-su": imgTraSu,
+  "cu-chi": imgCuChi,
+};
+
 const categoryColors: Record<string, string> = {
   "Di tích": "border-gold/40 text-gold",
   "Thiên nhiên": "border-patina-light/50 text-patina-light",
@@ -164,27 +219,45 @@ const RegionDetail = () => {
             <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
-            {data.landmarks.map((l) => (
-              <article
-                key={l.name}
-                className="group relative bg-card p-6 hover:bg-secondary/40 transition-colors duration-500 flex flex-col"
-              >
-                <div className="text-[10px] tracking-[0.3em] uppercase text-gold-deep mb-3">
-                  {l.type}
-                </div>
-                <h3 className="font-display text-xl text-patina-deep mb-2 leading-tight group-hover:text-vermilion transition-colors">
-                  {l.name}
-                </h3>
-                <div className="flex items-center gap-1.5 text-xs text-vermilion font-serif-vn italic mb-4">
-                  <MapPin className="w-3 h-3" />
-                  {l.province}
-                </div>
-                <p className="text-foreground/70 leading-relaxed text-sm flex-1">
-                  {l.highlight}
-                </p>
-              </article>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {data.landmarks.map((l) => {
+              const src = l.image ? landmarkImages[l.image] : undefined;
+              return (
+                <article
+                  key={l.name}
+                  className="group relative bg-card border border-border overflow-hidden hover:border-gold/60 hover:shadow-bronze transition-all duration-700 flex flex-col"
+                >
+                  {src && (
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                      <img
+                        src={src}
+                        alt={l.name}
+                        loading="lazy"
+                        width={1280}
+                        height={832}
+                        className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-patina-deep/80 via-patina-deep/10 to-transparent" />
+                      <span className="absolute top-3 left-3 text-[9px] tracking-[0.3em] uppercase bg-background/90 text-gold-deep px-2.5 py-1 backdrop-blur-sm">
+                        {l.type}
+                      </span>
+                    </div>
+                  )}
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="font-display text-xl text-patina-deep mb-2 leading-tight group-hover:text-vermilion transition-colors">
+                      {l.name}
+                    </h3>
+                    <div className="flex items-center gap-1.5 text-xs text-vermilion font-serif-vn italic mb-3">
+                      <MapPin className="w-3 h-3" />
+                      {l.province}
+                    </div>
+                    <p className="text-foreground/70 leading-relaxed text-sm flex-1">
+                      {l.highlight}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
