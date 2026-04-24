@@ -393,5 +393,29 @@ export const regionsData: Record<RegionSlug, RegionDetailData> = {
         desc: "Hình thức buôn bán trên ghe thuyền với 'cây bẹo' treo hàng — bản sắc thương hồ độc đáo Nam Bộ.",
       },
     ],
+    landmarksNote:
+      "Miền Nam là vùng đất của Sài Gòn năng động, miệt vườn sông nước Cửu Long, biển đảo Phú Quốc — Côn Đảo và những cánh rừng tràm U Minh ngút ngàn.",
+    landmarks: [
+      { name: "Trung tâm Sài Gòn — TP.HCM", province: "TP. Hồ Chí Minh", type: "Đô thị", highlight: "Nhà thờ Đức Bà, Bưu điện Trung tâm, phố đi bộ Nguyễn Huệ — 'Hòn ngọc Viễn Đông'." },
+      { name: "Đảo ngọc Phú Quốc", province: "Kiên Giang", type: "Biển đảo", highlight: "Đảo lớn nhất Việt Nam với bãi Sao, bãi Khem và rừng nguyên sinh phía Bắc đảo." },
+      { name: "Côn Đảo", province: "Bà Rịa — Vũng Tàu", type: "Biển đảo", highlight: "Quần đảo của 'địa ngục trần gian' xưa, nay là vườn quốc gia với bãi Đầm Trầu thiên đường." },
+      { name: "Chợ nổi Cái Răng", province: "Cần Thơ", type: "Sông nước", highlight: "Chợ nổi sầm uất nhất miền Tây với 'cây bẹo' treo hàng trên ghe thương hồ." },
+      { name: "Mũi Cà Mau", province: "Cà Mau", type: "Danh thắng", highlight: "Điểm cực Nam Tổ quốc, khu dự trữ sinh quyển thế giới với rừng đước Năm Căn." },
+      { name: "Núi Bà Đen", province: "Tây Ninh", type: "Núi", highlight: "'Nóc nhà Nam Bộ' cao 986m với chùa Bà linh thiêng và cáp treo kỷ lục thế giới." },
+      { name: "Rừng tràm Trà Sư", province: "An Giang", type: "Danh thắng", highlight: "Rừng ngập nước với thảm bèo xanh ngắt, cò trắng bay rợp trời mùa nước nổi." },
+      { name: "Địa đạo Củ Chi", province: "TP. Hồ Chí Minh", type: "Di tích", highlight: "250 km đường hầm ba tầng — 'thành phố ngầm' huyền thoại của kháng chiến Nam Bộ." },
+    ],
+    tangibleNote:
+      "Di sản vật thể Nam Bộ kết tinh dòng chảy bốn dân tộc Việt — Hoa — Khmer — Chăm: từ chùa cổ Khmer, hội quán Hoa kiều đến công trình Pháp thuộc và chứng tích kháng chiến.",
+    tangible: [
+      { name: "Dinh Độc Lập (Hội trường Thống Nhất)", location: "TP. Hồ Chí Minh", era: "1868 / 1966", type: "Di tích lịch sử", desc: "Nhân chứng lịch sử của ngày 30/4/1975 — thời khắc thống nhất non sông." },
+      { name: "Nhà thờ Đức Bà Sài Gòn", location: "TP. Hồ Chí Minh", era: "1880", type: "Kiến trúc", desc: "Vương cung thánh đường Roman — Gothic xây bằng gạch Marseille không tô trát." },
+      { name: "Bưu điện Trung tâm Sài Gòn", location: "TP. Hồ Chí Minh", era: "1891", type: "Kiến trúc", desc: "Công trình Pháp thuộc do Gustave Eiffel thiết kế — biểu tượng kiến trúc thuộc địa." },
+      { name: "Địa đạo Củ Chi", location: "TP. Hồ Chí Minh", era: "1948 — 1975", type: "Di tích lịch sử", desc: "Hệ thống đường hầm ba tầng dài 250 km — kỳ tích quân sự của nhân dân Nam Bộ." },
+      { name: "Khu di tích khảo cổ Óc Eo", location: "An Giang", era: "Thế kỷ I — VII", type: "Khảo cổ", desc: "Cảng thị quốc tế của vương quốc Phù Nam — minh chứng giao thương Đông — Tây cổ đại." },
+      { name: "Chùa Vĩnh Tràng", location: "Tiền Giang", era: "Thế kỷ XIX", type: "Kiến trúc", desc: "Ngôi chùa giao thoa kiến trúc Á — Âu độc đáo nhất Nam Bộ với cổng tam quan khảm sành sứ." },
+      { name: "Chùa Dơi (Mahatup)", location: "Sóc Trăng", era: "Thế kỷ XVI", type: "Kiến trúc", desc: "Ngôi chùa Khmer cổ với hàng vạn con dơi quạ treo mình trên những cây sao cổ thụ." },
+      { name: "Nhà tù Côn Đảo", location: "Bà Rịa — Vũng Tàu", era: "1862 — 1975", type: "Di tích lịch sử", desc: "Hệ thống nhà tù 'chuồng cọp' — chứng tích đấu tranh kiên cường của các chiến sĩ cách mạng." },
+    ],
   },
 };
