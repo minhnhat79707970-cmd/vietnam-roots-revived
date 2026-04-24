@@ -21,6 +21,10 @@ export interface RegionDetailData {
   accentClass: string; // text accent
   intangible: IntangibleHeritage[];
   intangibleNote: string;
+  landmarks: Landmark[];
+  landmarksNote: string;
+  tangible: TangibleHeritage[];
+  tangibleNote: string;
 }
 
 export interface IntangibleHeritage {
@@ -29,6 +33,22 @@ export interface IntangibleHeritage {
   origin: string; // Nơi/Vùng phát tích cụ thể
   era: string;
   unesco?: string; // Năm UNESCO ghi danh nếu có
+  desc: string;
+}
+
+export interface Landmark {
+  name: string;
+  province: string; // Tỉnh / thành
+  type: string; // Danh thắng, Đô thị, Núi, Biển đảo, Sông hồ…
+  highlight: string; // Câu mô tả ngắn gọn
+}
+
+export interface TangibleHeritage {
+  name: string;
+  location: string;
+  era: string;
+  type: "Kiến trúc" | "Khảo cổ" | "Di tích lịch sử" | "Đô thị cổ" | "Cảnh quan";
+  unesco?: string;
   desc: string;
 }
 
