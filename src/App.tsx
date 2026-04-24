@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import RegionDetail from "./pages/RegionDetail.tsx";
 import HeritageDetail from "./pages/HeritageDetail.tsx";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/mien/:slug" element={<RegionDetail />} />
