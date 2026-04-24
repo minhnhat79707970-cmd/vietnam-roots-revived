@@ -54,6 +54,8 @@ export interface TangibleHeritage {
 }
 
 export const regionsData: Record<RegionSlug, RegionDetailData> = {
+  // imports for landmark images are added by the page that consumes the data
+  // we keep raw paths here as ESM imports happen in RegionDetail
   bac: {
     slug: "bac",
     code: "I",
