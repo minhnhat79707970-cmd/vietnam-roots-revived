@@ -158,6 +158,30 @@ export const regionsData: Record<RegionSlug, RegionDetailData> = {
         desc: "Trò kéo co cầu mùa, biểu trưng cho sức mạnh cộng đồng và ước vọng mưa thuận gió hoà.",
       },
     ],
+    landmarksNote:
+      "Từ phố cổ ngàn năm Thăng Long đến biển ngọc Hạ Long và những thửa ruộng bậc thang Tây Bắc — miền Bắc là bản đồ của núi sông, đô thị cổ và kỳ quan thiên nhiên.",
+    landmarks: [
+      { name: "Hồ Hoàn Kiếm & Phố cổ Hà Nội", province: "Hà Nội", type: "Đô thị cổ", highlight: "Trái tim ngàn năm văn hiến với 36 phố phường, đền Ngọc Sơn và cầu Thê Húc." },
+      { name: "Vịnh Hạ Long", province: "Quảng Ninh", type: "Biển đảo", highlight: "Gần 2.000 hòn đảo đá vôi giữa biển ngọc — kỳ quan thiên nhiên thế giới." },
+      { name: "Sa Pa & Fansipan", province: "Lào Cai", type: "Núi", highlight: "Nóc nhà Đông Dương 3.143m, ruộng bậc thang Mường Hoa, chợ tình bản Cát Cát." },
+      { name: "Tràng An — Tam Cốc", province: "Ninh Bình", type: "Danh thắng", highlight: "'Hạ Long trên cạn' với hệ thống hang động xuyên thuỷ và cố đô Hoa Lư." },
+      { name: "Hồ Ba Bể", province: "Bắc Kạn", type: "Sông hồ", highlight: "Hồ nước ngọt tự nhiên lớn nhất Việt Nam giữa rừng nguyên sinh đá vôi." },
+      { name: "Cao nguyên đá Đồng Văn", province: "Hà Giang", type: "Danh thắng", highlight: "Công viên địa chất toàn cầu UNESCO với đèo Mã Pí Lèng và sông Nho Quế." },
+      { name: "Mù Cang Chải", province: "Yên Bái", type: "Danh thắng", highlight: "Ruộng bậc thang vàng óng mùa lúa chín — kiệt tác canh tác của người H'Mông." },
+      { name: "Chùa Hương", province: "Hà Nội", type: "Danh thắng tâm linh", highlight: "Quần thể Hương Sơn với động Hương Tích — 'Nam thiên đệ nhất động'." },
+    ],
+    tangibleNote:
+      "Di sản văn hoá vật thể miền Bắc trải dài từ thành luỹ Cổ Loa, kinh đô Thăng Long đến những ngôi chùa cổ Lý — Trần — biên niên đá của bốn nghìn năm dựng nước.",
+    tangible: [
+      { name: "Khu di tích Trung tâm Hoàng thành Thăng Long", location: "Hà Nội", era: "Thế kỷ XI — XIX", type: "Kiến trúc", unesco: "2010", desc: "Trung tâm quyền lực Đại Việt suốt 13 thế kỷ với điện Kính Thiên, Đoan Môn và Hậu Lâu." },
+      { name: "Quần thể danh thắng Tràng An", location: "Ninh Bình", era: "Thế kỷ X — nay", type: "Cảnh quan", unesco: "2014 (hỗn hợp)", desc: "Cố đô Hoa Lư, chùa Bái Đính và hệ thống hang động karst — di sản hỗn hợp duy nhất Đông Nam Á." },
+      { name: "Thành Cổ Loa", location: "Đông Anh — Hà Nội", era: "Thế kỷ III TCN", type: "Khảo cổ", desc: "Toà thành ốc ba vòng của An Dương Vương — kinh đô nước Âu Lạc cổ." },
+      { name: "Văn Miếu — Quốc Tử Giám", location: "Hà Nội", era: "1070", type: "Kiến trúc", desc: "Trường đại học đầu tiên của Việt Nam với 82 bia tiến sĩ — Ký ức Thế giới UNESCO." },
+      { name: "Chùa Một Cột (Diên Hựu)", location: "Hà Nội", era: "1049", type: "Kiến trúc", desc: "Ngôi chùa hình bông sen mọc giữa hồ — biểu tượng kiến trúc thời Lý." },
+      { name: "Đền Hùng", location: "Phú Thọ", era: "Thế kỷ III TCN", type: "Di tích lịch sử", desc: "Quần thể đền thờ Quốc Tổ Hùng Vương trên núi Nghĩa Lĩnh — nơi cội nguồn dân tộc." },
+      { name: "Khu di tích Côn Sơn — Kiếp Bạc", location: "Hải Dương", era: "Thế kỷ XIII — XIV", type: "Di tích lịch sử", desc: "Gắn với Trần Hưng Đạo và Nguyễn Trãi — danh nhân quân sự và văn hoá kiệt xuất." },
+      { name: "Chùa Bút Tháp", location: "Bắc Ninh", era: "Thế kỷ XVII", type: "Kiến trúc", desc: "Kiệt tác chùa cổ Bắc Bộ với tượng Quan Âm nghìn mắt nghìn tay bằng gỗ thếp vàng." },
+    ],
   },
   trung: {
     slug: "trung",
