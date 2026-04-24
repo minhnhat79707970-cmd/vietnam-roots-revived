@@ -243,44 +243,46 @@ const HeritageDetail = () => {
 
             <ol className="space-y-6">
               {heritage.references.map((ref, i) => {
-                const Wrapper = ref.url ? "a" : "div";
-                const wrapperProps = ref.url
-                  ? {
-                      href: ref.url,
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                      className:
-                        "group flex gap-5 py-5 border-b border-gold/15 hover:border-gold transition-colors",
-                    }
-                  : {
-                      className: "flex gap-5 py-5 border-b border-gold/15",
-                    };
-
+                const inner = (
+                  <>
+                    <span className="font-serif-vn italic text-gold text-2xl shrink-0 w-10">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-serif-vn text-lg md:text-xl text-background leading-snug mb-1 group-hover:text-gold transition-colors">
+                        {ref.title}
+                        {ref.url && (
+                          <ExternalLink className="inline w-3.5 h-3.5 ml-2 opacity-50 group-hover:opacity-100" />
+                        )}
+                      </div>
+                      <div className="text-xs tracking-[0.15em] uppercase text-background/60 flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <span>{ref.source}</span>
+                        {ref.year && (
+                          <>
+                            <span className="text-gold/40">·</span>
+                            <span className="text-gold/80">{ref.year}</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </>
+                );
                 return (
                   <li key={i}>
-                    {/* @ts-expect-error — dynamic element */}
-                    <Wrapper {...wrapperProps}>
-                      <span className="font-serif-vn italic text-gold text-2xl shrink-0 w-10">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-serif-vn text-lg md:text-xl text-background leading-snug mb-1 group-hover:text-gold transition-colors">
-                          {ref.title}
-                          {ref.url && (
-                            <ExternalLink className="inline w-3.5 h-3.5 ml-2 opacity-50 group-hover:opacity-100" />
-                          )}
-                        </div>
-                        <div className="text-xs tracking-[0.15em] uppercase text-background/60 flex flex-wrap items-center gap-x-3 gap-y-1">
-                          <span>{ref.source}</span>
-                          {ref.year && (
-                            <>
-                              <span className="text-gold/40">·</span>
-                              <span className="text-gold/80">{ref.year}</span>
-                            </>
-                          )}
-                        </div>
+                    {ref.url ? (
+                      <a
+                        href={ref.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex gap-5 py-5 border-b border-gold/15 hover:border-gold transition-colors"
+                      >
+                        {inner}
+                      </a>
+                    ) : (
+                      <div className="group flex gap-5 py-5 border-b border-gold/15">
+                        {inner}
                       </div>
-                    </Wrapper>
+                    )}
                   </li>
                 );
               })}
