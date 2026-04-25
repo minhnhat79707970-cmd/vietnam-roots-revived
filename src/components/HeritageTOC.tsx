@@ -44,30 +44,54 @@ export const HeritageTOC = ({ items }: HeritageTOCProps) => {
   return (
     <>
       {/* Desktop: dạng dọc cố định bên trái */}
-      <nav className="hidden lg:block fixed left-6 top-1/2 -translate-y-1/2 z-30 max-w-[200px]">
-        <div className="text-[10px] tracking-[0.3em] uppercase text-patina/60 mb-4 pl-3">
-          Mục lục
+      <nav className="hidden lg:block fixed left-6 top-1/2 -translate-y-1/2 z-30 max-w-[240px]">
+        <div className="relative bg-gradient-to-br from-background/95 to-secondary/40 backdrop-blur-md border border-gold/40 shadow-bronze p-5 rounded-sm">
+          {/* Góc trang trí */}
+          <span className="absolute -top-px -left-px w-3 h-3 border-t-2 border-l-2 border-gold" />
+          <span className="absolute -top-px -right-px w-3 h-3 border-t-2 border-r-2 border-gold" />
+          <span className="absolute -bottom-px -left-px w-3 h-3 border-b-2 border-l-2 border-gold" />
+          <span className="absolute -bottom-px -right-px w-3 h-3 border-b-2 border-r-2 border-gold" />
+
+          <div className="flex items-center gap-2 mb-4 pb-3 border-b border-gold/30">
+            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+            <div className="font-serif-vn italic text-base text-gold-deep tracking-wide">
+              Mục lục
+            </div>
+          </div>
+          <ul className="space-y-1">
+            {items.map((item, idx) => {
+              const isActive = item.id === active;
+              return (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(e) => handleClick(e, item.id)}
+                    className={`group flex items-baseline gap-2 transition-all leading-snug py-1.5 px-2 rounded-sm ${
+                      isActive
+                        ? "bg-gold/15 text-gold-deep"
+                        : "text-patina-deep/70 hover:text-gold-deep hover:bg-gold/5"
+                    }`}
+                  >
+                    <span
+                      className={`font-display text-xs tabular-nums transition-colors ${
+                        isActive ? "text-gold-deep" : "text-patina/40 group-hover:text-gold"
+                      }`}
+                    >
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className={`font-serif-vn text-[15px] leading-tight transition-all ${
+                        isActive ? "italic font-semibold" : "font-normal"
+                      }`}
+                    >
+                      {item.label}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-        <ul className="space-y-2 border-l border-gold/20 pl-3">
-          {items.map((item) => {
-            const isActive = item.id === active;
-            return (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => handleClick(e, item.id)}
-                  className={`block text-xs tracking-wider transition-colors leading-snug py-1 -ml-[13px] pl-3 border-l-2 ${
-                    isActive
-                      ? "text-gold-deep border-gold font-medium"
-                      : "text-patina/60 border-transparent hover:text-patina-deep hover:border-gold/40"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
       </nav>
 
       {/* Mobile: nút nổi mở danh sách */}
@@ -75,30 +99,40 @@ export const HeritageTOC = ({ items }: HeritageTOCProps) => {
         <button
           onClick={() => setOpen((v) => !v)}
           aria-label="Mở mục lục"
-          className="w-12 h-12 rounded-full bg-patina-deep text-gold border border-gold/40 shadow-lg flex items-center justify-center hover:bg-patina transition-colors"
+          className="w-14 h-14 rounded-full bg-patina-deep text-gold border-2 border-gold shadow-bronze flex items-center justify-center hover:bg-patina transition-colors relative"
         >
-          <List className="w-5 h-5" />
+          <List className="w-6 h-6" />
+          <span className="absolute inset-0 rounded-full border border-gold/40 animate-ripple" />
         </button>
         {open && (
-          <div className="absolute bottom-14 right-0 w-64 bg-background border border-gold/30 shadow-xl p-5">
-            <div className="text-[10px] tracking-[0.3em] uppercase text-patina/60 mb-3">
+          <div className="absolute bottom-16 right-0 w-72 bg-background border border-gold/40 shadow-bronze p-5 rounded-sm">
+            <span className="absolute -top-px -left-px w-3 h-3 border-t-2 border-l-2 border-gold" />
+            <span className="absolute -top-px -right-px w-3 h-3 border-t-2 border-r-2 border-gold" />
+            <span className="absolute -bottom-px -left-px w-3 h-3 border-b-2 border-l-2 border-gold" />
+            <span className="absolute -bottom-px -right-px w-3 h-3 border-b-2 border-r-2 border-gold" />
+            <div className="font-serif-vn italic text-lg text-gold-deep mb-3 pb-2 border-b border-gold/30">
               Mục lục
             </div>
-            <ul className="space-y-2">
-              {items.map((item) => {
+            <ul className="space-y-1">
+              {items.map((item, idx) => {
                 const isActive = item.id === active;
                 return (
                   <li key={item.id}>
                     <a
                       href={`#${item.id}`}
                       onClick={(e) => handleClick(e, item.id)}
-                      className={`block text-sm py-1.5 transition-colors ${
+                      className={`flex items-baseline gap-2 py-1.5 px-2 rounded-sm transition-colors ${
                         isActive
-                          ? "text-gold-deep font-medium"
-                          : "text-patina-deep hover:text-gold-deep"
+                          ? "bg-gold/15 text-gold-deep"
+                          : "text-patina-deep hover:bg-gold/5 hover:text-gold-deep"
                       }`}
                     >
-                      · {item.label}
+                      <span className="font-display text-xs text-gold/70 tabular-nums">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <span className={`font-serif-vn text-base ${isActive ? "italic font-semibold" : ""}`}>
+                        {item.label}
+                      </span>
                     </a>
                   </li>
                 );
