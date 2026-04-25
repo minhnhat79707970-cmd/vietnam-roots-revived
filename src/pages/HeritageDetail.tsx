@@ -3,6 +3,8 @@ import { ArrowLeft, MapPin, Calendar, Award, Sparkles, BookOpen, ExternalLink, L
 import { getHeritageBySlug, heritages } from "@/data/heritages";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import { Footer } from "@/components/Footer";
+import { HeritageTOC } from "@/components/HeritageTOC";
+import { HeritageFeedback } from "@/components/HeritageFeedback";
 import NotFound from "./NotFound";
 
 const HeritageDetail = () => {
@@ -14,6 +16,20 @@ const HeritageDetail = () => {
   const idx = heritages.findIndex((h) => h.slug === heritage.slug);
   const prev = heritages[(idx - 1 + heritages.length) % heritages.length];
   const next = heritages[(idx + 1) % heritages.length];
+
+  const tocItems = [
+    { id: "khai-quat", label: "Khái quát" },
+    { id: "lich-su", label: "Mạch nguồn lịch sử" },
+    { id: "bao-ton", label: "Bảo tồn hiện nay" },
+    ...(heritage.extended && heritage.extended.length > 0
+      ? [{ id: "chuyen-de", label: "Chuyên đề mở rộng" }]
+      : []),
+    ...(heritage.references && heritage.references.length > 0
+      ? [{ id: "nguon", label: "Nguồn tham khảo" }]
+      : []),
+    { id: "ung-ho", label: "Ủng hộ & góp ý" },
+    { id: "dieu-huong", label: "Di sản khác" },
+  ];
 
   const badgeColor =
     heritage.unescoType === "Cần bảo vệ khẩn cấp"
