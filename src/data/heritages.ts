@@ -222,7 +222,7 @@ export const heritages: HeritageDetail[] = [
       { title: "Ca trù singing", source: "UNESCO ICH (Urgent Safeguarding)", url: "https://ich.unesco.org/en/USL/ca-tru-singing-00309", year: "2009" },
       { title: "Đặc khảo về Ca trù Việt Nam", source: "Nguyễn Xuân Diện, NXB Khoa học Xã hội", year: "2007" },
       { title: "Câu lạc bộ Ca trù Thăng Long", source: "catruthanglong.com" },
-      { title: "Ca trù — di sản 'thính phòng' của người Việt", source: "Báo ảnh Việt Nam — Thông tấn xã Việt Nam", url: "https://vietnam.vnanet.vn/vietnamese/long-form/ca-tru-%E2%80%93-di-san-quotthinh-phongquot-cua-nguoi-viet-317070.html", year: "2022" },
+      { title: "Ca trù — di sản 'thính phòng' của người Việt (Bài: Thảo Vy — Ảnh: Công Đạt, Tất Sơn)", source: "Báo ảnh Việt Nam — Thông tấn xã Việt Nam (VNP/TTXVN)", url: "https://vietnam.vnanet.vn/vietnamese/long-form/ca-tru-%E2%80%93-di-san-quotthinh-phongquot-cua-nguoi-viet-317070.html", year: "2022" },
     ],
   },
   {
