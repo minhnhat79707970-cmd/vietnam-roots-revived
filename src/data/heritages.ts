@@ -135,11 +135,16 @@ export const heritages: HeritageDetail[] = [
       { heading: "Bộ chiêng và biên chế", body: "Mỗi dân tộc có biên chế chiêng riêng: người Ê Đê có bộ chiêng Knăh 9 chiếc, người Ba Na bộ chiêng Aráp 10 chiếc, người Mnông bộ chiêng 6 chiếc. Mỗi chiêng có tên riêng và vai trò riêng — chiêng mẹ, chiêng bố, chiêng con." },
       { heading: "Kỹ thuật trình diễn", body: "Chiêng được đánh bằng dùi gỗ bọc da hoặc bằng tay trần. Người đánh đi vòng quanh không gian lễ hội, phối hợp với nhau theo thứ tự nghiêm ngặt. Một bài chiêng có thể kéo dài từ vài phút đến nhiều giờ." },
       { heading: "Quan niệm tâm linh", body: "Người Tây Nguyên tin mỗi chiếc chiêng có một vị thần (Yang) trú ngụ. Tiếng chiêng là cầu nối giữa con người và Yang, giữa người sống và người chết. Lễ bỏ mả (Pơ thi) là dịp tiếng chiêng vang lên trọn vẹn nhất." },
+      { heading: "Sinh khí của buôn làng", body: "Nếu mái nhà rông của người J'rai và ngôi nhà dài của người Ê Đê là linh hồn của buôn làng, thì âm nhạc cồng chiêng chính là 'sinh khí' — minh chứng cho sức sống bền bỉ và bản sắc độc đáo của cư dân Tây Nguyên. Tiếng chiêng đi suốt vòng đời người, từ lúc sơ sinh đến khi về với tổ tiên." },
+      { heading: "Cấu tạo và chất liệu", body: "Cồng chiêng là nhạc khí bằng hợp kim đồng, có khi pha bạc, vàng hoặc đồng đen. Cồng có núm, chiêng không có núm. Đường kính từ 20–60cm, loại cực đại lên tới 90cm. Một bộ có từ 2–13 chiếc, thậm chí 18–20 chiếc, trong đó chiêng cái (chiêng mẹ) giữ vai trò quan trọng nhất." },
+      { heading: "Phong cách diễn tấu các tộc người", body: "Người Ba Na, J'rai chơi theo phong cách chủ điệu — một bè trầm cùng vài giai điệu trên. Người Ê Đê chơi theo từng chùm hợp âm nối tiếp. Khi biểu diễn vòng tròn, các nghệ nhân di chuyển từ phải qua trái — ngược chiều thời gian, hướng về nguồn cội." },
+      { heading: "Bảo tồn sau khi được UNESCO ghi danh", body: "Hiện ba tỉnh Đắk Lắk, Gia Lai, Kon Tum còn lưu giữ trên 9.760 bộ cồng chiêng; riêng Đắk Lắk có hơn 2.300 bộ và đầu tư trên 48,8 tỷ đồng cho công tác bảo tồn. Hàng trăm đội chiêng của các ama, amí cùng 500 đội chiêng trẻ Ê Đê được duy trì, các nghệ nhân lớn tuổi truyền dạy cho con em ở các buôn làng." },
     ],
     references: [
       { title: "Space of Gong Culture in the Central Highlands", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/space-of-gong-culture-in-the-central-highlands-of-viet-nam-00120", year: "2008" },
       { title: "Cồng chiêng Tây Nguyên — Giá trị và bản sắc", source: "Linh Nga Niê Kdăm, NXB Văn hoá Dân tộc", year: "2007" },
       { title: "Festival Cồng chiêng Quốc tế", source: "Sở VHTT&DL Gia Lai" },
+      { title: "Lễ hội cồng chiêng Tây Nguyên — Di sản văn hoá thế giới", source: "Du lịch Khát Vọng Việt (dulichkhatvongviet.com)", url: "https://dulichkhatvongviet.com/le-hoi-cong-chieng-tay-nguyen-di-san-van-hoa-the-gioi/" },
     ],
   },
   {
