@@ -40,6 +40,8 @@ const HeritageDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <HeritageTOC items={tocItems} />
+
       {/* Hero — toàn màn hình hình ảnh */}
       <header className="relative h-[88vh] min-h-[600px] overflow-hidden bg-patina-deep">
         <img
@@ -96,7 +98,7 @@ const HeritageDetail = () => {
       </header>
 
       {/* Mô tả tổng quan + đặc điểm */}
-      <section className="py-24 px-6 md:px-12 bg-background">
+      <section id="khai-quat" className="scroll-mt-20 py-24 px-6 md:px-12 bg-background">
         <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
           {/* Cột nội dung chính */}
           <div className="md:col-span-7">
@@ -149,7 +151,7 @@ const HeritageDetail = () => {
       </section>
 
       {/* Dòng thời gian lịch sử — full bleed patina */}
-      <section className="relative py-32 px-6 md:px-12 bg-patina-deep text-background overflow-hidden">
+      <section id="lich-su" className="scroll-mt-20 relative py-32 px-6 md:px-12 bg-patina-deep text-background overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -189,7 +191,7 @@ const HeritageDetail = () => {
       </section>
 
       {/* Bảo tồn hiện tại */}
-      <section className="py-24 px-6 md:px-12 bg-secondary">
+      <section id="bao-ton" className="scroll-mt-20 py-24 px-6 md:px-12 bg-secondary">
         <div className="max-w-4xl mx-auto text-center">
           <Award className="w-10 h-10 text-vermilion mx-auto mb-6" />
           <span className="text-[10px] tracking-[0.4em] uppercase text-vermilion">
@@ -206,7 +208,7 @@ const HeritageDetail = () => {
 
       {/* Mô tả mở rộng — chuyên đề */}
       {heritage.extended && heritage.extended.length > 0 && (
-        <section className="py-24 px-6 md:px-12 bg-background">
+        <section id="chuyen-de" className="scroll-mt-20 py-24 px-6 md:px-12 bg-background">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <Layers className="w-8 h-8 text-patina mx-auto mb-4" />
@@ -243,7 +245,7 @@ const HeritageDetail = () => {
 
       {/* Nguồn tham khảo */}
       {heritage.references && heritage.references.length > 0 && (
-        <section className="py-24 px-6 md:px-12 bg-patina-deep text-background">
+        <section id="nguon" className="scroll-mt-20 py-24 px-6 md:px-12 bg-patina-deep text-background">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
               <BookOpen className="w-6 h-6 text-gold" />
@@ -312,8 +314,11 @@ const HeritageDetail = () => {
         </section>
       )}
 
+      {/* Ủng hộ & góp ý */}
+      <HeritageFeedback heritageTitle={heritage.title} />
+
       {/* Điều hướng prev / next */}
-      <section className="py-20 px-6 md:px-12 bg-background border-t border-gold/15">
+      <section id="dieu-huong" className="scroll-mt-20 py-20 px-6 md:px-12 bg-background border-t border-gold/15">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
           <Link
             to={`/di-san/${prev.slug}`}
