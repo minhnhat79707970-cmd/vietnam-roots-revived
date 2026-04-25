@@ -215,11 +215,14 @@ export const heritages: HeritageDetail[] = [
       { heading: "Ba thành tố nghệ thuật", body: "Ca nương vừa hát vừa giữ phách bằng hai lá phách gỗ — đòi hỏi vừa hát vừa đếm nhịp chính xác. Kép đàn chơi đàn đáy ba dây cổ — loại đàn chỉ Việt Nam có. Quan viên đánh trống chầu để khen, chê — không chỉ thưởng thức mà còn đánh giá tài nghệ." },
       { heading: "56 thể cách", body: "Ca trù có khoảng 56 thể cách (làn điệu) khác nhau, từ Bắc phản, Mưỡu, Hát nói, Tỳ bà hành đến Gửi thư, Hãm, Hát giai. Mỗi thể có cấu trúc nhịp phách và lối đàn riêng — đòi hỏi nhiều năm khổ luyện mới thuộc trọn vẹn." },
       { heading: "Mối liên hệ với văn học", body: "Thể thơ hát nói gắn với Ca trù đã trở thành thể thơ bác học của giới sĩ phu Việt Nam. Nguyễn Công Trứ với 'Bài ca ngất ngưởng', Cao Bá Quát, Dương Khuê với 'Hồng hồng Tuyết Tuyết', Tản Đà — tất cả đều viết hát nói cho Ca trù." },
+      { heading: "Không gian thính phòng", body: "Khác với các loại hình diễn xướng cộng đồng, Ca trù là nghệ thuật thính phòng — biểu diễn trong không gian nhỏ ở đình làng, đền thờ thần, nhà thờ tổ nghề, dinh thự và ca quán. Người nghe ngồi gần, lặng lẽ thưởng thức từng tiếng phách, nhịp trống chầu — tạo nên sự giao cảm tinh tế giữa người hát và người nghe." },
+      { heading: "Hồi sinh sau khi được UNESCO ghi danh", body: "Trước năm 2009, Ca trù đứng trước nguy cơ mai một nghiêm trọng — nhiều thể cách thất truyền, số nghệ nhân lão thành chỉ còn đếm trên đầu ngón tay. Sau hơn 13 năm được UNESCO công nhận là di sản cần bảo vệ khẩn cấp, Ca trù đã hồi sinh mạnh mẽ: số câu lạc bộ tăng nhanh, nhiều nghệ nhân trẻ và sinh viên tham gia học hát, biểu diễn định kỳ tại đình Kim Ngân, đền Quán Đế, Văn Miếu — Quốc Tử Giám." },
     ],
     references: [
       { title: "Ca trù singing", source: "UNESCO ICH (Urgent Safeguarding)", url: "https://ich.unesco.org/en/USL/ca-tru-singing-00309", year: "2009" },
       { title: "Đặc khảo về Ca trù Việt Nam", source: "Nguyễn Xuân Diện, NXB Khoa học Xã hội", year: "2007" },
       { title: "Câu lạc bộ Ca trù Thăng Long", source: "catruthanglong.com" },
+      { title: "Ca trù — di sản 'thính phòng' của người Việt", source: "Báo ảnh Việt Nam — Thông tấn xã Việt Nam", url: "https://vietnam.vnanet.vn/vietnamese/long-form/ca-tru-%E2%80%93-di-san-quotthinh-phongquot-cua-nguoi-viet-317070.html", year: "2022" },
     ],
   },
   {
