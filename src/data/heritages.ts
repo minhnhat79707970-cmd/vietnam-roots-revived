@@ -139,12 +139,15 @@ export const heritages: HeritageDetail[] = [
       { heading: "Cấu tạo và chất liệu", body: "Cồng chiêng là nhạc khí bằng hợp kim đồng, có khi pha bạc, vàng hoặc đồng đen. Cồng có núm, chiêng không có núm. Đường kính từ 20–60cm, loại cực đại lên tới 90cm. Một bộ có từ 2–13 chiếc, thậm chí 18–20 chiếc, trong đó chiêng cái (chiêng mẹ) giữ vai trò quan trọng nhất." },
       { heading: "Phong cách diễn tấu các tộc người", body: "Người Ba Na, J'rai chơi theo phong cách chủ điệu — một bè trầm cùng vài giai điệu trên. Người Ê Đê chơi theo từng chùm hợp âm nối tiếp. Khi biểu diễn vòng tròn, các nghệ nhân di chuyển từ phải qua trái — ngược chiều thời gian, hướng về nguồn cội." },
       { heading: "Bảo tồn sau khi được UNESCO ghi danh", body: "Hiện ba tỉnh Đắk Lắk, Gia Lai, Kon Tum còn lưu giữ trên 9.760 bộ cồng chiêng; riêng Đắk Lắk có hơn 2.300 bộ và đầu tư trên 48,8 tỷ đồng cho công tác bảo tồn. Hàng trăm đội chiêng của các ama, amí cùng 500 đội chiêng trẻ Ê Đê được duy trì, các nghệ nhân lớn tuổi truyền dạy cho con em ở các buôn làng." },
+      { heading: "Quan niệm 'hồn chiêng' của người Tây Nguyên", body: "Đối với người dân Tây Nguyên, cồng chiêng không chỉ là nhạc cụ mà còn là vật linh thiêng mang giá trị tâm linh. Họ cho rằng cồng chiêng chứa đựng 'hồn chiêng' — là linh hồn của tổ tiên và thần linh, giúp con người liên kết với thế giới vô hình và duy trì sự hài hoà giữa con người với thiên nhiên. Mỗi chiếc chiêng trong một bộ đều có vị trí và ý nghĩa riêng, và tiếng chiêng được xem như một ngôn ngữ thiêng liêng thể hiện tình cảm, suy tư và ước vọng của cộng đồng." },
+      { heading: "Không gian diễn xướng cộng đồng", body: "Không gian văn hoá Cồng Chiêng Tây Nguyên bao gồm: cồng-chiêng, các bản nhạc tấu bằng cồng chiêng, những người chơi cồng chiêng, các lễ hội có sử dụng cồng chiêng (Lễ mừng lúa mới, Lễ cúng Bến nước, Lễ đâm trâu, Lễ bỏ mả...) và những địa điểm tổ chức như nhà dài, nhà rông, nhà gươl, nương rẫy, bến nước, nhà mồ, các khu rừng cạnh buôn làng. Mỗi nhạc công chỉ chơi một chiếc cồng hoặc chiêng, phối hợp tập thể — thể hiện tính cộng đồng sâu sắc của cư dân cao nguyên." },
     ],
     references: [
       { title: "Space of Gong Culture in the Central Highlands", source: "UNESCO ICH", url: "https://ich.unesco.org/en/RL/space-of-gong-culture-in-the-central-highlands-of-viet-nam-00120", year: "2008" },
       { title: "Cồng chiêng Tây Nguyên — Giá trị và bản sắc", source: "Linh Nga Niê Kdăm, NXB Văn hoá Dân tộc", year: "2007" },
       { title: "Festival Cồng chiêng Quốc tế", source: "Sở VHTT&DL Gia Lai" },
       { title: "Lễ hội cồng chiêng Tây Nguyên — Di sản văn hoá thế giới", source: "Du lịch Khát Vọng Việt (dulichkhatvongviet.com)", url: "https://dulichkhatvongviet.com/le-hoi-cong-chieng-tay-nguyen-di-san-van-hoa-the-gioi/" },
+      { title: "Cơ sở văn hoá VN — Không gian văn hoá Cồng chiêng Tây Nguyên", source: "Trường ĐH KHXH&NV (Studocu.vn)", url: "https://www.studocu.vn/vn/document/truong-dai-hoc-khoa-hoc-xa-hoi-va-nhan-van/co-so-van-hoa-vn/co-so-van-hoa-co-so-van-hoa/109731267" },
     ],
   },
   {
