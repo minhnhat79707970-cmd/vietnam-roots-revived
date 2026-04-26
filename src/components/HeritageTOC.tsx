@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { List } from "lucide-react";
+import { List, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface TOCItem {
   id: string;
@@ -13,6 +13,7 @@ interface HeritageTOCProps {
 export const HeritageTOC = ({ items }: HeritageTOCProps) => {
   const [active, setActive] = useState<string>(items[0]?.id ?? "");
   const [open, setOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     const handler = () => {
@@ -45,6 +46,21 @@ export const HeritageTOC = ({ items }: HeritageTOCProps) => {
     <>
       {/* Desktop: dạng dọc cố định bên trái */}
       <nav className="hidden lg:block fixed left-6 top-1/2 -translate-y-1/2 z-30 max-w-[240px]">
+        {collapsed ? (
+          <button
+            onClick={() => setCollapsed(false)}
+            aria-label="Mở mục lục"
+            className="group relative bg-gradient-to-br from-background/95 to-secondary/40 backdrop-blur-md border border-gold/40 shadow-bronze p-3 rounded-sm flex items-center gap-2 text-gold-deep hover:bg-gold/10 transition-colors"
+          >
+            <span className="absolute -top-px -left-px w-3 h-3 border-t-2 border-l-2 border-gold" />
+            <span className="absolute -top-px -right-px w-3 h-3 border-t-2 border-r-2 border-gold" />
+            <span className="absolute -bottom-px -left-px w-3 h-3 border-b-2 border-l-2 border-gold" />
+            <span className="absolute -bottom-px -right-px w-3 h-3 border-b-2 border-r-2 border-gold" />
+            <List className="w-4 h-4" />
+            <span className="font-serif-vn italic text-sm">Mục lục</span>
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        ) : (
         <div className="relative bg-gradient-to-br from-background/95 to-secondary/40 backdrop-blur-md border border-gold/40 shadow-bronze p-5 rounded-sm">
           {/* Góc trang trí */}
           <span className="absolute -top-px -left-px w-3 h-3 border-t-2 border-l-2 border-gold" />
@@ -52,11 +68,20 @@ export const HeritageTOC = ({ items }: HeritageTOCProps) => {
           <span className="absolute -bottom-px -left-px w-3 h-3 border-b-2 border-l-2 border-gold" />
           <span className="absolute -bottom-px -right-px w-3 h-3 border-b-2 border-r-2 border-gold" />
 
-          <div className="flex items-center gap-2 mb-4 pb-3 border-b border-gold/30">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-            <div className="font-serif-vn italic text-base text-gold-deep tracking-wide">
-              Mục lục
+          <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-gold/30">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+              <div className="font-serif-vn italic text-base text-gold-deep tracking-wide">
+                Mục lục
+              </div>
             </div>
+            <button
+              onClick={() => setCollapsed(true)}
+              aria-label="Ẩn mục lục"
+              className="text-gold-deep/70 hover:text-gold-deep hover:bg-gold/10 p-1 rounded-sm transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
           </div>
           <ul className="space-y-1">
             {items.map((item, idx) => {
@@ -92,6 +117,7 @@ export const HeritageTOC = ({ items }: HeritageTOCProps) => {
             })}
           </ul>
         </div>
+        )}
       </nav>
 
       {/* Mobile: nút nổi mở danh sách */}
