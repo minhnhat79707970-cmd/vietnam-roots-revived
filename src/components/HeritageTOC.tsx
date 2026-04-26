@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { List, ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { List, ChevronLeft, ChevronRight, GripVertical } from "lucide-react";
 
 interface TOCItem {
   id: string;
@@ -14,6 +14,72 @@ export const HeritageTOC = ({ items }: HeritageTOCProps) => {
   const [active, setActive] = useState<string>(items[0]?.id ?? "");
   const [open, setOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
+  const [dragging, setDragging] = useState(false);
+  const dragState = useRef<{ offsetX: number; offsetY: number; moved: boolean } | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  // Khôi phục vị trí đã lưu
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("toc-collapsed-pos");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (typeof parsed?.x === "number" && typeof parsed?.y === "number") {
+          setPos(parsed);
+        }
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  // Xử lý kéo nút mục lục thu gọn
+  useEffect(() => {
+    if (!dragging) return;
+    const onMove = (e: PointerEvent) => {
+      if (!dragState.current) return;
+      const btn = buttonRef.current;
+      const w = btn?.offsetWidth ?? 120;
+      const h = btn?.offsetHeight ?? 40;
+      const x = Math.min(
+        Math.max(8, e.clientX - dragState.current.offsetX),
+        window.innerWidth - w - 8
+      );
+      const y = Math.min(
+        Math.max(8, e.clientY - dragState.current.offsetY),
+        window.innerHeight - h - 8
+      );
+      dragState.current.moved = true;
+      setPos({ x, y });
+    };
+    const onUp = () => {
+      setDragging(false);
+      if (pos) {
+        try {
+          localStorage.setItem("toc-collapsed-pos", JSON.stringify(pos));
+        } catch {
+          /* ignore */
+        }
+      }
+    };
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+    };
+  }, [dragging, pos]);
+
+  const handleDragStart = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    dragState.current = {
+      offsetX: e.clientX - rect.left,
+      offsetY: e.clientY - rect.top,
+      moved: false,
+    };
+    setDragging(true);
+  };
 
   useEffect(() => {
     const handler = () => {
@@ -45,17 +111,42 @@ export const HeritageTOC = ({ items }: HeritageTOCProps) => {
   return (
     <>
       {/* Desktop: dạng dọc cố định bên trái */}
-      <nav className="hidden lg:block fixed left-6 top-1/2 -translate-y-1/2 z-30 max-w-[240px]">
+      <nav
+        className={`hidden lg:block fixed z-30 max-w-[240px] ${
+          collapsed && pos
+            ? ""
+            : "left-6 top-1/2 -translate-y-1/2"
+        }`}
+        style={
+          collapsed && pos
+            ? { left: `${pos.x}px`, top: `${pos.y}px` }
+            : undefined
+        }
+      >
         {collapsed ? (
           <button
-            onClick={() => setCollapsed(false)}
-            aria-label="Mở mục lục"
-            className="group relative bg-gradient-to-br from-background/95 to-secondary/40 backdrop-blur-md border border-gold/40 shadow-bronze p-3 rounded-sm flex items-center gap-2 text-gold-deep hover:bg-gold/10 transition-colors"
+            ref={buttonRef}
+            onPointerDown={handleDragStart}
+            onClick={(e) => {
+              // Chỉ mở mục lục nếu không phải vừa kéo
+              if (dragState.current?.moved) {
+                e.preventDefault();
+                dragState.current.moved = false;
+                return;
+              }
+              setCollapsed(false);
+            }}
+            aria-label="Mở mục lục (kéo để di chuyển)"
+            title="Nhấn để mở • Kéo để di chuyển"
+            className={`group relative bg-gradient-to-br from-background/95 to-secondary/40 backdrop-blur-md border border-gold/40 shadow-bronze p-3 rounded-sm flex items-center gap-2 text-gold-deep hover:bg-gold/10 transition-colors touch-none select-none ${
+              dragging ? "cursor-grabbing scale-105 shadow-lg" : "cursor-grab"
+            }`}
           >
             <span className="absolute -top-px -left-px w-3 h-3 border-t-2 border-l-2 border-gold" />
             <span className="absolute -top-px -right-px w-3 h-3 border-t-2 border-r-2 border-gold" />
             <span className="absolute -bottom-px -left-px w-3 h-3 border-b-2 border-l-2 border-gold" />
             <span className="absolute -bottom-px -right-px w-3 h-3 border-b-2 border-r-2 border-gold" />
+            <GripVertical className="w-3.5 h-3.5 opacity-50" />
             <List className="w-4 h-4" />
             <span className="font-serif-vn italic text-sm">Mục lục</span>
             <ChevronRight className="w-4 h-4" />
