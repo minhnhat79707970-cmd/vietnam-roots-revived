@@ -1,5 +1,6 @@
+import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, MapPin, Calendar, Award, Sparkles, BookOpen, ExternalLink, Layers } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Award, Sparkles, BookOpen, ExternalLink, Layers, Filter } from "lucide-react";
 import { getHeritageBySlug, heritages } from "@/data/heritages";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import { Footer } from "@/components/Footer";
@@ -17,12 +18,44 @@ const HeritageDetail = () => {
   const prev = heritages[(idx - 1 + heritages.length) % heritages.length];
   const next = heritages[(idx + 1) % heritages.length];
 
+  // Bộ lọc dành riêng cho Hội Gióng — chia 2 phần Phù Đổng / Đền Sóc
+  const isHoiGiong = heritage.slug === "hoi-giong";
+  type GiongFilter = "all" | "phu-dong" | "soc";
+  const [giongFilter, setGiongFilter] = useState<GiongFilter>("all");
+
+  const classifyGiong = (heading: string): "phu-dong" | "soc" | "common" => {
+    const h = heading.toLowerCase();
+    if (h.includes("phần 1") || h.includes("phù đổng")) return "phu-dong";
+    if (h.includes("phần 2") || h.includes("sóc")) return "soc";
+    return "common";
+  };
+
+  const filteredExtended = useMemo(() => {
+    if (!heritage.extended) return [];
+    if (!isHoiGiong || giongFilter === "all") return heritage.extended;
+    return heritage.extended.filter((sec) => {
+      const kind = classifyGiong(sec.heading);
+      return kind === giongFilter || kind === "common";
+    });
+  }, [heritage.extended, isHoiGiong, giongFilter]);
+
   const tocItems = [
     { id: "khai-quat", label: "Khái quát" },
     { id: "lich-su", label: "Mạch nguồn lịch sử" },
     { id: "bao-ton", label: "Bảo tồn hiện nay" },
-    ...(heritage.extended && heritage.extended.length > 0
-      ? [{ id: "chuyen-de", label: "Chuyên đề mở rộng" }]
+    ...(filteredExtended.length > 0
+      ? [
+          {
+            id: "chuyen-de",
+            label: isHoiGiong
+              ? giongFilter === "phu-dong"
+                ? "Chuyên đề · Phù Đổng"
+                : giongFilter === "soc"
+                ? "Chuyên đề · Đền Sóc"
+                : "Chuyên đề mở rộng"
+              : "Chuyên đề mở rộng",
+          },
+        ]
       : []),
     ...(heritage.references && heritage.references.length > 0
       ? [{ id: "nguon", label: "Nguồn tham khảo" }]
@@ -221,8 +254,60 @@ const HeritageDetail = () => {
               <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-6" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-              {heritage.extended.map((sec, i) => (
+            {/* Bộ lọc chỉ hiện khi là Hội Gióng */}
+            {isHoiGiong && (
+              <div className="flex flex-col items-center gap-4 mb-12">
+                <div className="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-patina">
+                  <Filter className="w-3 h-3" />
+                  Lọc theo trung tâm lễ hội
+                </div>
+                <div
+                  role="tablist"
+                  aria-label="Lọc Hội Gióng"
+                  className="inline-flex flex-wrap justify-center gap-2 p-1.5 border border-gold/30 bg-secondary/50 rounded-sm"
+                >
+                  {(
+                    [
+                      { key: "all", label: "Toàn bộ" },
+                      { key: "phu-dong", label: "Phần 1 · Phù Đổng" },
+                      { key: "soc", label: "Phần 2 · Đền Sóc" },
+                    ] as { key: GiongFilter; label: string }[]
+                  ).map((opt) => {
+                    const active = giongFilter === opt.key;
+                    return (
+                      <button
+                        key={opt.key}
+                        role="tab"
+                        aria-selected={active}
+                        onClick={() => setGiongFilter(opt.key)}
+                        className={`px-4 py-2 text-xs tracking-[0.2em] uppercase font-display transition-colors rounded-sm ${
+                          active
+                            ? "bg-patina-deep text-gold border border-gold"
+                            : "text-patina-deep hover:bg-gold/10 border border-transparent"
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="text-xs italic font-serif-vn text-patina/70 text-center max-w-md">
+                  {giongFilter === "phu-dong"
+                    ? "Đang xem các chuyên đề về đền Phù Đổng (Gia Lâm) — nơi Thánh Gióng sinh ra."
+                    : giongFilter === "soc"
+                    ? "Đang xem các chuyên đề về đền Sóc (Sóc Sơn) — nơi Thánh Gióng bay về trời."
+                    : "Đang xem toàn bộ chuyên đề của cả hai trung tâm lễ hội."}
+                </p>
+              </div>
+            )}
+
+            {filteredExtended.length === 0 ? (
+              <p className="text-center font-serif-vn italic text-patina/70">
+                Không có chuyên đề phù hợp với bộ lọc này.
+              </p>
+            ) : (
+              <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+                {filteredExtended.map((sec, i) => (
                 <article
                   key={i}
                   className="group relative bg-secondary border-l-2 border-gold p-8 hover:bg-accent transition-colors"
@@ -237,8 +322,9 @@ const HeritageDetail = () => {
                     {sec.body}
                   </p>
                 </article>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}
