@@ -84,6 +84,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+    letter-spacing: -0.01em;
     background-image:
       radial-gradient(at 0% 0%, hsl(174 30% 90% / 0.4) 0px, transparent 50%),
       radial-gradient(at 100% 100%, hsl(42 50% 88% / 0.3) 0px, transparent 50%);
@@ -92,8 +93,15 @@
 
   h1, h2, h3, h4 {
     font-family: 'Cormorant Garamond', serif;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
+
+  /* Giảm khoảng cách chữ toàn trang cho các utility tracking rộng */
+  .tracking-\[0\.4em\] { letter-spacing: 0.2em !important; }
+  .tracking-\[0\.3em\] { letter-spacing: 0.15em !important; }
+  .tracking-\[0\.2em\] { letter-spacing: 0.1em !important; }
+  .tracking-widest { letter-spacing: 0.075em !important; }
+  .tracking-wider { letter-spacing: 0.025em !important; }
 
   .font-display { font-family: 'Instrument Serif', serif; }
   .font-serif-vn { font-family: 'Cormorant Garamond', serif; }
