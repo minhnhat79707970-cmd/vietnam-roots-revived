@@ -67,10 +67,10 @@ export const Timeline = () => {
 
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-24">
-          <span className="text-xs tracking-[0.4em] uppercase text-vermilion font-medium">
+          <span className="text-xs tracking-[0.2em] uppercase text-vermilion font-medium">
             Tầng I · Lịch sử hình thành
           </span>
-          <h2 className="font-display text-5xl md:text-7xl mt-6 text-gradient-patina">
+          <h2 className="font-display text-5xl md:text-7xl mt-6 text-gradient-patina tracking-tight">
             Bốn nghìn năm <span className="italic">dựng nước</span>
           </h2>
           <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
@@ -97,10 +97,10 @@ export const Timeline = () => {
                 </div>
 
                 <div className={`pl-20 md:pl-0 ${i % 2 === 0 ? "md:text-right md:pr-16" : "md:pl-16"}`}>
-                  <div className="text-xs tracking-[0.3em] uppercase text-vermilion mb-2">
+                  <div className="text-xs tracking-[0.15em] uppercase text-vermilion mb-2">
                     {era.period}
                   </div>
-                  <h3 className="font-display text-4xl md:text-5xl text-patina-deep mb-2">
+                  <h3 className="font-display text-4xl md:text-5xl text-patina-deep mb-2 tracking-tight">
                     {era.name}
                   </h3>
                   <div className="text-sm text-muted-foreground italic mb-4 font-serif-vn text-base">
