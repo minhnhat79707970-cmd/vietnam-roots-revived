@@ -3,7 +3,6 @@ import { Timeline } from "@/components/Timeline";
 import { HeritageGrid } from "@/components/HeritageGrid";
 import { Regions } from "@/components/Regions";
 import { Festivals } from "@/components/Festivals";
-import { VietnamMap } from "@/components/VietnamMap";
 import { SiteFeedback } from "@/components/SiteFeedback";
 import { Footer } from "@/components/Footer";
 
@@ -14,7 +13,6 @@ const Index = () => {
       <Timeline />
       <HeritageGrid />
       <Regions />
-      <VietnamMap />
       <Festivals />
       <SiteFeedback />
       <Footer />
