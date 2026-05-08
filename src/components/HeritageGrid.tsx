@@ -44,6 +44,21 @@ export const HeritageGrid = () => {
           <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
         </div>
 
+        {isLoading && (
+          <div className="space-y-12">
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className="grid md:grid-cols-12 gap-8">
+                <Skeleton className="md:col-span-5 aspect-[4/5] bg-patina/40" />
+                <div className="md:col-span-7 space-y-4">
+                  <Skeleton className="h-12 w-3/4 bg-patina/40" />
+                  <Skeleton className="h-24 w-full bg-patina/30" />
+                  <Skeleton className="h-32 w-full bg-patina/20" />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
         <div className="space-y-12">
           {featured.map((item, idx) => (
             <article
