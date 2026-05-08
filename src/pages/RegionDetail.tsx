@@ -70,13 +70,22 @@ const categoryColors: Record<string, string> = {
 
 const RegionDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const data = slug && (slug in regionsData) ? regionsData[slug as RegionSlug] : null;
+  const { data, isLoading } = useRegion(slug);
+  const { data: allRegions = [] } = useRegions();
+
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-patina-deep flex items-center justify-center">
+        <div className="text-gold/60 text-xs tracking-[0.4em] uppercase animate-pulse">
+          Đang tải vùng miền…
+        </div>
+      </main>
+    );
+  }
 
   if (!data) return <Navigate to="/" replace />;
 
-  const otherRegions = (Object.keys(regionsData) as RegionSlug[])
-    .filter((s) => s !== data.slug)
-    .map((s) => regionsData[s]);
+  const otherRegions = allRegions.filter((r) => r.slug !== data.slug);
 
   return (
     <main className="min-h-screen bg-background">

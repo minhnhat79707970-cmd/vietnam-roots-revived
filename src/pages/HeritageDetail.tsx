@@ -412,7 +412,7 @@ const HeritageDetail = () => {
       )}
 
       {/* Ủng hộ & góp ý */}
-      <HeritageFeedback heritageTitle={heritage.title} />
+      <HeritageFeedback heritageTitle={heritage.title} heritageSlug={heritage.slug} />
 
       {/* Điều hướng prev / next */}
       <section id="dieu-huong" className="scroll-mt-20 py-20 px-6 md:px-12 bg-background border-t border-gold/15">
