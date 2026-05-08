@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { DrumOrnament } from "./DrumOrnament";
-import { heritages } from "@/data/heritages";
+import { useHeritages } from "@/hooks/useHeritages";
+import { Skeleton } from "@/components/ui/skeleton";
 
 // 4 di sản chính hiển thị zigzag, các di sản còn lại làm chip
 const featuredSlugs = ["nha-nhac-cung-dinh-hue", "khong-gian-cong-chieng", "dan-ca-quan-ho", "ca-tru"];
 
 export const HeritageGrid = () => {
+  const { data: heritages = [], isLoading } = useHeritages();
+
   const featured = featuredSlugs
     .map((slug) => heritages.find((h) => h.slug === slug))
     .filter((h): h is NonNullable<typeof h> => Boolean(h));
