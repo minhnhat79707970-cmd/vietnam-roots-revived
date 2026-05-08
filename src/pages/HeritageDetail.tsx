@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, MapPin, Calendar, Award, Sparkles, BookOpen, ExternalLink, Layers, Filter } from "lucide-react";
-import { getHeritageBySlug, heritages } from "@/data/heritages";
+import { useHeritage, useHeritages } from "@/hooks/useHeritages";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import { Footer } from "@/components/Footer";
 import { HeritageTOC } from "@/components/HeritageTOC";
@@ -10,16 +10,11 @@ import NotFound from "./NotFound";
 
 const HeritageDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const heritage = slug ? getHeritageBySlug(slug) : undefined;
-
-  if (!heritage) return <NotFound />;
-
-  const idx = heritages.findIndex((h) => h.slug === heritage.slug);
-  const prev = heritages[(idx - 1 + heritages.length) % heritages.length];
-  const next = heritages[(idx + 1) % heritages.length];
+  const { data: heritage, isLoading } = useHeritage(slug);
+  const { data: heritages = [] } = useHeritages();
 
   // Bộ lọc dành riêng cho Hội Gióng — chia 2 phần Phù Đổng / Đền Sóc
-  const isHoiGiong = heritage.slug === "hoi-giong";
+  const isHoiGiong = heritage?.slug === "hoi-giong";
   type GiongFilter = "all" | "phu-dong" | "soc";
   const [giongFilter, setGiongFilter] = useState<GiongFilter>("all");
 
@@ -31,13 +26,29 @@ const HeritageDetail = () => {
   };
 
   const filteredExtended = useMemo(() => {
-    if (!heritage.extended) return [];
+    if (!heritage?.extended) return [];
     if (!isHoiGiong || giongFilter === "all") return heritage.extended;
     return heritage.extended.filter((sec) => {
       const kind = classifyGiong(sec.heading);
       return kind === giongFilter || kind === "common";
     });
-  }, [heritage.extended, isHoiGiong, giongFilter]);
+  }, [heritage?.extended, isHoiGiong, giongFilter]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-patina-deep flex items-center justify-center">
+        <div className="text-gold/60 text-xs tracking-[0.4em] uppercase animate-pulse">
+          Đang tải di sản…
+        </div>
+      </div>
+    );
+  }
+
+  if (!heritage) return <NotFound />;
+
+  const idx = heritages.findIndex((h) => h.slug === heritage.slug);
+  const prev = heritages.length ? heritages[(idx - 1 + heritages.length) % heritages.length] : heritage;
+  const next = heritages.length ? heritages[(idx + 1) % heritages.length] : heritage;
 
   const tocItems = [
     { id: "khai-quat", label: "Khái quát" },
