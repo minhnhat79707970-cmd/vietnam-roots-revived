@@ -14,7 +14,195 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      heritage_feedback: {
+        Row: {
+          created_at: string
+          heritage_slug: string
+          id: string
+          message: string
+          name: string | null
+          reaction: string | null
+        }
+        Insert: {
+          created_at?: string
+          heritage_slug: string
+          id?: string
+          message: string
+          name?: string | null
+          reaction?: string | null
+        }
+        Update: {
+          created_at?: string
+          heritage_slug?: string
+          id?: string
+          message?: string
+          name?: string | null
+          reaction?: string | null
+        }
+        Relationships: []
+      }
+      heritages: {
+        Row: {
+          characteristics: Json
+          created_at: string
+          display_order: number
+          extended: Json
+          history: Json
+          id: string
+          img_key: string
+          long_desc: Json
+          origin: string
+          preservation: string
+          references: Json
+          region: string
+          short_desc: string
+          slug: string
+          subtitle: string
+          title: string
+          unesco_type: string
+          updated_at: string
+          year: string
+        }
+        Insert: {
+          characteristics?: Json
+          created_at?: string
+          display_order?: number
+          extended?: Json
+          history?: Json
+          id?: string
+          img_key: string
+          long_desc?: Json
+          origin: string
+          preservation?: string
+          references?: Json
+          region: string
+          short_desc: string
+          slug: string
+          subtitle: string
+          title: string
+          unesco_type: string
+          updated_at?: string
+          year: string
+        }
+        Update: {
+          characteristics?: Json
+          created_at?: string
+          display_order?: number
+          extended?: Json
+          history?: Json
+          id?: string
+          img_key?: string
+          long_desc?: Json
+          origin?: string
+          preservation?: string
+          references?: Json
+          region?: string
+          short_desc?: string
+          slug?: string
+          subtitle?: string
+          title?: string
+          unesco_type?: string
+          updated_at?: string
+          year?: string
+        }
+        Relationships: []
+      }
+      regions: {
+        Row: {
+          accent_class: string
+          code: string
+          created_at: string
+          cuisine: Json
+          display_order: number
+          geography: string
+          heritages: Json
+          history: Json
+          id: string
+          intangible: Json
+          intangible_note: string
+          intro: string
+          landmarks: Json
+          landmarks_note: string
+          name: string
+          slug: string
+          sub: string
+          tagline: string
+          tangible: Json
+          tangible_note: string
+          updated_at: string
+        }
+        Insert: {
+          accent_class?: string
+          code: string
+          created_at?: string
+          cuisine?: Json
+          display_order?: number
+          geography: string
+          heritages?: Json
+          history?: Json
+          id?: string
+          intangible?: Json
+          intangible_note?: string
+          intro: string
+          landmarks?: Json
+          landmarks_note?: string
+          name: string
+          slug: string
+          sub: string
+          tagline: string
+          tangible?: Json
+          tangible_note?: string
+          updated_at?: string
+        }
+        Update: {
+          accent_class?: string
+          code?: string
+          created_at?: string
+          cuisine?: Json
+          display_order?: number
+          geography?: string
+          heritages?: Json
+          history?: Json
+          id?: string
+          intangible?: Json
+          intangible_note?: string
+          intro?: string
+          landmarks?: Json
+          landmarks_note?: string
+          name?: string
+          slug?: string
+          sub?: string
+          tagline?: string
+          tangible?: Json
+          tangible_note?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      site_feedback: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          name: string | null
+          rating: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          name?: string | null
+          rating?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          name?: string | null
+          rating?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
