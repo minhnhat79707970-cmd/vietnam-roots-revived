@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { MessageSquare, Send, Star, Trash2 } from "lucide-react";
 import { DrumOrnament } from "@/components/DrumOrnament";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Comment {
   id: string;
@@ -48,34 +49,23 @@ export const SiteFeedback = () => {
   const [message, setMessage] = useState("");
   const [rating, setRating] = useState(5);
 
-  // Load
+  // Hiển thị seed cục bộ + nhận xét vừa gửi (ẩn riêng tư của người khác)
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed: Comment[] = JSON.parse(raw);
-        setComments(parsed);
-        return;
-      }
-    } catch {
-      /* ignore */
-    }
     setComments(seedComments);
   }, []);
 
-  // Persist
-  useEffect(() => {
-    if (comments.length === 0) return;
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
-    } catch {
-      /* ignore */
-    }
-  }, [comments]);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim()) return;
+    const { error } = await supabase.from("site_feedback").insert({
+      name: name.trim() || null,
+      rating,
+      message: message.trim(),
+    });
+    if (error) {
+      toast({ title: "Không gửi được", description: error.message, variant: "destructive" });
+      return;
+    }
     const newComment: Comment = {
       id: `c-${Date.now()}`,
       name: name.trim() || "Khách ẩn danh",

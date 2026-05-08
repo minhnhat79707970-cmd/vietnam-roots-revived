@@ -158,10 +158,11 @@ export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedba
             </button>
             <button
               type="submit"
+              disabled={submitting}
               className="inline-flex items-center justify-center gap-2 text-xs tracking-[0.3em] uppercase bg-patina-deep text-gold-light border border-gold px-6 py-3 hover:bg-patina transition-colors"
             >
               <Send className="w-4 h-4" />
-              Gửi góp ý
+              {submitting ? "Đang gửi…" : "Gửi góp ý"}
             </button>
           </div>
         </form>
