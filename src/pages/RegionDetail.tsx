@@ -1,6 +1,6 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowLeft, MapPin, Music2, Sparkles, Landmark as LandmarkIcon, Building2 } from "lucide-react";
-import { regionsData, RegionSlug } from "@/data/regions";
+import { useRegion, useRegions } from "@/hooks/useRegions";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import templeImg from "@/assets/heritage-temple.jpg";
 import { Footer } from "@/components/Footer";
