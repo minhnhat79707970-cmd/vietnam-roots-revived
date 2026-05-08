@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Heart, MessageSquare, Send, Sparkles, Share2, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface HeritageFeedbackProps {
   heritageTitle: string;
+  heritageSlug?: string;
 }
 
 const REACTIONS = [
@@ -12,7 +14,7 @@ const REACTIONS = [
   { key: "support", label: "Ủng hộ bảo tồn", icon: Heart },
 ];
 
-export const HeritageFeedback = ({ heritageTitle }: HeritageFeedbackProps) => {
+export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedbackProps) => {
   const { toast } = useToast();
   const [selected, setSelected] = useState<string | null>(null);
   const [counts, setCounts] = useState<Record<string, number>>({
@@ -23,6 +25,7 @@ export const HeritageFeedback = ({ heritageTitle }: HeritageFeedbackProps) => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [copied, setCopied] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleReact = (key: string) => {
     if (selected === key) return;
@@ -38,9 +41,21 @@ export const HeritageFeedback = ({ heritageTitle }: HeritageFeedbackProps) => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim()) return;
+    setSubmitting(true);
+    const { error } = await supabase.from("heritage_feedback").insert({
+      heritage_slug: heritageSlug ?? heritageTitle,
+      name: name.trim() || null,
+      message: message.trim(),
+      reaction: selected,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast({ title: "Không gửi được", description: error.message, variant: "destructive" });
+      return;
+    }
     toast({
       title: "Đã gửi góp ý",
       description: "Cảm ơn bạn đã chung tay giữ gìn di sản.",
@@ -143,10 +158,11 @@ export const HeritageFeedback = ({ heritageTitle }: HeritageFeedbackProps) => {
             </button>
             <button
               type="submit"
+              disabled={submitting}
               className="inline-flex items-center justify-center gap-2 text-xs tracking-[0.3em] uppercase bg-patina-deep text-gold-light border border-gold px-6 py-3 hover:bg-patina transition-colors"
             >
               <Send className="w-4 h-4" />
-              Gửi góp ý
+              {submitting ? "Đang gửi…" : "Gửi góp ý"}
             </button>
           </div>
         </form>

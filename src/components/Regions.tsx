@@ -1,20 +1,19 @@
 import { Link } from "react-router-dom";
 import templeImg from "@/assets/heritage-temple.jpg";
 import { SunStar } from "./DrumOrnament";
-import { regionsData, RegionSlug } from "@/data/regions";
+import { useRegions } from "@/hooks/useRegions";
+import { Skeleton } from "@/components/ui/skeleton";
 
-const regions = (Object.keys(regionsData) as RegionSlug[]).map((slug) => {
-  const r = regionsData[slug];
-  return {
-    slug,
+export const Regions = () => {
+  const { data: regionsList = [], isLoading } = useRegions();
+  const regions = regionsList.map((r) => ({
+    slug: r.slug,
     code: r.code,
     name: r.name,
     sub: r.sub,
     items: r.heritages.slice(0, 5).map((h) => h.name),
-  };
-});
+  }));
 
-export const Regions = () => {
   return (
     <section id="regions" className="relative py-32 px-6 overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 -z-10">
@@ -33,6 +32,10 @@ export const Regions = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
+          {isLoading &&
+            [0, 1, 2].map((i) => (
+              <Skeleton key={i} className="h-96 w-full" />
+            ))}
           {regions.map((r) => (
             <Link
               key={r.name}
