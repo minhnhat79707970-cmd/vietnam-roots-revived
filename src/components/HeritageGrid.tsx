@@ -3,12 +3,14 @@ import { ArrowUpRight } from "lucide-react";
 import { DrumOrnament } from "./DrumOrnament";
 import { useHeritages } from "@/hooks/useHeritages";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useT } from "@/contexts/LanguageContext";
 
 // 4 di sản chính hiển thị zigzag, các di sản còn lại làm chip
 const featuredSlugs = ["nha-nhac-cung-dinh-hue", "khong-gian-cong-chieng", "dan-ca-quan-ho", "ca-tru"];
 
 export const HeritageGrid = () => {
   const { data: heritages = [], isLoading } = useHeritages();
+  const t = useT();
 
   const featured = featuredSlugs
     .map((slug) => heritages.find((h) => h.slug === slug))
@@ -29,16 +31,21 @@ export const HeritageGrid = () => {
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <span className="text-xs tracking-[0.4em] uppercase text-gold font-medium">
-            Tầng II · Di sản phi vật thể
+            {t("Tầng II · Di sản phi vật thể", "Floor II · Intangible heritage")}
           </span>
           <h2 className="font-display text-5xl md:text-7xl mt-6">
-            Tiếng vọng <span className="italic text-gradient-bronze">ngàn năm</span>
+            {t("Tiếng vọng", "Echoes of")} <span className="italic text-gradient-bronze">{t("ngàn năm", "a thousand years")}</span>
           </h2>
           <p className="text-background/60 max-w-2xl mx-auto mt-6 leading-relaxed">
-            Mười lăm di sản văn hoá phi vật thể của Việt Nam đã được UNESCO ghi danh —
-            mỗi điệu hát, mỗi tiếng đàn là một mạch nguồn của hồn dân tộc.
+            {t(
+              "Mười lăm di sản văn hoá phi vật thể của Việt Nam đã được UNESCO ghi danh — mỗi điệu hát, mỗi tiếng đàn là một mạch nguồn của hồn dân tộc.",
+              "Fifteen Vietnamese intangible cultural heritages inscribed by UNESCO — every melody and every note is a wellspring of the nation's soul.",
+            )}
             <span className="block text-gold/70 italic font-serif-vn text-base mt-3">
-              Nhấp vào tên di sản để khám phá lịch sử và hình ảnh đầy đủ.
+              {t(
+                "Nhấp vào tên di sản để khám phá lịch sử và hình ảnh đầy đủ.",
+                "Click a heritage name to explore its full history and images.",
+              )}
             </span>
           </p>
           <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
@@ -90,10 +97,10 @@ export const HeritageGrid = () => {
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                   <span className="text-[10px] tracking-[0.3em] uppercase text-gold-light/90">
-                    Khởi nguyên · {item.origin}
+                    {t("Khởi nguyên", "Origin")} · {item.origin}
                   </span>
                   <span className="text-[10px] tracking-[0.3em] uppercase text-gold opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                    Xem <ArrowUpRight className="w-3 h-3" />
+                    {t("Xem", "View")} <ArrowUpRight className="w-3 h-3" />
                   </span>
                 </div>
               </Link>
@@ -101,7 +108,7 @@ export const HeritageGrid = () => {
               {/* Nội dung & lịch sử */}
               <div className="md:col-span-7 flex flex-col justify-center">
                 <div className="text-[10px] tracking-[0.4em] uppercase text-gold/70 mb-3">
-                  Di sản số 0{idx + 1}
+                  {t("Di sản số", "Heritage No.")} 0{idx + 1}
                 </div>
                 <Link to={`/di-san/${item.slug}`} className="group/title inline-block">
                   <h3 className="font-display text-4xl md:text-5xl text-background mb-4 leading-tight group-hover/title:text-gold transition-colors">
@@ -117,7 +124,7 @@ export const HeritageGrid = () => {
                 <div className="relative pl-6 border-l border-gold/30 space-y-5">
                   <div className="absolute -left-2 top-0 w-3 h-3 rounded-full bg-gold" />
                   <div className="text-[10px] tracking-[0.3em] uppercase text-gold/80 -mt-1 mb-2">
-                    Lịch sử hình thành
+                    {t("Lịch sử hình thành", "History")}
                   </div>
                   {item.history.slice(0, 3).map((h, i) => (
                     <div key={i} className="relative">
@@ -135,7 +142,7 @@ export const HeritageGrid = () => {
                       to={`/di-san/${item.slug}`}
                       className="inline-flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-gold hover:text-gold-light transition-colors mt-2"
                     >
-                      Xem trọn dòng lịch sử <ArrowUpRight className="w-3 h-3" />
+                      {t("Xem trọn dòng lịch sử", "View full timeline")} <ArrowUpRight className="w-3 h-3" />
                     </Link>
                   )}
                 </div>
@@ -147,10 +154,13 @@ export const HeritageGrid = () => {
         {/* Other heritage chips — bây giờ clickable */}
         <div className="mt-24 pt-16 border-t border-gold/15">
           <div className="text-center text-xs tracking-[0.3em] uppercase text-gold/70 mb-3">
-            11 di sản khác đã được UNESCO ghi danh
+            {t("11 di sản khác đã được UNESCO ghi danh", "11 other heritages inscribed by UNESCO")}
           </div>
           <div className="text-center text-[11px] italic font-serif-vn text-background/50 mb-8">
-            Nhấp vào từng di sản để xem hình ảnh, lịch sử và đặc trưng đầy đủ
+            {t(
+              "Nhấp vào từng di sản để xem hình ảnh, lịch sử và đặc trưng đầy đủ",
+              "Click each heritage to view full images, history and features",
+            )}
           </div>
           <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
             {others.map((h) => (

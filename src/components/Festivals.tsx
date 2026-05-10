@@ -1,7 +1,9 @@
 import { DrumOrnament } from "./DrumOrnament";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Calendar, MapPin, Sparkles, Compass } from "lucide-react";
+import { useT } from "@/contexts/LanguageContext";
+import { useAutoTranslate } from "@/hooks/useAutoTranslate";
 import tetImg from "@/assets/festivals/tet.jpg";
 import hungVuongImg from "@/assets/festivals/hung-vuong.jpg";
 import hoiLimImg from "@/assets/festivals/hoi-lim.jpg";
@@ -155,24 +157,62 @@ const regionStyle: Record<Region, string> = {
 
 export const Festivals = () => {
   const [selected, setSelected] = useState<Festival | null>(null);
+  const t = useT();
+
+  // Tự dịch toàn bộ chuỗi bên trong "festivals" theo ngôn ngữ hiện tại
+  const allTexts = useMemo(() => {
+    const arr: string[] = [];
+    festivals.forEach((f) => {
+      arr.push(f.name, f.place, f.desc, f.meaning);
+      f.schedule.forEach((s) => arr.push(s.time, s.activity));
+      f.locations.forEach((loc) => arr.push(loc));
+    });
+    return arr;
+  }, []);
+  const tr = useAutoTranslate(allTexts);
+  const festivalsI18n = useMemo(() => {
+    let i = 0;
+    return festivals.map((f) => {
+      const out = {
+        ...f,
+        name: tr[i++] ?? f.name,
+        place: tr[i++] ?? f.place,
+        desc: tr[i++] ?? f.desc,
+        meaning: tr[i++] ?? f.meaning,
+        schedule: f.schedule.map((s) => ({
+          time: tr[i++] ?? s.time,
+          activity: tr[i++] ?? s.activity,
+        })),
+        locations: f.locations.map((loc) => tr[i++] ?? loc),
+      };
+      return out;
+    });
+  }, [tr]);
+
+  // Khi đổi ngôn ngữ, cập nhật bản chi tiết đang chọn
+  const selectedI18n = selected
+    ? festivalsI18n.find((x) => x === selected) ??
+      festivalsI18n[festivals.findIndex((x) => x.name === selected.name)] ??
+      selected
+    : null;
 
   return (
     <section className="relative py-32 px-6 paper-texture">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <span className="text-xs tracking-[0.4em] uppercase text-vermilion font-medium">
-            Tầng IV · Lễ hội & phong tục
+            {t("Tầng IV · Lễ hội & phong tục", "Floor IV · Festivals & customs")}
           </span>
           <h2 className="font-display text-5xl md:text-7xl mt-6 text-gradient-patina">
-            Mùa hội <span className="italic">quê hương</span>
+            {t("Mùa hội", "Seasons of festival")} <span className="italic">{t("quê hương", "of the homeland")}</span>
           </h2>
           <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {festivals.map((f) => (
+          {festivalsI18n.map((f, idx) => (
             <article
-              key={f.name}
+              key={festivals[idx].name}
               className="group relative bg-card border border-border overflow-hidden hover:border-gold/60 hover:shadow-bronze transition-all duration-700 flex flex-col"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-muted">
@@ -188,7 +228,7 @@ export const Festivals = () => {
                 <span
                   className={`absolute top-3 right-3 text-[10px] tracking-[0.25em] uppercase px-2.5 py-1 border backdrop-blur-sm ${regionStyle[f.region]}`}
                 >
-                  Miền {f.region}
+                  {t("Miền", "Region")} {f.region}
                 </span>
                 <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[10px] tracking-[0.3em] uppercase text-gold-light">
                   <span>{f.date}</span>
@@ -201,10 +241,10 @@ export const Festivals = () => {
                 </h3>
                 <p className="text-foreground/75 leading-relaxed text-sm flex-1">{f.desc}</p>
                 <button
-                  onClick={() => setSelected(f)}
+                  onClick={() => setSelected(festivals[idx])}
                   className="mt-5 self-start text-xs tracking-[0.3em] uppercase text-vermilion border-b border-vermilion/40 pb-1 hover:text-gold hover:border-gold transition-colors"
                 >
-                  Xem thêm →
+                  {t("Xem thêm", "Read more")} →
                 </button>
               </div>
             </article>
@@ -214,24 +254,24 @@ export const Festivals = () => {
 
       <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-card border-gold/30 p-0">
-          {selected && (
+          {selectedI18n && selected && (
             <>
               <div className="relative aspect-[16/8] overflow-hidden">
                 <img
-                  src={selected.img}
-                  alt={selected.name}
+                  src={selectedI18n.img}
+                  alt={selectedI18n.name}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
                 <span
                   className={`absolute top-4 right-4 text-[10px] tracking-[0.25em] uppercase px-3 py-1.5 border backdrop-blur-sm ${regionStyle[selected.region]}`}
                 >
-                  Miền {selected.region}
+                  {t("Miền", "Region")} {selectedI18n.region}
                 </span>
                 <div className="absolute bottom-4 left-6 right-6">
                   <div className="flex items-center gap-4 text-[10px] tracking-[0.3em] uppercase text-gold-light mb-2">
-                    <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {selected.date}</span>
-                    <span className="flex items-center gap-1.5"><MapPin className="w-3 h-3" /> {selected.place}</span>
+                    <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {selectedI18n.date}</span>
+                    <span className="flex items-center gap-1.5"><MapPin className="w-3 h-3" /> {selectedI18n.place}</span>
                   </div>
                 </div>
               </div>
@@ -239,29 +279,29 @@ export const Festivals = () => {
               <div className="p-8 pt-4">
                 <DialogHeader className="text-left mb-6">
                   <DialogTitle className="font-display text-3xl md:text-4xl text-gradient-patina leading-tight">
-                    {selected.name}
+                    {selectedI18n.name}
                   </DialogTitle>
                   <DialogDescription className="sr-only">
-                    Chi tiết lễ hội {selected.name}
+                    {t("Chi tiết lễ hội", "Festival details")} {selectedI18n.name}
                   </DialogDescription>
                 </DialogHeader>
 
                 <div className="space-y-8">
                   <section>
                     <h4 className="flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-vermilion mb-3">
-                      <Sparkles className="w-3.5 h-3.5" /> Ý nghĩa
+                      <Sparkles className="w-3.5 h-3.5" /> {t("Ý nghĩa", "Meaning")}
                     </h4>
                     <p className="text-foreground/80 leading-relaxed font-serif-vn">
-                      {selected.meaning}
+                      {selectedI18n.meaning}
                     </p>
                   </section>
 
                   <section>
                     <h4 className="flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-vermilion mb-4">
-                      <Calendar className="w-3.5 h-3.5" /> Lịch trình
+                      <Calendar className="w-3.5 h-3.5" /> {t("Lịch trình", "Schedule")}
                     </h4>
                     <ul className="space-y-3">
-                      {selected.schedule.map((s, i) => (
+                      {selectedI18n.schedule.map((s, i) => (
                         <li key={i} className="flex gap-4 border-l-2 border-gold/40 pl-4 py-1">
                           <span className="text-xs tracking-[0.2em] uppercase text-gold min-w-[140px] font-medium">
                             {s.time}
@@ -276,10 +316,10 @@ export const Festivals = () => {
 
                   <section>
                     <h4 className="flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-vermilion mb-4">
-                      <Compass className="w-3.5 h-3.5" /> Địa điểm diễn ra theo miền
+                      <Compass className="w-3.5 h-3.5" /> {t("Địa điểm diễn ra theo miền", "Locations by region")}
                     </h4>
                     <ul className="space-y-2.5">
-                      {selected.locations.map((loc, i) => (
+                      {selectedI18n.locations.map((loc, i) => (
                         <li key={i} className="flex gap-3 text-sm text-foreground/80 leading-relaxed">
                           <MapPin className="w-4 h-4 text-bronze flex-shrink-0 mt-0.5" />
                           <span>{loc}</span>

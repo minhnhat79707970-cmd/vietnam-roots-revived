@@ -1,8 +1,11 @@
 import drumImg from "@/assets/dong-son-drum.jpg";
 import patternImg from "@/assets/drum-pattern.png";
 import { DrumOrnament } from "./DrumOrnament";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useT } from "@/contexts/LanguageContext";
 
 export const Hero = () => {
+  const t = useT();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-patina-deep">
       {/* Background drum image */}
@@ -16,6 +19,11 @@ export const Hero = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-patina-deep/70 via-patina-deep/50 to-patina-deep" />
         <div className="absolute inset-0 bg-gradient-to-r from-patina-deep via-transparent to-patina-deep/80" />
+      </div>
+
+      {/* Language switcher */}
+      <div className="absolute top-6 right-6 z-20">
+        <LanguageSwitcher variant="hero" />
       </div>
 
       {/* Spinning ornament rings */}
@@ -36,21 +44,23 @@ export const Hero = () => {
         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-gold/40 bg-patina-deep/50 backdrop-blur-sm mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
           <span className="text-xs tracking-[0.3em] uppercase text-gold-light font-medium">
-            Bảo tàng số · Di sản Việt
+            {t("Bảo tàng số · Di sản Việt", "Digital Museum · Vietnamese Heritage")}
           </span>
         </div>
 
         <h1 className="font-display text-6xl md:text-8xl lg:text-[10rem] leading-[0.95] text-background mb-6">
-          Hồn Việt
+          {t("Hồn Việt", "Hồn Việt")}
           <br />
-          <span className="italic text-gradient-bronze">ngàn đời</span>
+          <span className="italic text-gradient-bronze">{t("ngàn đời", "through the ages")}</span>
         </h1>
 
         <DrumOrnament className="text-gold/60 w-64 h-5 mx-auto my-8" />
 
         <p className="text-lg md:text-xl text-background/75 max-w-2xl mx-auto leading-relaxed font-light">
-          Hành trình qua bốn nghìn năm văn hiến — từ tiếng trống đồng Đông Sơn vọng từ thuở Văn Lang,
-          đến những làn điệu quan họ, ca trù, cồng chiêng còn ngân vang đến hôm nay.
+          {t(
+            "Hành trình qua bốn nghìn năm văn hiến — từ tiếng trống đồng Đông Sơn vọng từ thuở Văn Lang, đến những làn điệu quan họ, ca trù, cồng chiêng còn ngân vang đến hôm nay.",
+            "A journey through four millennia of civilization — from the bronze drums of Đông Sơn echoing from the Văn Lang era, to the Quan họ, Ca trù and gong melodies still resounding today.",
+          )}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
@@ -58,22 +68,22 @@ export const Hero = () => {
             href="#timeline"
             className="group px-8 py-4 bg-gradient-to-r from-gold-deep to-gold text-patina-deep font-medium tracking-wide hover:shadow-warm transition-all duration-500 ease-out"
           >
-            Khám phá dòng thời gian
+            {t("Khám phá dòng thời gian", "Explore the timeline")}
             <span className="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
           </a>
           <a
             href="#heritage"
             className="px-8 py-4 border border-gold/40 text-gold-light hover:bg-gold/10 transition-all duration-500"
           >
-            Di sản phi vật thể
+            {t("Di sản phi vật thể", "Intangible heritage")}
           </a>
         </div>
 
         <div className="mt-20 flex flex-wrap justify-center gap-x-12 gap-y-4 text-background/60">
           {[
-            ["4000+", "năm văn hiến"],
-            ["15", "di sản UNESCO"],
-            ["54", "dân tộc anh em"],
+            ["4000+", t("năm văn hiến", "years of civilization")],
+            ["15", t("di sản UNESCO", "UNESCO heritages")],
+            ["54", t("dân tộc anh em", "ethnic groups")],
           ].map(([n, l]) => (
             <div key={l} className="text-center">
               <div className="font-display text-3xl text-gold">{n}</div>
@@ -85,7 +95,7 @@ export const Hero = () => {
 
       {/* Scroll cue */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold-light/60 text-xs tracking-widest uppercase animate-float">
-        ↓ cuộn xuống
+        {t("↓ cuộn xuống", "↓ scroll")}
       </div>
     </section>
   );
