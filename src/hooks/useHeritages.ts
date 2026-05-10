@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { getHeritageImage } from "@/data/heritageImages";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translateDeep } from "@/lib/translateRow";
 import type {
   HeritageDetail,
   HistoryEra,
@@ -44,23 +46,28 @@ const mapRow = (r: Row): HeritageDetail => ({
   references: r.references ?? [],
 });
 
-export const useHeritages = () =>
-  useQuery({
-    queryKey: ["heritages"],
+export const useHeritages = () => {
+  const { language } = useLanguage();
+  return useQuery({
+    queryKey: ["heritages", language],
     queryFn: async (): Promise<HeritageDetail[]> => {
       const { data, error } = await supabase
         .from("heritages")
         .select("*")
         .order("display_order", { ascending: true });
       if (error) throw error;
-      return (data as unknown as Row[]).map(mapRow);
+      const items = (data as unknown as Row[]).map(mapRow);
+      if (language === "vi") return items;
+      return await translateDeep(items, language);
     },
     staleTime: 5 * 60_000,
   });
+};
 
-export const useHeritage = (slug: string | undefined) =>
-  useQuery({
-    queryKey: ["heritage", slug],
+export const useHeritage = (slug: string | undefined) => {
+  const { language } = useLanguage();
+  return useQuery({
+    queryKey: ["heritage", slug, language],
     enabled: Boolean(slug),
     queryFn: async (): Promise<HeritageDetail | null> => {
       const { data, error } = await supabase
@@ -69,7 +76,11 @@ export const useHeritage = (slug: string | undefined) =>
         .eq("slug", slug!)
         .maybeSingle();
       if (error) throw error;
-      return data ? mapRow(data as unknown as Row) : null;
+      if (!data) return null;
+      const item = mapRow(data as unknown as Row);
+      if (language === "vi") return item;
+      return await translateDeep(item, language);
     },
     staleTime: 5 * 60_000,
   });
+};
