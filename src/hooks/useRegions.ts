@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import type { RegionDetailData, RegionSlug } from "@/data/regions";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translateDeep } from "@/lib/translateRow";
 
 type Row = {
   slug: RegionSlug;
@@ -42,23 +44,28 @@ const mapRow = (r: Row): RegionDetailData => ({
   tangibleNote: r.tangible_note,
 });
 
-export const useRegions = () =>
-  useQuery({
-    queryKey: ["regions"],
+export const useRegions = () => {
+  const { language } = useLanguage();
+  return useQuery({
+    queryKey: ["regions", language],
     queryFn: async (): Promise<RegionDetailData[]> => {
       const { data, error } = await supabase
         .from("regions")
         .select("*")
         .order("display_order", { ascending: true });
       if (error) throw error;
-      return (data as unknown as Row[]).map(mapRow);
+      const items = (data as unknown as Row[]).map(mapRow);
+      if (language === "vi") return items;
+      return await translateDeep(items, language);
     },
     staleTime: 5 * 60_000,
   });
+};
 
-export const useRegion = (slug: string | undefined) =>
-  useQuery({
-    queryKey: ["region", slug],
+export const useRegion = (slug: string | undefined) => {
+  const { language } = useLanguage();
+  return useQuery({
+    queryKey: ["region", slug, language],
     enabled: Boolean(slug),
     queryFn: async (): Promise<RegionDetailData | null> => {
       const { data, error } = await supabase
@@ -67,7 +74,11 @@ export const useRegion = (slug: string | undefined) =>
         .eq("slug", slug!)
         .maybeSingle();
       if (error) throw error;
-      return data ? mapRow(data as unknown as Row) : null;
+      if (!data) return null;
+      const item = mapRow(data as unknown as Row);
+      if (language === "vi") return item;
+      return await translateDeep(item, language);
     },
     staleTime: 5 * 60_000,
   });
+};
