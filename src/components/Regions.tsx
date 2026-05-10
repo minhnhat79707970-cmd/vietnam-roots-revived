@@ -3,9 +3,11 @@ import templeImg from "@/assets/heritage-temple.jpg";
 import { SunStar } from "./DrumOrnament";
 import { useRegions } from "@/hooks/useRegions";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useT } from "@/contexts/LanguageContext";
 
 export const Regions = () => {
   const { data: regionsList = [], isLoading } = useRegions();
+  const t = useT();
   const regions = regionsList.map((r) => ({
     slug: r.slug,
     code: r.code,
@@ -24,10 +26,10 @@ export const Regions = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <span className="text-xs tracking-[0.4em] uppercase text-vermilion font-medium">
-            Tầng III · Bản đồ di sản
+            {t("Tầng III · Bản đồ di sản", "Floor III · Heritage map")}
           </span>
           <h2 className="font-display text-5xl md:text-7xl mt-6 text-gradient-patina">
-            Ba miền <span className="italic">một dải</span>
+            {t("Ba miền", "Three regions,")} <span className="italic">{t("một dải", "one land")}</span>
           </h2>
         </div>
 
@@ -67,7 +69,7 @@ export const Regions = () => {
               </ul>
 
               <div className="mt-8 pt-6 border-t border-border text-xs tracking-[0.3em] uppercase text-gold-deep group-hover:text-vermilion flex items-center gap-2 transition-colors">
-                Khám phá chi tiết <span aria-hidden>→</span>
+                {t("Khám phá chi tiết", "Explore in detail")} <span aria-hidden>→</span>
               </div>
             </Link>
           ))}
