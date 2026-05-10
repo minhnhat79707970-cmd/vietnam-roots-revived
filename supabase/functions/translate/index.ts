@@ -1,16 +1,12 @@
-import { corsHeaders } from "https://esm.sh/@supabase/supabase-js@2.95.0/dist/module/lib/cors.js";
-
 // Edge function: dịch một mảng chuỗi tiếng Việt sang ngôn ngữ đích bằng Lovable AI.
 // Body: { texts: string[], target: "en" | string }
 // Trả về: { translations: string[] }
 
-const FALLBACK_CORS = {
+const headers = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type",
 };
-
-const headers = corsHeaders ?? FALLBACK_CORS;
 
 const LANG_NAME: Record<string, string> = {
   en: "English",
