@@ -3,6 +3,7 @@ import { MessageSquare, Send, Star, Trash2 } from "lucide-react";
 import { DrumOrnament } from "@/components/DrumOrnament";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { useT } from "@/contexts/LanguageContext";
 
 interface Comment {
   id: string;
@@ -44,6 +45,7 @@ const formatDate = (ts: number) => {
 
 export const SiteFeedback = () => {
   const { toast } = useToast();
+  const t = useT();
   const [comments, setComments] = useState<Comment[]>([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
@@ -63,12 +65,12 @@ export const SiteFeedback = () => {
       message: message.trim(),
     });
     if (error) {
-      toast({ title: "Không gửi được", description: error.message, variant: "destructive" });
+      toast({ title: t("Không gửi được", "Failed to send"), description: error.message, variant: "destructive" });
       return;
     }
     const newComment: Comment = {
       id: `c-${Date.now()}`,
-      name: name.trim() || "Khách ẩn danh",
+      name: name.trim() || t("Khách ẩn danh", "Anonymous"),
       rating,
       message: message.trim(),
       createdAt: Date.now(),
@@ -78,8 +80,11 @@ export const SiteFeedback = () => {
     setMessage("");
     setRating(5);
     toast({
-      title: "Đã gửi nhận xét",
-      description: "Cảm ơn bạn đã chung tay giữ gìn di sản.",
+      title: t("Đã gửi nhận xét", "Comment sent"),
+      description: t(
+        "Cảm ơn bạn đã chung tay giữ gìn di sản.",
+        "Thank you for joining us in preserving heritage.",
+      ),
     });
   };
 
@@ -97,14 +102,17 @@ export const SiteFeedback = () => {
         <div className="text-center mb-16">
           <MessageSquare className="w-8 h-8 text-vermilion mx-auto mb-4" />
           <span className="text-[10px] tracking-[0.4em] uppercase text-vermilion">
-            Nhận xét &amp; góp ý
+            {t("Nhận xét & góp ý", "Reviews & feedback")}
           </span>
           <h2 className="font-display text-4xl md:text-6xl text-patina-deep mt-4 leading-tight">
-            Tiếng nói của <span className="italic text-gradient-bronze">cộng đồng</span>
+            {t("Tiếng nói của", "Voices of the")} <span className="italic text-gradient-bronze">{t("cộng đồng", "community")}</span>
           </h2>
           <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-6" />
           <p className="mt-6 font-serif-vn italic text-lg md:text-xl text-patina-deep/70 max-w-2xl mx-auto">
-            Chia sẻ cảm nhận của bạn về di sản văn hoá Việt Nam — mỗi tiếng nói là một viên gạch giữ gìn ký ức dân tộc.
+            {t(
+              "Chia sẻ cảm nhận của bạn về di sản văn hoá Việt Nam — mỗi tiếng nói là một viên gạch giữ gìn ký ức dân tộc.",
+              "Share your thoughts on Vietnam's cultural heritage — every voice is a brick that preserves the nation's memory.",
+            )}
           </p>
         </div>
 
@@ -115,21 +123,21 @@ export const SiteFeedback = () => {
             className="lg:col-span-2 lg:sticky lg:top-8 self-start bg-background border border-gold/20 p-6 md:p-8 h-fit"
           >
             <div className="text-[10px] tracking-[0.3em] uppercase text-gold-deep mb-5">
-              Để lại nhận xét
+              {t("Để lại nhận xét", "Leave a comment")}
             </div>
 
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Tên của bạn (tuỳ chọn)"
+              placeholder={t("Tên của bạn (tuỳ chọn)", "Your name (optional)")}
               className="w-full bg-transparent border-b border-gold/20 py-2 mb-5 text-patina-deep placeholder:text-patina/40 focus:outline-none focus:border-gold"
             />
 
             {/* Rating sao */}
             <div className="mb-5">
               <div className="text-[10px] tracking-[0.2em] uppercase text-patina/60 mb-2">
-                Đánh giá
+                {t("Đánh giá", "Rating")}
               </div>
               <div className="flex gap-1">
                 {[1, 2, 3, 4, 5].map((s) => (
@@ -137,7 +145,7 @@ export const SiteFeedback = () => {
                     key={s}
                     type="button"
                     onClick={() => setRating(s)}
-                    aria-label={`${s} sao`}
+                    aria-label={`${s} ${t("sao", "stars")}`}
                     className="p-1 transition-transform hover:scale-110"
                   >
                     <Star
@@ -155,7 +163,10 @@ export const SiteFeedback = () => {
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Nhận xét, góp ý hay câu chuyện của bạn về di sản Việt Nam…"
+              placeholder={t(
+                "Nhận xét, góp ý hay câu chuyện của bạn về di sản Việt Nam…",
+                "Your comments, suggestions or stories about Vietnamese heritage…",
+              )}
               rows={5}
               required
               className="w-full bg-transparent border-b border-gold/20 py-2 mb-6 text-patina-deep placeholder:text-patina/40 focus:outline-none focus:border-gold resize-none"
@@ -166,11 +177,14 @@ export const SiteFeedback = () => {
               className="inline-flex w-full items-center justify-center gap-2 text-xs tracking-[0.3em] uppercase bg-patina-deep text-gold-light border border-gold px-6 py-3.5 hover:bg-patina transition-colors"
             >
               <Send className="w-4 h-4" />
-              Gửi nhận xét
+              {t("Gửi nhận xét", "Send comment")}
             </button>
 
             <p className="mt-5 text-[11px] italic text-patina/60 font-serif-vn leading-relaxed">
-              * Nhận xét hiện được lưu trên thiết bị của bạn. Có thể tích hợp Lovable Cloud để lưu trữ và hiển thị công khai cho mọi người.
+              {t(
+                "* Nhận xét hiện được lưu trên thiết bị của bạn. Có thể tích hợp Lovable Cloud để lưu trữ và hiển thị công khai cho mọi người.",
+                "* Comments are stored on your device only. Backend storage can be enabled for public display.",
+              )}
             </p>
           </form>
 
@@ -178,14 +192,17 @@ export const SiteFeedback = () => {
           <div className="lg:col-span-3">
             <div className="flex items-baseline justify-between mb-6">
               <div className="text-[10px] tracking-[0.3em] uppercase text-patina/60">
-                {comments.length} nhận xét
+                {comments.length} {t("nhận xét", "comments")}
               </div>
             </div>
 
             {comments.length === 0 ? (
               <div className="bg-background border border-dashed border-gold/30 p-10 text-center">
                 <p className="font-serif-vn italic text-lg text-patina/60">
-                  Chưa có nhận xét nào — hãy là người đầu tiên góp tiếng nói.
+                  {t(
+                    "Chưa có nhận xét nào — hãy là người đầu tiên góp tiếng nói.",
+                    "No comments yet — be the first to share your voice.",
+                  )}
                 </p>
               </div>
             ) : (
@@ -222,7 +239,7 @@ export const SiteFeedback = () => {
                     </p>
                     <button
                       onClick={() => handleDelete(c.id)}
-                      aria-label="Xoá nhận xét này khỏi thiết bị"
+                      aria-label={t("Xoá nhận xét này khỏi thiết bị", "Remove this comment from device")}
                       className="absolute top-4 right-4 opacity-0 group-hover:opacity-60 hover:!opacity-100 transition-opacity text-patina/60 hover:text-vermilion"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
