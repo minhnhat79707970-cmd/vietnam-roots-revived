@@ -1,4 +1,7 @@
 import { DrumOrnament } from "./DrumOrnament";
+import { useT } from "@/contexts/LanguageContext";
+import { useAutoTranslate } from "@/hooks/useAutoTranslate";
+import { useMemo } from "react";
 
 const eras = [
   {
@@ -60,6 +63,25 @@ const eras = [
 ];
 
 export const Timeline = () => {
+  const t = useT();
+  // Gom tất cả chuỗi cần dịch theo thứ tự cố định để dùng cache hiệu quả
+  const allTexts = useMemo(
+    () =>
+      eras.flatMap((e) => [e.period, e.name, e.rulers, e.description, e.legacy]),
+    [],
+  );
+  const translated = useAutoTranslate(allTexts);
+  const erasI18n = useMemo(
+    () =>
+      eras.map((e, i) => ({
+        period: translated[i * 5 + 0] ?? e.period,
+        name: translated[i * 5 + 1] ?? e.name,
+        rulers: translated[i * 5 + 2] ?? e.rulers,
+        description: translated[i * 5 + 3] ?? e.description,
+        legacy: translated[i * 5 + 4] ?? e.legacy,
+      })),
+    [translated],
+  );
   return (
     <section id="timeline" className="relative py-32 px-6 paper-texture overflow-hidden">
       <div className="absolute top-20 left-10 w-2 h-2 rounded-full bg-vermilion/40" />
@@ -68,10 +90,10 @@ export const Timeline = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-24">
           <span className="text-xs tracking-[0.2em] uppercase text-vermilion font-medium">
-            Tầng I · Lịch sử hình thành
+            {t("Tầng I · Lịch sử hình thành", "Floor I · Origins of the nation")}
           </span>
           <h2 className="font-display text-5xl md:text-7xl mt-6 text-gradient-patina tracking-tight">
-            Bốn nghìn năm <span className="italic">dựng nước</span>
+            {t("Bốn nghìn năm", "Four thousand years")} <span className="italic">{t("dựng nước", "of nation-building")}</span>
           </h2>
           <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
         </div>
@@ -81,7 +103,7 @@ export const Timeline = () => {
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-patina to-transparent md:-translate-x-px" />
 
           <div className="space-y-20">
-            {eras.map((era, i) => (
+            {erasI18n.map((era, i) => (
               <div
                 key={era.name}
                 className={`relative grid md:grid-cols-2 gap-8 items-center ${
