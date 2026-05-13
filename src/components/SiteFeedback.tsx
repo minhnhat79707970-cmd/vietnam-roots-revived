@@ -152,7 +152,7 @@ export const SiteFeedback = () => {
                       className={`w-6 h-6 transition-colors ${
                         s <= rating
                           ? "fill-gold text-gold"
-                          : "text-patina/30"
+                          : "text-patina/50"
                       }`}
                     />
                   </button>
