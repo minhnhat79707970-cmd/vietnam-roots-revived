@@ -108,7 +108,7 @@ export const SiteFeedback = () => {
             {t("Tiếng nói của", "Voices of the")} <span className="italic text-gradient-bronze">{t("cộng đồng", "community")}</span>
           </h2>
           <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-6" />
-          <p className="mt-6 font-serif-vn italic text-lg md:text-xl text-patina-deep/70 max-w-2xl mx-auto">
+          <p className="mt-6 font-serif-vn italic text-lg md:text-xl text-patina-deep/85 max-w-2xl mx-auto">
             {t(
               "Chia sẻ cảm nhận của bạn về di sản văn hoá Việt Nam — mỗi tiếng nói là một viên gạch giữ gìn ký ức dân tộc.",
               "Share your thoughts on Vietnam's cultural heritage — every voice is a brick that preserves the nation's memory.",
