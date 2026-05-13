@@ -191,7 +191,7 @@ export const SiteFeedback = () => {
           {/* Danh sách nhận xét */}
           <div className="lg:col-span-3">
             <div className="flex items-baseline justify-between mb-6">
-              <div className="text-[10px] tracking-[0.3em] uppercase text-patina/60">
+              <div className="text-[10px] tracking-[0.3em] uppercase text-patina/80">
                 {comments.length} {t("nhận xét", "comments")}
               </div>
             </div>
