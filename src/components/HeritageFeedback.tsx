@@ -145,7 +145,7 @@ export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedba
             placeholder="Cảm nhận, góp ý hay câu chuyện của bạn về di sản này…"
             rows={4}
             required
-            className="w-full bg-transparent border-b border-gold/20 py-2 mb-6 text-patina-deep placeholder:text-patina/40 focus:outline-none focus:border-gold resize-none"
+            className="w-full bg-transparent border-b border-gold/20 py-2 mb-6 text-patina-deep placeholder:text-patina/60 focus:outline-none focus:border-gold resize-none"
           />
           <div className="flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center">
             <button
