@@ -198,7 +198,7 @@ export const SiteFeedback = () => {
 
             {comments.length === 0 ? (
               <div className="bg-background border border-dashed border-gold/30 p-10 text-center">
-                <p className="font-serif-vn italic text-lg text-patina/60">
+                <p className="font-serif-vn italic text-lg text-patina/80">
                   {t(
                     "Chưa có nhận xét nào — hãy là người đầu tiên góp tiếng nói.",
                     "No comments yet — be the first to share your voice.",
