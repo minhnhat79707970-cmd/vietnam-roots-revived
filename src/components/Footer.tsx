@@ -25,7 +25,7 @@ export const Footer = () => {
 
         <DrumOrnament className="text-gold w-48 h-5 mx-auto my-12" />
 
-        <div className="grid md:grid-cols-3 gap-8 text-left text-sm text-background/60 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 text-left text-sm text-background/80 max-w-3xl mx-auto">
           <div>
             <div className="text-gold uppercase tracking-widest text-xs mb-3">{t("Khám phá", "Explore")}</div>
             <ul className="space-y-2">
