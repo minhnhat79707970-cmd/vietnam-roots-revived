@@ -180,7 +180,7 @@ export const SiteFeedback = () => {
               {t("Gửi nhận xét", "Send comment")}
             </button>
 
-            <p className="mt-5 text-[11px] italic text-patina/60 font-serif-vn leading-relaxed">
+            <p className="mt-5 text-[11px] italic text-patina/80 font-serif-vn leading-relaxed">
               {t(
                 "* Nhận xét hiện được lưu trên thiết bị của bạn. Có thể tích hợp Lovable Cloud để lưu trữ và hiển thị công khai cho mọi người.",
                 "* Comments are stored on your device only. Backend storage can be enabled for public display.",
