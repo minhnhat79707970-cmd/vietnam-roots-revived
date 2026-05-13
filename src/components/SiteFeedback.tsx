@@ -169,7 +169,7 @@ export const SiteFeedback = () => {
               )}
               rows={5}
               required
-              className="w-full bg-transparent border-b border-gold/20 py-2 mb-6 text-patina-deep placeholder:text-patina/40 focus:outline-none focus:border-gold resize-none"
+              className="w-full bg-transparent border-b border-gold/20 py-2 mb-6 text-patina-deep placeholder:text-patina/60 focus:outline-none focus:border-gold resize-none"
             />
 
             <button
