@@ -197,7 +197,7 @@ export const Festivals = () => {
     : null;
 
   return (
-    <section className="relative py-32 px-6 paper-texture">
+    <section id="festivals" className="relative py-32 px-6 paper-texture scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <span className="text-xs tracking-[0.4em] uppercase text-vermilion font-medium">

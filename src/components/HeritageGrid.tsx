@@ -19,7 +19,7 @@ export const HeritageGrid = () => {
   const others = heritages.filter((h) => !featuredSlugs.includes(h.slug));
 
   return (
-    <section id="heritage" className="relative py-32 px-6 bg-patina-deep text-background overflow-hidden">
+    <section id="heritage" className="relative py-32 px-6 bg-patina-deep text-background overflow-hidden scroll-mt-20">
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
