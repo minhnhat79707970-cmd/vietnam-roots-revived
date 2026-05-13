@@ -132,7 +132,7 @@ export const HeritageGrid = () => {
                       <div className="font-serif-vn italic text-gold-light text-lg mb-1">
                         {h.era}
                       </div>
-                      <p className="text-background/65 text-sm leading-relaxed max-w-xl">
+                      <p className="text-background/80 text-sm leading-relaxed max-w-xl">
                         {h.note}
                       </p>
                     </div>
