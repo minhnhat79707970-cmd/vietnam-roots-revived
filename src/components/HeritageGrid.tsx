@@ -156,7 +156,7 @@ export const HeritageGrid = () => {
           <div className="text-center text-xs tracking-[0.3em] uppercase text-gold/70 mb-3">
             {t("11 di sản khác đã được UNESCO ghi danh", "11 other heritages inscribed by UNESCO")}
           </div>
-          <div className="text-center text-[11px] italic font-serif-vn text-background/50 mb-8">
+          <div className="text-center text-[11px] italic font-serif-vn text-background/70 mb-8">
             {t(
               "Nhấp vào từng di sản để xem hình ảnh, lịch sử và đặc trưng đầy đủ",
               "Click each heritage to view full images, history and features",
