@@ -91,7 +91,7 @@ export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedba
           <h2 className="font-display text-4xl md:text-5xl text-patina-deep mt-4 leading-tight">
             Chung tay <span className="italic text-gradient-bronze">giữ gìn</span>
           </h2>
-          <p className="mt-6 font-serif-vn italic text-lg text-patina-deep/70 max-w-2xl mx-auto">
+          <p className="mt-6 font-serif-vn italic text-lg text-patina-deep/85 max-w-2xl mx-auto">
             Một biểu cảm, một dòng góp ý của bạn cũng là cách di sản tiếp tục sống.
           </p>
         </div>
