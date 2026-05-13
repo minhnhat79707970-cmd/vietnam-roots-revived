@@ -55,7 +55,7 @@ export const Footer = () => {
           <LanguageSwitcher variant="footer" />
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gold/10 text-xs text-background/40 tracking-widest uppercase">
+        <div className="mt-16 pt-8 border-t border-gold/10 text-xs text-background/70 tracking-widest uppercase">
           © {new Date().getFullYear()} Hồn Việt · {t("Bảo tàng số di sản Việt Nam", "Digital museum of Vietnamese heritage")}
         </div>
       </div>
