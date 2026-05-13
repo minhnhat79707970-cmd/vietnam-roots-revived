@@ -190,7 +190,7 @@ export const HeritageTOC = ({ items }: HeritageTOCProps) => {
                   >
                     <span
                       className={`font-display text-xs tabular-nums transition-colors ${
-                        isActive ? "text-gold-deep" : "text-patina/40 group-hover:text-gold"
+                        isActive ? "text-gold-deep" : "text-patina/60 group-hover:text-gold"
                       }`}
                     >
                       {String(idx + 1).padStart(2, "0")}
