@@ -403,7 +403,7 @@ const HeritageDetail = () => {
               })}
             </ol>
 
-            <p className="mt-10 text-xs italic text-background/50 font-serif-vn leading-relaxed">
+            <p className="mt-10 text-xs italic text-background/70 font-serif-vn leading-relaxed">
               * Nguồn tham khảo được tổng hợp từ hồ sơ UNESCO, các công trình nghiên cứu khoa học,
               tài liệu của Cục Di sản Văn hoá và các trung tâm bảo tồn chuyên ngành.
             </p>
