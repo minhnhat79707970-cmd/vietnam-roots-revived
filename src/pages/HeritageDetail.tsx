@@ -370,7 +370,7 @@ const HeritageDetail = () => {
                           <ExternalLink className="inline w-3.5 h-3.5 ml-2 opacity-50 group-hover:opacity-100" />
                         )}
                       </div>
-                      <div className="text-xs tracking-[0.15em] uppercase text-background/60 flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <div className="text-xs tracking-[0.15em] uppercase text-background/80 flex flex-wrap items-center gap-x-3 gap-y-1">
                         <span>{ref.source}</span>
                         {ref.year && (
                           <>
