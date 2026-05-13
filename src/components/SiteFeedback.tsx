@@ -95,7 +95,7 @@ export const SiteFeedback = () => {
   return (
     <section
       id="gop-y"
-      className="relative py-24 md:py-32 px-6 md:px-12 bg-secondary border-t border-gold/20"
+      className="relative py-24 md:py-32 px-6 md:px-12 bg-secondary border-t border-gold/20 scroll-mt-20"
     >
       <div className="max-w-5xl mx-auto">
         {/* Tiêu đề */}
