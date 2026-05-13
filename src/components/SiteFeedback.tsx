@@ -131,7 +131,7 @@ export const SiteFeedback = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t("Tên của bạn (tuỳ chọn)", "Your name (optional)")}
-              className="w-full bg-transparent border-b border-gold/20 py-2 mb-5 text-patina-deep placeholder:text-patina/40 focus:outline-none focus:border-gold"
+              className="w-full bg-transparent border-b border-gold/20 py-2 mb-5 text-patina-deep placeholder:text-patina/60 focus:outline-none focus:border-gold"
             />
 
             {/* Rating sao */}
