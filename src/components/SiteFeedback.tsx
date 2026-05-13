@@ -136,7 +136,7 @@ export const SiteFeedback = () => {
 
             {/* Rating sao */}
             <div className="mb-5">
-              <div className="text-[10px] tracking-[0.2em] uppercase text-patina/60 mb-2">
+              <div className="text-[10px] tracking-[0.2em] uppercase text-patina/80 mb-2">
                 {t("Đánh giá", "Rating")}
               </div>
               <div className="flex gap-1">
