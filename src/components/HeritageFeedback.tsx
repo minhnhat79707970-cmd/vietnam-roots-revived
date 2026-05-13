@@ -167,7 +167,7 @@ export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedba
           </div>
         </form>
 
-        <p className="mt-6 text-xs italic text-patina/60 text-center font-serif-vn">
+        <p className="mt-6 text-xs italic text-patina/80 text-center font-serif-vn">
           * Góp ý hiện được lưu tạm thời trên thiết bị của bạn — chúng tôi sẽ tích hợp Lovable Cloud nếu bạn muốn lưu trữ và hiển thị công khai.
         </p>
       </div>
