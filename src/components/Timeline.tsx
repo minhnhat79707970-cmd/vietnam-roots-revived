@@ -83,7 +83,7 @@ export const Timeline = () => {
     [translated],
   );
   return (
-    <section id="timeline" className="relative py-32 px-6 paper-texture overflow-hidden">
+    <section id="timeline" className="relative py-32 px-6 paper-texture overflow-hidden scroll-mt-20">
       <div className="absolute top-20 left-10 w-2 h-2 rounded-full bg-vermilion/40" />
       <div className="absolute bottom-40 right-20 w-3 h-3 rounded-full bg-gold/30" />
 
