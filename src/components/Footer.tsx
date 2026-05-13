@@ -25,7 +25,7 @@ export const Footer = () => {
 
         <DrumOrnament className="text-gold w-48 h-5 mx-auto my-12" />
 
-        <div className="grid md:grid-cols-3 gap-8 text-left text-sm text-background/60 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 text-left text-sm text-background/80 max-w-3xl mx-auto">
           <div>
             <div className="text-gold uppercase tracking-widest text-xs mb-3">{t("Khám phá", "Explore")}</div>
             <ul className="space-y-2">
@@ -55,7 +55,7 @@ export const Footer = () => {
           <LanguageSwitcher variant="footer" />
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gold/10 text-xs text-background/40 tracking-widest uppercase">
+        <div className="mt-16 pt-8 border-t border-gold/10 text-xs text-background/70 tracking-widest uppercase">
           © {new Date().getFullYear()} Hồn Việt · {t("Bảo tàng số di sản Việt Nam", "Digital museum of Vietnamese heritage")}
         </div>
       </div>

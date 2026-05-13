@@ -79,7 +79,7 @@ export const Hero = () => {
           </a>
         </div>
 
-        <div className="mt-20 flex flex-wrap justify-center gap-x-12 gap-y-4 text-background/60">
+        <div className="mt-20 flex flex-wrap justify-center gap-x-12 gap-y-4 text-background/80">
           {[
             ["4000+", t("năm văn hiến", "years of civilization")],
             ["15", t("di sản UNESCO", "UNESCO heritages")],

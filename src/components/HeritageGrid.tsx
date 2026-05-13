@@ -36,7 +36,7 @@ export const HeritageGrid = () => {
           <h2 className="font-display text-5xl md:text-7xl mt-6">
             {t("Tiếng vọng", "Echoes of")} <span className="italic text-gradient-bronze">{t("ngàn năm", "a thousand years")}</span>
           </h2>
-          <p className="text-background/60 max-w-2xl mx-auto mt-6 leading-relaxed">
+          <p className="text-background/80 max-w-2xl mx-auto mt-6 leading-relaxed">
             {t(
               "Mười lăm di sản văn hoá phi vật thể của Việt Nam đã được UNESCO ghi danh — mỗi điệu hát, mỗi tiếng đàn là một mạch nguồn của hồn dân tộc.",
               "Fifteen Vietnamese intangible cultural heritages inscribed by UNESCO — every melody and every note is a wellspring of the nation's soul.",
@@ -132,7 +132,7 @@ export const HeritageGrid = () => {
                       <div className="font-serif-vn italic text-gold-light text-lg mb-1">
                         {h.era}
                       </div>
-                      <p className="text-background/65 text-sm leading-relaxed max-w-xl">
+                      <p className="text-background/80 text-sm leading-relaxed max-w-xl">
                         {h.note}
                       </p>
                     </div>
@@ -156,7 +156,7 @@ export const HeritageGrid = () => {
           <div className="text-center text-xs tracking-[0.3em] uppercase text-gold/70 mb-3">
             {t("11 di sản khác đã được UNESCO ghi danh", "11 other heritages inscribed by UNESCO")}
           </div>
-          <div className="text-center text-[11px] italic font-serif-vn text-background/50 mb-8">
+          <div className="text-center text-[11px] italic font-serif-vn text-background/70 mb-8">
             {t(
               "Nhấp vào từng di sản để xem hình ảnh, lịch sử và đặc trưng đầy đủ",
               "Click each heritage to view full images, history and features",

@@ -108,7 +108,7 @@ export const SiteFeedback = () => {
             {t("Tiếng nói của", "Voices of the")} <span className="italic text-gradient-bronze">{t("cộng đồng", "community")}</span>
           </h2>
           <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-6" />
-          <p className="mt-6 font-serif-vn italic text-lg md:text-xl text-patina-deep/70 max-w-2xl mx-auto">
+          <p className="mt-6 font-serif-vn italic text-lg md:text-xl text-patina-deep/85 max-w-2xl mx-auto">
             {t(
               "Chia sẻ cảm nhận của bạn về di sản văn hoá Việt Nam — mỗi tiếng nói là một viên gạch giữ gìn ký ức dân tộc.",
               "Share your thoughts on Vietnam's cultural heritage — every voice is a brick that preserves the nation's memory.",
@@ -131,12 +131,12 @@ export const SiteFeedback = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t("Tên của bạn (tuỳ chọn)", "Your name (optional)")}
-              className="w-full bg-transparent border-b border-gold/20 py-2 mb-5 text-patina-deep placeholder:text-patina/40 focus:outline-none focus:border-gold"
+              className="w-full bg-transparent border-b border-gold/20 py-2 mb-5 text-patina-deep placeholder:text-patina/60 focus:outline-none focus:border-gold"
             />
 
             {/* Rating sao */}
             <div className="mb-5">
-              <div className="text-[10px] tracking-[0.2em] uppercase text-patina/60 mb-2">
+              <div className="text-[10px] tracking-[0.2em] uppercase text-patina/80 mb-2">
                 {t("Đánh giá", "Rating")}
               </div>
               <div className="flex gap-1">
@@ -152,7 +152,7 @@ export const SiteFeedback = () => {
                       className={`w-6 h-6 transition-colors ${
                         s <= rating
                           ? "fill-gold text-gold"
-                          : "text-patina/30"
+                          : "text-patina/50"
                       }`}
                     />
                   </button>
@@ -169,7 +169,7 @@ export const SiteFeedback = () => {
               )}
               rows={5}
               required
-              className="w-full bg-transparent border-b border-gold/20 py-2 mb-6 text-patina-deep placeholder:text-patina/40 focus:outline-none focus:border-gold resize-none"
+              className="w-full bg-transparent border-b border-gold/20 py-2 mb-6 text-patina-deep placeholder:text-patina/60 focus:outline-none focus:border-gold resize-none"
             />
 
             <button
@@ -180,7 +180,7 @@ export const SiteFeedback = () => {
               {t("Gửi nhận xét", "Send comment")}
             </button>
 
-            <p className="mt-5 text-[11px] italic text-patina/60 font-serif-vn leading-relaxed">
+            <p className="mt-5 text-[11px] italic text-patina/80 font-serif-vn leading-relaxed">
               {t(
                 "* Nhận xét hiện được lưu trên thiết bị của bạn. Có thể tích hợp Lovable Cloud để lưu trữ và hiển thị công khai cho mọi người.",
                 "* Comments are stored on your device only. Backend storage can be enabled for public display.",
@@ -191,14 +191,14 @@ export const SiteFeedback = () => {
           {/* Danh sách nhận xét */}
           <div className="lg:col-span-3">
             <div className="flex items-baseline justify-between mb-6">
-              <div className="text-[10px] tracking-[0.3em] uppercase text-patina/60">
+              <div className="text-[10px] tracking-[0.3em] uppercase text-patina/80">
                 {comments.length} {t("nhận xét", "comments")}
               </div>
             </div>
 
             {comments.length === 0 ? (
               <div className="bg-background border border-dashed border-gold/30 p-10 text-center">
-                <p className="font-serif-vn italic text-lg text-patina/60">
+                <p className="font-serif-vn italic text-lg text-patina/80">
                   {t(
                     "Chưa có nhận xét nào — hãy là người đầu tiên góp tiếng nói.",
                     "No comments yet — be the first to share your voice.",

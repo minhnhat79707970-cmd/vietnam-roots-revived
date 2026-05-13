@@ -91,7 +91,7 @@ export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedba
           <h2 className="font-display text-4xl md:text-5xl text-patina-deep mt-4 leading-tight">
             Chung tay <span className="italic text-gradient-bronze">giữ gìn</span>
           </h2>
-          <p className="mt-6 font-serif-vn italic text-lg text-patina-deep/70 max-w-2xl mx-auto">
+          <p className="mt-6 font-serif-vn italic text-lg text-patina-deep/85 max-w-2xl mx-auto">
             Một biểu cảm, một dòng góp ý của bạn cũng là cách di sản tiếp tục sống.
           </p>
         </div>
@@ -137,7 +137,7 @@ export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedba
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Tên của bạn (tuỳ chọn)"
-            className="w-full bg-transparent border-b border-gold/20 py-2 mb-4 text-patina-deep placeholder:text-patina/40 focus:outline-none focus:border-gold"
+            className="w-full bg-transparent border-b border-gold/20 py-2 mb-4 text-patina-deep placeholder:text-patina/60 focus:outline-none focus:border-gold"
           />
           <textarea
             value={message}
@@ -145,7 +145,7 @@ export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedba
             placeholder="Cảm nhận, góp ý hay câu chuyện của bạn về di sản này…"
             rows={4}
             required
-            className="w-full bg-transparent border-b border-gold/20 py-2 mb-6 text-patina-deep placeholder:text-patina/40 focus:outline-none focus:border-gold resize-none"
+            className="w-full bg-transparent border-b border-gold/20 py-2 mb-6 text-patina-deep placeholder:text-patina/60 focus:outline-none focus:border-gold resize-none"
           />
           <div className="flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center">
             <button
@@ -167,7 +167,7 @@ export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedba
           </div>
         </form>
 
-        <p className="mt-6 text-xs italic text-patina/60 text-center font-serif-vn">
+        <p className="mt-6 text-xs italic text-patina/80 text-center font-serif-vn">
           * Góp ý hiện được lưu tạm thời trên thiết bị của bạn — chúng tôi sẽ tích hợp Lovable Cloud nếu bạn muốn lưu trữ và hiển thị công khai.
         </p>
       </div>

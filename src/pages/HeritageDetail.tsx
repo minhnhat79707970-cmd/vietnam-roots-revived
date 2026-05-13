@@ -370,7 +370,7 @@ const HeritageDetail = () => {
                           <ExternalLink className="inline w-3.5 h-3.5 ml-2 opacity-50 group-hover:opacity-100" />
                         )}
                       </div>
-                      <div className="text-xs tracking-[0.15em] uppercase text-background/60 flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <div className="text-xs tracking-[0.15em] uppercase text-background/80 flex flex-wrap items-center gap-x-3 gap-y-1">
                         <span>{ref.source}</span>
                         {ref.year && (
                           <>
@@ -403,7 +403,7 @@ const HeritageDetail = () => {
               })}
             </ol>
 
-            <p className="mt-10 text-xs italic text-background/50 font-serif-vn leading-relaxed">
+            <p className="mt-10 text-xs italic text-background/70 font-serif-vn leading-relaxed">
               * Nguồn tham khảo được tổng hợp từ hồ sơ UNESCO, các công trình nghiên cứu khoa học,
               tài liệu của Cục Di sản Văn hoá và các trung tâm bảo tồn chuyên ngành.
             </p>
