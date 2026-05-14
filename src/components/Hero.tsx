@@ -16,6 +16,7 @@ export const Hero = () => {
           className="h-full w-full object-cover opacity-40"
           width={1600}
           height={1600}
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-patina-deep/70 via-patina-deep/50 to-patina-deep" />
         <div className="absolute inset-0 bg-gradient-to-r from-patina-deep via-transparent to-patina-deep/80" />

@@ -128,6 +128,7 @@ export const SiteFeedback = () => {
 
             <input
               type="text"
+              aria-label={t("Tên của bạn", "Your name")}
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t("Tên của bạn (tuỳ chọn)", "Your name (optional)")}
@@ -161,6 +162,7 @@ export const SiteFeedback = () => {
             </div>
 
             <textarea
+              aria-label={t("Nội dung nhận xét", "Comment message")}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder={t(
