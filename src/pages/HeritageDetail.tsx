@@ -6,6 +6,7 @@ import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import { Footer } from "@/components/Footer";
 import { HeritageTOC } from "@/components/HeritageTOC";
 import { HeritageFeedback } from "@/components/HeritageFeedback";
+import { SEO } from "@/components/SEO";
 import NotFound from "./NotFound";
 
 const HeritageDetail = () => {
@@ -84,6 +85,23 @@ const HeritageDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${heritage.title} — Di sản UNESCO ${heritage.year} · Hồn Việt`}
+        description={heritage.shortDesc || heritage.subtitle}
+        path={`/di-san/${heritage.slug}`}
+        type="article"
+        image={heritage.img}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: heritage.title,
+          description: heritage.subtitle,
+          image: heritage.img,
+          inLanguage: "vi",
+          about: heritage.unescoType,
+          mainEntityOfPage: `https://vietnam-roots-revived.lovable.app/di-san/${heritage.slug}`,
+        }}
+      />
       <HeritageTOC items={tocItems} />
 
       {/* Hero — toàn màn hình hình ảnh */}

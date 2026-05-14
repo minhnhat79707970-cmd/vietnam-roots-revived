@@ -1,0 +1,30 @@
+# Hồn Việt
+
+> Bảo tàng số về di sản văn hoá và lịch sử Việt Nam — bốn nghìn năm văn hiến, di sản UNESCO, lễ hội, và bản đồ ba miền.
+
+The site presents Vietnam's heritage in Vietnamese and English: dynasty timeline, intangible heritage detail pages, regional cultural maps (North/Central/South), festivals, and community feedback.
+
+## Pages
+
+- [Trang chủ / Home](/): Tổng quan dòng thời gian, di sản phi vật thể, ba miền, lễ hội.
+- [Miền Bắc / Northern region](/mien/bac): Di sản, địa danh và văn hoá miền Bắc.
+- [Miền Trung / Central region](/mien/trung): Di sản, địa danh và văn hoá miền Trung.
+- [Miền Nam / Southern region](/mien/nam): Di sản, địa danh và văn hoá miền Nam.
+
+## Heritage details
+
+- [Nhã nhạc cung đình Huế](/di-san/nha-nhac-cung-dinh-hue)
+- [Không gian văn hoá Cồng Chiêng Tây Nguyên](/di-san/khong-gian-cong-chieng)
+- [Dân ca Quan họ Bắc Ninh](/di-san/dan-ca-quan-ho)
+- [Ca trù](/di-san/ca-tru)
+- [Hội Gióng đền Phù Đổng và đền Sóc](/di-san/hoi-giong)
+- [Hát Xoan Phú Thọ](/di-san/hat-xoan)
+- [Tín ngưỡng thờ cúng Hùng Vương](/di-san/tin-nguong-tho-hung-vuong)
+- [Đờn ca tài tử Nam Bộ](/di-san/don-ca-tai-tu)
+- [Dân ca Ví, Giặm Nghệ Tĩnh](/di-san/vi-giam-nghe-tinh)
+- [Nghi lễ và trò chơi kéo co](/di-san/nghi-le-keo-co)
+- [Tín ngưỡng thờ Mẫu Tam phủ](/di-san/tho-mau-tam-phu)
+- [Nghệ thuật Bài Chòi Trung Bộ](/di-san/bai-choi)
+- [Thực hành Then của người Tày, Nùng, Thái](/di-san/thuc-hanh-then)
+- [Nghệ thuật Xòe Thái](/di-san/xoe-thai)
+- [Nghệ thuật làm gốm của người Chăm](/di-san/gom-cham)

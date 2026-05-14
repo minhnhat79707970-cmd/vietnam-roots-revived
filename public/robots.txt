@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://vietnam-roots-revived.lovable.app/sitemap.xml

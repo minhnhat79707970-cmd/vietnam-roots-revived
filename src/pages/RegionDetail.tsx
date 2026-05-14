@@ -4,6 +4,7 @@ import { useRegion, useRegions } from "@/hooks/useRegions";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import templeImg from "@/assets/heritage-temple.jpg";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 // Landmark images — Bắc
 import imgHanoi from "@/assets/landmarks/hanoi-old-quarter.jpg";
@@ -89,6 +90,11 @@ const RegionDetail = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <SEO
+        title={`${data.name} — Di sản & địa danh · Hồn Việt`}
+        description={data.intro || data.tagline}
+        path={`/mien/${data.slug}`}
+      />
       {/* HERO */}
       <section className="relative min-h-[80vh] flex items-end overflow-hidden bg-patina-deep text-background">
         <div className="absolute inset-0">
