@@ -1,5 +1,5 @@
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowLeft, MapPin, Music2, Sparkles, Landmark as LandmarkIcon, Building2 } from "lucide-react";
+import { ArrowLeft, MapPin, Music2, Sparkles, Landmark as LandmarkIcon, Building2, Home } from "lucide-react";
 import { useRegion, useRegions } from "@/hooks/useRegions";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import templeImg from "@/assets/heritage-temple.jpg";
@@ -106,12 +106,20 @@ const RegionDetail = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-20 w-full">
-          <Link
-            to="/#regions"
-            className="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-gold/80 hover:text-gold transition-colors mb-12"
-          >
-            <ArrowLeft className="w-3 h-3" /> Quay về bản đồ di sản
-          </Link>
+          <div className="flex flex-wrap items-center gap-5 mb-12">
+            <Link
+              to="/#regions"
+              className="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-gold/80 hover:text-gold transition-colors"
+            >
+              <ArrowLeft className="w-3 h-3" /> Quay về bản đồ di sản
+            </Link>
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-gold/80 hover:text-gold transition-colors border-l border-gold/20 pl-5"
+            >
+              <Home className="w-3 h-3" /> Trang chủ
+            </Link>
+          </div>
 
           <div className="font-display text-[12rem] md:text-[18rem] leading-[0.8] text-gold/20 -mb-8">
             {data.code}

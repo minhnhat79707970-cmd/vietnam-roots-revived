@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, MapPin, Calendar, Award, Sparkles, BookOpen, ExternalLink, Layers, Filter } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Award, Sparkles, BookOpen, ExternalLink, Layers, Filter, Home } from "lucide-react";
 import { useHeritage, useHeritages } from "@/hooks/useHeritages";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import { Footer } from "@/components/Footer";
@@ -120,13 +120,22 @@ const HeritageDetail = () => {
 
         {/* Nav back */}
         <nav className="absolute top-0 left-0 right-0 z-10 px-6 md:px-12 py-6 flex items-center justify-between">
-          <Link
-            to="/#heritage"
-            className="group inline-flex items-center gap-2 text-background/80 hover:text-gold transition-colors text-xs tracking-[0.3em] uppercase"
-          >
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            Trở về di sản
-          </Link>
+          <div className="flex items-center gap-5">
+            <Link
+              to="/#heritage"
+              className="group inline-flex items-center gap-2 text-background/80 hover:text-gold transition-colors text-xs tracking-[0.3em] uppercase"
+            >
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+              Trở về di sản
+            </Link>
+            <Link
+              to="/"
+              className="group inline-flex items-center gap-2 text-background/80 hover:text-gold transition-colors text-xs tracking-[0.3em] uppercase border-l border-background/20 pl-5"
+            >
+              <Home className="w-4 h-4" />
+              Trang chủ
+            </Link>
+          </div>
           <div className="text-[10px] tracking-[0.4em] uppercase text-gold/70">
             Di sản · {String(idx + 1).padStart(2, "0")} / {String(heritages.length).padStart(2, "0")}
           </div>
