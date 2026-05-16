@@ -86,7 +86,7 @@ const HeritageDetail = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`${heritage.title} — Di sản UNESCO ${heritage.year} · Hồn Việt`}
+        title={`${heritage.title} · Hồn Việt`}
         description={heritage.shortDesc || heritage.subtitle}
         path={`/di-san/${heritage.slug}`}
         type="article"
