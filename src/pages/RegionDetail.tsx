@@ -94,6 +94,7 @@ const RegionDetail = () => {
         title={`${data.name} — Di sản & địa danh · Hồn Việt`}
         description={data.intro || data.tagline}
         path={`/mien/${data.slug}`}
+        image={templeImg}
       />
       {/* HERO */}
       <section className="relative min-h-[80vh] flex items-end overflow-hidden bg-patina-deep text-background">
