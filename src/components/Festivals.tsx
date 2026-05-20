@@ -176,7 +176,7 @@ export const Festivals = () => {
   const allTexts = useMemo(() => {
     const arr: string[] = [];
     festivals.forEach((f) => {
-      arr.push(f.name, f.place, f.desc, f.meaning);
+      arr.push(f.name, f.place, f.desc, f.meaning, f.story);
       f.schedule.forEach((s) => arr.push(s.time, s.activity));
       f.locations.forEach((loc) => arr.push(loc));
     });
@@ -192,6 +192,7 @@ export const Festivals = () => {
         place: tr[i++] ?? f.place,
         desc: tr[i++] ?? f.desc,
         meaning: tr[i++] ?? f.meaning,
+        story: tr[i++] ?? f.story,
         schedule: f.schedule.map((s) => ({
           time: tr[i++] ?? s.time,
           activity: tr[i++] ?? s.activity,
@@ -306,6 +307,15 @@ export const Festivals = () => {
                     </h4>
                     <p className="text-foreground/80 leading-relaxed font-serif-vn">
                       {selectedI18n.meaning}
+                    </p>
+                  </section>
+
+                  <section>
+                    <h4 className="flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-vermilion mb-3">
+                      <ScrollText className="w-3.5 h-3.5" /> {t("Câu chuyện", "Story")}
+                    </h4>
+                    <p className="text-foreground/80 leading-relaxed font-serif-vn italic">
+                      {selectedI18n.story}
                     </p>
                   </section>
 
