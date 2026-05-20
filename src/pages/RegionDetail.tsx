@@ -1,10 +1,13 @@
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowLeft, MapPin, Music2, Sparkles, Landmark as LandmarkIcon, Building2, Home } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, MapPin, Music2, Sparkles, Landmark as LandmarkIcon, Building2, Home, ScrollText } from "lucide-react";
 import { useRegion, useRegions } from "@/hooks/useRegions";
 import { DrumOrnament, SunStar } from "@/components/DrumOrnament";
 import templeImg from "@/assets/heritage-temple.jpg";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { landmarkStories } from "@/data/landmarkStories";
 
 // Landmark images — Bắc
 import imgHanoi from "@/assets/landmarks/hanoi-old-quarter.jpg";
@@ -73,6 +76,7 @@ const RegionDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const { data, isLoading } = useRegion(slug);
   const { data: allRegions = [] } = useRegions();
+  const [storyLandmark, setStoryLandmark] = useState<{ name: string; province: string; story: string; image?: string } | null>(null);
 
   if (isLoading) {
     return (
@@ -246,6 +250,7 @@ const RegionDetail = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {data.landmarks.map((l) => {
               const src = l.image ? landmarkImages[l.image] : undefined;
+              const story = l.image ? landmarkStories[l.image] : undefined;
               return (
                 <article
                   key={l.name}
@@ -278,6 +283,22 @@ const RegionDetail = () => {
                     <p className="text-foreground/70 leading-relaxed text-sm flex-1">
                       {l.highlight}
                     </p>
+                    {story && (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setStoryLandmark({
+                            name: l.name,
+                            province: l.province,
+                            story,
+                            image: l.image,
+                          })
+                        }
+                        className="mt-4 self-start inline-flex items-center gap-1.5 text-[10px] tracking-[0.3em] uppercase text-vermilion border-b border-vermilion/40 pb-1 hover:text-gold hover:border-gold transition-colors"
+                      >
+                        <ScrollText className="w-3 h-3" /> Câu chuyện →
+                      </button>
+                    )}
                   </div>
                 </article>
               );
@@ -285,6 +306,41 @@ const RegionDetail = () => {
           </div>
         </div>
       </section>
+
+      <Dialog open={!!storyLandmark} onOpenChange={(open) => !open && setStoryLandmark(null)}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-card border-gold/30 p-0">
+          {storyLandmark && (
+            <>
+              {storyLandmark.image && landmarkImages[storyLandmark.image] && (
+                <div className="relative aspect-[16/8] overflow-hidden">
+                  <img
+                    src={landmarkImages[storyLandmark.image]}
+                    alt={storyLandmark.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+                </div>
+              )}
+              <div className="p-8 pt-6">
+                <DialogHeader className="text-left mb-5">
+                  <div className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.3em] uppercase text-vermilion mb-2">
+                    <ScrollText className="w-3 h-3" /> Câu chuyện địa danh
+                  </div>
+                  <DialogTitle className="font-display text-3xl md:text-4xl text-gradient-patina leading-tight">
+                    {storyLandmark.name}
+                  </DialogTitle>
+                  <DialogDescription className="font-serif-vn italic text-vermilion/80 flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5" /> {storyLandmark.province}
+                  </DialogDescription>
+                </DialogHeader>
+                <p className="text-foreground/85 leading-relaxed font-serif-vn text-base md:text-lg whitespace-pre-line">
+                  {storyLandmark.story}
+                </p>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* TANGIBLE HERITAGE — Di sản văn hoá vật thể */}
       <section className="relative py-28 px-6 bg-patina-deep text-background overflow-hidden">
