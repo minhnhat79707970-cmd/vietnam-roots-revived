@@ -1,0 +1,54 @@
+// Câu chuyện / truyền thuyết gắn với từng địa danh, key trùng với trường `image` trong regionsData.
+export const landmarkStories: Record<string, string> = {
+  // ===== MIỀN BẮC =====
+  "hanoi-old-quarter":
+    "Năm 1010, vua Lý Thái Tổ rời đô từ Hoa Lư về thành Đại La, tương truyền thấy rồng vàng bay lên giữa trời mà đặt tên là Thăng Long. Từ đó, 36 phố phường mọc lên quanh hồ Lục Thuỷ — nay là Hoàn Kiếm — nơi vua Lê Thái Tổ trả lại gươm thiêng cho thần Kim Quy sau mười năm kháng chiến chống quân Minh. Mỗi viên gạch phố cổ vì thế đều mang dấu chân của một thiên niên kỷ văn hiến.",
+  "halong-bay":
+    "Truyền thuyết kể rằng khi giặc phương Bắc tràn xuống, Ngọc Hoàng sai mẹ con nhà Rồng giáng trần giúp dân Việt. Rồng mẹ phun ngọc, rồng con phun châu, ngọc châu rơi xuống biển hoá thành ngàn đảo đá tạo thành luỹ thành chặn giặc. Đánh tan thù xong, đàn rồng không trở về trời mà ở lại nơi vịnh — vì thế gọi là Hạ Long, nơi rồng hạ xuống.",
+  "sapa-fansipan":
+    "Người H'Mông, Dao truyền tai nhau rằng đỉnh Fansipan là chiếc cột chống trời do thần linh dựng nên, mây trắng quanh năm là khói nhang dâng lên Ngọc Hoàng. Dưới chân núi, chợ tình Sa Pa mỗi tuần là nơi trai gái Mông gặp nhau qua tiếng khèn lá, thuở chưa có chữ viết tình yêu được gửi vào điệu khèn và mảnh vải chàm. Ruộng bậc thang Mường Hoa là thiên thư mà người vùng cao viết lên sườn núi qua hàng trăm năm.",
+  "trang-an":
+    "Nơi đây từng là kinh đô Hoa Lư của hai triều Đinh — Tiền Lê, được vua Đinh Tiên Hoàng chọn vì thế núi sông hiểm trở 'một người giữ ải, vạn người khó qua'. Dân gian kể rằng những hang xuyên thuỷ Tràng An vốn là đường thuỷ bí mật vua dùng để di chuyển khi có biến. Đến đời Lý, vua dời đô về Thăng Long, kinh thành đá hoá thành chốn 'Hạ Long trên cạn' — núi non vẫn còn ghi nhớ tiếng trống đồng dựng nước.",
+  "ba-be-lake":
+    "Người Tày kể chuyện một bà lão hành khất bị cả làng xua đuổi, chỉ có hai mẹ con goá phụ cho ngủ nhờ. Đêm ấy bà cụ — vốn là tiên hiện thân — báo cho hai mẹ con sắp có đại hồng thuỷ, dặn rắc tro quanh nhà và thả vỏ trấu xuống nước. Sáng hôm sau cả làng chìm thành hồ Ba Bể, riêng mảnh đất hai mẹ con hoá thành gò Pò Giả Mải nổi giữa hồ, vỏ trấu hoá thuyền độc mộc cứu người chạy nạn.",
+  "ha-giang":
+    "Cao nguyên đá Đồng Văn là quê hương người H'Mông với câu chuyện về vua Mèo Vương Chính Đức — người từng cai quản cả vùng biên ải đầu thế kỷ XX từ dinh thự họ Vương ở Sà Phìn. Đèo Mã Pí Lèng — 'sống mũi ngựa' — là cung đường Hạnh Phúc do hàng vạn thanh niên xung phong đục đá suốt 6 năm để mở. Phía dưới, sông Nho Quế xanh ngọc chảy qua hẻm Tu Sản sâu nhất Đông Nam Á, lặng lẽ như chính lịch sử biên cương.",
+  "mu-cang-chai":
+    "Người H'Mông Mù Cang Chải có câu: 'Một đời người, một đời ruộng.' Mỗi thửa bậc thang là công sức ba bốn thế hệ khai phá sườn núi, dẫn nước từ khe suối về theo nguyên lý 'cao chảy thấp' không cần máy móc. Mùa nước đổ tháng Năm là gương trời, mùa lúa chín tháng Chín là sóng vàng — nhịp sống của một dân tộc đã học cách cấy lúa trên độ dốc 70 độ.",
+  "chua-huong":
+    "Tương truyền công chúa Diệu Thiện — con vua Diệu Trang — không chịu lấy chồng, lánh về Hương Sơn tu hành rồi đắc đạo thành Quán Thế Âm Bồ Tát tại động Hương Tích. Chúa Trịnh Sâm khi vãn cảnh nơi đây đã đề năm chữ 'Nam thiên đệ nhất động' lên vách đá. Mỗi mùa xuân, dòng người trẩy hội Chùa Hương theo dòng suối Yến vào động — hành hương dài nhất và đẹp nhất của người Việt.",
+  // ===== MIỀN TRUNG =====
+  "hue-citadel":
+    "Năm 1802, Nguyễn Ánh lên ngôi lấy hiệu Gia Long, chọn Phú Xuân làm kinh đô và cho xây Hoàng thành theo phong cách Vauban kết hợp phong thuỷ phương Đông — lưng tựa núi Ngự, mặt nhìn sông Hương. Suốt 143 năm, 13 đời vua Nguyễn an nghỉ trong các lăng tẩm thơ mộng phía Tây kinh thành, mỗi lăng là một bài thơ kiến trúc do chính nhà vua phác hoạ lúc sinh thời. Sông Hương vẫn chảy lặng lẽ, mang theo tiếng nhã nhạc cung đình vọng về từ điện Thái Hoà.",
+  "hoi-an":
+    "Thế kỷ XVI — XVIII, Hội An là Faifo — thương cảng quốc tế sầm uất nhất Đông Nam Á, nơi thuyền buôn Nhật, Hoa, Bồ Đào Nha, Hà Lan cập bến quanh năm. Chùa Cầu do thương nhân Nhật xây để 'trấn yểm con thuỷ quái Namazu', đầu cầu đặt khỉ đá, cuối cầu đặt chó đá theo can chi năm khởi công và năm hoàn thành. Khi cảng Đà Nẵng nổi lên, Hội An ngủ yên trong thời gian — nhờ thế mà nguyên vẹn 1.100 di tích cổ đến hôm nay.",
+  "son-doong":
+    "Năm 1990, người sơn tràng Hồ Khanh tránh mưa trong rừng Phong Nha và tình cờ phát hiện một hang động lạ có gió hú và tiếng nước chảy. Mười tám năm sau, ông dẫn đoàn thám hiểm Hoàng gia Anh quay lại — họ choáng váng nhận ra đây là hang động lớn nhất thế giới: cao 200m, rộng 150m, dài hơn 9km với cả một rừng nguyên sinh mọc bên trong nhờ giếng trời khổng lồ. Sơn Đoòng là chứng nhân 400 triệu năm kiến tạo của Trái Đất.",
+  "ba-na-hills":
+    "Năm 1919, người Pháp tìm đến đỉnh Bà Nà cao 1.487m để xây khu nghỉ dưỡng tránh cái nóng Đà Nẵng, lập nên hơn 200 biệt thự, nhà thờ và sân tennis giữa rừng nguyên sinh. Chiến tranh khiến tất cả hoá đổ nát, rừng nuốt lại biệt thự suốt nửa thế kỷ. Đến năm 2018, Cầu Vàng — hai bàn tay khổng lồ nâng dải lụa vàng giữa mây — xuất hiện và trở thành biểu tượng mới của Việt Nam trên truyền thông thế giới.",
+  "hai-van-lang-co":
+    "Đèo Hải Vân — 'biển mây' — từng là ranh giới tự nhiên giữa Đại Việt và Chăm Pa, được vua Lê Thánh Tông cho khắc bốn chữ 'Hải Vân Quan' và vua Minh Mạng tôn xưng là 'Thiên hạ đệ nhất hùng quan'. Đứng trên đỉnh đèo nhìn xuống, vịnh Lăng Cô uốn cong như vầng trăng khuyết ôm lấy đầm Lập An — nơi tạp chí du lịch quốc tế xếp vào 10 vịnh biển đẹp nhất thế giới. Mỗi chiều, sương từ Trường Sơn đổ xuống biển tạo nên 'Hải Vân' đúng như tên gọi ngàn năm.",
+  "mui-ne":
+    "Mũi Né vốn là làng chài Chăm cổ, nơi người Chăm xưa thờ thần biển Po Riyak. Tên 'Né' theo tiếng Chăm cổ nghĩa là nơi trú ẩn của thuyền bè khi gió bão. Đồi cát đỏ Mũi Né và đồi cát trắng Bàu Trắng là vết tích sa mạc cổ — duy nhất Đông Nam Á có hiện tượng địa chất này — trải dài như Sahara thu nhỏ giữa Đông Dương, đổi màu theo từng giờ nắng.",
+  "da-lat":
+    "Năm 1893, bác sĩ Alexandre Yersin theo lời thầy Pasteur leo lên cao nguyên Lâm Viên tìm vùng đất 'có khí hậu châu Âu giữa miền nhiệt đới' để lập trạm nghỉ dưỡng. Ông chọn vùng đất của người Lạch cao 1.500m, đặt tên Đà Lạt — tương truyền lấy từ ngôn ngữ K'Ho 'Đạ Lạch' nghĩa là 'nước của người Lạch'. Trong nửa thế kỷ, hơn 2.000 biệt thự Pháp mọc lên giữa rừng thông, biến nơi đây thành 'Petit Paris' giữa cao nguyên — nay vẫn là thành phố lãng mạn nhất Việt Nam.",
+  "nha-trang":
+    "Vịnh Nha Trang là đất tổ của vương quốc Kauthara thuộc Chăm Pa, nơi vua Chăm dựng tháp Po Nagar thờ nữ thần Yang Po Inư Nagar — Mẹ Xứ Sở đã dạy dân trồng lúa, dệt vải. Đến cuối thế kỷ XIX, Yersin lại chọn Nha Trang làm nơi nghiên cứu dịch hạch và sinh sống đến cuối đời — mộ ông nay vẫn nằm trên đồi Suối Dầu, được người dân hương khói như một vị thánh. Vịnh biển Nha Trang vì thế mang trong mình cả huyền sử Chăm và ký ức khoa học hiện đại.",
+  // ===== MIỀN NAM =====
+  "saigon":
+    "Năm 1698, Lễ Thành hầu Nguyễn Hữu Cảnh vâng lệnh chúa Nguyễn vào Nam kinh lược, lập phủ Gia Định, chính thức xác lập chủ quyền Việt trên vùng đất Prei Nokor cũ của Chân Lạp. Hai thế kỷ sau, người Pháp biến Sài Gòn thành 'Hòn ngọc Viễn Đông' với nhà thờ Đức Bà, Bưu điện Eiffel, nhà hát Lớn theo kiến trúc Paris thu nhỏ. Ngày 30/4/1975, xe tăng tiến vào Dinh Độc Lập khép lại một chương lịch sử — Sài Gòn trở thành Thành phố Hồ Chí Minh, vẫn năng động và phóng khoáng như chính tính cách Nam Bộ.",
+  "phu-quoc":
+    "Phú Quốc gắn liền với truyền thuyết Nguyễn Ánh chạy nạn Tây Sơn, lánh ra đảo và được dân chài cứu giúp. Tương truyền ông cho khoan giếng Ngự — nay vẫn còn ở Hàm Ninh — và đặt tên các địa danh như Bãi Sao, Bãi Khem, Suối Tranh. Hơn hai thế kỷ sau, Phú Quốc nổi tiếng với nước mắm thượng hạng ủ từ cá cơm than và hồ tiêu cay nồng — những đặc sản đã theo thương thuyền đi khắp châu Á từ thế kỷ XVIII.",
+  "con-dao":
+    "Côn Đảo từng được người Pháp và sau đó là chính quyền Sài Gòn biến thành 'địa ngục trần gian' với hệ thống nhà tù 'chuồng cọp' giam giữ hơn 20.000 chiến sĩ cách mạng, trong đó có anh hùng Võ Thị Sáu — người con gái Đất Đỏ bị xử bắn năm 1952 khi mới 19 tuổi. Mộ chị trên Nghĩa trang Hàng Dương đến nay vẫn nghi ngút khói hương ngày đêm. Sau hoà bình, đảo hoá thành vườn quốc gia với rùa biển về đẻ trứng và bãi Đầm Trầu trong vắt — một sự hồi sinh đầy biểu tượng.",
+  "cai-rang":
+    "Chợ nổi Cái Răng có từ đầu thế kỷ XIX khi người dân miền Tây đem nông sản ra ngã ba sông giao thương trên ghe thuyền. Đặc trưng của chợ là 'cây bẹo' — cây sào treo mẫu hàng lên cao để khách từ xa nhìn thấy: treo dứa thì bán dứa, treo dừa thì bán dừa, riêng 'treo gì không bán nấy' là ghe của chính chủ ghe đang rao bán. Mỗi sáng tinh mơ, hàng trăm ghe tụ lại giữa sông Cần Thơ, tiếng máy nổ và tiếng rao hoà vào nhau thành bản nhạc thương hồ đặc sắc Nam Bộ.",
+  "ca-mau":
+    "Mũi Cà Mau là điểm cực Nam Tổ quốc, nơi đất Việt mỗi năm còn 'lấn biển' thêm 70-80m nhờ phù sa cửa sông Cửa Lớn — Bảy Háp bồi đắp. Người dân Năm Căn truyền nhau câu hát: 'Cà Mau khỉ khọt trên bưng, dưới sông sấu lội, trên rừng cọp um.' Rừng đước nguyên sinh nơi đây là khu dự trữ sinh quyển thế giới, nơi cha ông khai khẩn đất hoang ba thế kỷ trước, và nay vẫn là 'lá phổi xanh' cuối cùng của đồng bằng sông Cửu Long.",
+  "nui-ba-den":
+    "Núi Bà Đen cao 986m — 'nóc nhà Nam Bộ' — gắn với huyền thoại Lý Thị Thiên Hương: nàng tiểu thư xinh đẹp thời chúa Nguyễn quyết tự vẫn trên núi để giữ tiết hạnh khi bị giặc bắt. Sau đó nàng hiển linh báo mộng cho sư trụ trì, được dân tôn làm Linh Sơn Thánh Mẫu, da nàng đen lại do nắng gió — vì thế gọi là 'Bà Đen'. Mỗi năm hàng triệu khách hành hương leo lên đỉnh, nay đã có cáp treo dài nhất thế giới đưa khách thẳng lên chánh điện.",
+  "tra-su":
+    "Rừng tràm Trà Sư được trồng từ năm 1983 trên vùng đất phèn An Giang để cải tạo đất và chống lũ tràn từ Campuchia về. Bốn mươi năm sau, rừng tràm 845 ha trở thành hệ sinh thái rừng ngập nước tiêu biểu của Đồng bằng sông Cửu Long, là tổ của hơn 70 loài chim, trong đó có cò trắng và điên điển. Mùa nước nổi tháng 9-11, du khách chèo xuồng xuyên qua thảm bèo tấm xanh ngắt dưới tán tràm — bức tranh sống động nhất của miền Tây mùa nước.",
+  "cu-chi":
+    "Địa đạo Củ Chi được người dân và du kích Nam Bộ đào bằng tay từ năm 1948, ban đầu chỉ là hầm trú ẩn ngắn, đến năm 1968 đã trở thành mạng lưới 250 km ba tầng dưới lòng đất với bệnh viện, bếp Hoàng Cầm, kho vũ khí và phòng họp. Bếp Hoàng Cầm là phát minh độc đáo: khói được dẫn qua nhiều đường rãnh tản ra mặt đất như sương mù để máy bay Mỹ không phát hiện. 'Tam giác sắt' Củ Chi trở thành nỗi ám ảnh của quân đội Mỹ suốt cuộc chiến tranh Việt Nam.",
+};

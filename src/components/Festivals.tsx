@@ -1,7 +1,7 @@
 import { DrumOrnament } from "./DrumOrnament";
 import { useState, useMemo } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Calendar, MapPin, Sparkles, Compass } from "lucide-react";
+import { Calendar, MapPin, Sparkles, Compass, ScrollText } from "lucide-react";
 import { useT } from "@/contexts/LanguageContext";
 import { useAutoTranslate } from "@/hooks/useAutoTranslate";
 import tetImg from "@/assets/festivals/tet.jpg";
@@ -21,6 +21,7 @@ interface Festival {
   desc: string;
   img: string;
   meaning: string;
+  story: string;
   schedule: { time: string; activity: string }[];
   locations: string[];
 }
@@ -35,6 +36,8 @@ const festivals: Festival[] = [
     img: tetImg,
     meaning:
       "Tết Nguyên Đán là dịp lễ thiêng liêng nhất trong năm của người Việt — đánh dấu sự khởi đầu của một chu kỳ mới, tưởng nhớ tổ tiên, gắn kết gia đình và cộng đồng. Mỗi nghi thức từ cúng giao thừa, hái lộc đến mừng tuổi đều mang ý nghĩa cầu mong an khang, thịnh vượng.",
+    story:
+      "Tích bánh chưng — bánh giầy kể rằng vua Hùng thứ sáu muốn truyền ngôi, hứa ai dâng được lễ vật ý nghĩa nhất sẽ được chọn. Hoàng tử Lang Liêu nghèo nhất, đêm nằm mộng thấy thần dạy lấy gạo nếp gói bánh hình vuông tượng trưng cho Đất, bánh tròn tượng trưng cho Trời. Vua ăn thấy ngon, hiểu được tấm lòng hiếu thảo và triết lý 'trời tròn đất vuông' của con, liền truyền ngôi cho Lang Liêu — và bánh chưng — bánh giầy trở thành lễ vật Tết của muôn đời sau.",
     schedule: [
       { time: "23 tháng Chạp", activity: "Cúng ông Công ông Táo, dọn dẹp nhà cửa." },
       { time: "29-30 tháng Chạp", activity: "Gói bánh chưng, bày mâm ngũ quả, tất niên." },
@@ -56,6 +59,8 @@ const festivals: Festival[] = [
     img: hungVuongImg,
     meaning:
       "Là quốc lễ tưởng nhớ các Vua Hùng — những vị vua đầu tiên đã có công dựng nước Văn Lang. Lễ hội thể hiện đạo lý 'uống nước nhớ nguồn', là biểu tượng của tinh thần đoàn kết và cội nguồn dân tộc Việt Nam. Tín ngưỡng thờ cúng Hùng Vương đã được UNESCO công nhận là di sản văn hóa phi vật thể.",
+    story:
+      "Truyền thuyết kể rằng Lạc Long Quân — con của Kinh Dương Vương dòng Rồng — kết duyên cùng Âu Cơ dòng Tiên, sinh ra một bọc trăm trứng nở thành trăm người con. Sau đó, năm mươi con theo cha xuống biển, năm mươi con theo mẹ lên núi, người con cả ở lại đất Phong Châu lên ngôi xưng là Hùng Vương, đặt tên nước là Văn Lang. Mười tám đời vua Hùng nối nhau dựng nước hơn hai nghìn năm, và mỗi mồng mười tháng Ba âm lịch, con cháu Lạc Hồng dù ở phương trời nào cũng hướng về Đền Hùng tưởng nhớ Tổ tiên.",
     schedule: [
       { time: "Mùng 6/3 ÂL", activity: "Lễ giỗ Đức Quốc Tổ Lạc Long Quân." },
       { time: "Mùng 7/3 ÂL", activity: "Lễ dâng hương tưởng niệm Tổ Mẫu Âu Cơ." },
@@ -76,6 +81,8 @@ const festivals: Festival[] = [
     img: hoiLimImg,
     meaning:
       "Hội Lim là lễ hội tiêu biểu của vùng Kinh Bắc, tôn vinh nghệ thuật Quan họ — di sản văn hóa phi vật thể của nhân loại. Hội thể hiện nét tinh tế, lịch lãm trong giao tiếp, tình yêu nam nữ và sự gắn kết cộng đồng làng quê Bắc Bộ.",
+    story:
+      "Tương truyền Hội Lim bắt nguồn từ chuyện tình của ông Hiếu Trung Hầu Nguyễn Đình Diễn — một vị quan thời Lê đem lòng yêu cô thôn nữ vùng Kinh Bắc qua tiếng hát. Khi cô qua đời, ông cho lập đền thờ trên đồi Lim và mở hội hát Quan họ vào tháng Giêng để tưởng nhớ. Từ đó, liền anh khăn xếp áo the, liền chị áo tứ thân nón quai thao gặp nhau trên đồi và dưới thuyền rồng, hát đối đáp suốt mấy ngày liền — 'người ơi người ở đừng về' trở thành câu hát day dứt nhất của văn hoá Kinh Bắc.",
     schedule: [
       { time: "12/1 ÂL", activity: "Lễ rước, tế thần ở đình các làng quanh đồi Lim." },
       { time: "13/1 ÂL", activity: "Chính hội — hát Quan họ trên đồi, dưới thuyền rồng hồ làng." },
@@ -95,6 +102,8 @@ const festivals: Festival[] = [
     img: phatDanImg,
     meaning:
       "Đại lễ Phật Đản (Vesak) kỷ niệm ngày Đức Phật Thích Ca Mâu Ni đản sinh. Lễ hội mang thông điệp về từ bi, trí tuệ và hòa bình — là dịp Phật tử và cộng đồng cùng hướng về những giá trị nhân văn cao đẹp.",
+    story:
+      "Kinh điển kể rằng hoàng hậu Ma-da nằm mộng thấy voi trắng sáu ngà nhập vào hông, sau đó hạ sinh thái tử Tất-Đạt-Đa tại vườn Lâm Tì Ni năm 624 TCN. Vừa sinh ra, thái tử bước bảy bước trên bảy đoá sen, một tay chỉ trời một tay chỉ đất tuyên bố 'Thiên thượng thiên hạ, duy ngã độc tôn'. Sau khi giác ngộ dưới cội bồ đề, ngài trở thành Đức Phật Thích Ca — và đại lễ Phật Đản tại Việt Nam mỗi rằm tháng Tư trở thành ngày thắp đèn hoa đăng cầu cho thế giới hoà bình, lòng người an lạc.",
     schedule: [
       { time: "8/4 ÂL", activity: "Khai mạc tuần lễ Phật Đản, trang trí xe hoa." },
       { time: "14/4 ÂL", activity: "Diễu hành xe hoa qua các tuyến phố lớn." },
@@ -115,6 +124,8 @@ const festivals: Festival[] = [
     img: trungThuImg,
     meaning:
       "Tết Trung Thu là tết đoàn viên và tết của thiếu nhi. Truyền thuyết Chú Cuội, chị Hằng cùng ánh trăng rằm tháng Tám gắn liền với tuổi thơ bao thế hệ người Việt, thể hiện ước mong sum vầy và hạnh phúc gia đình.",
+    story:
+      "Chuyện kể có chàng tiều phu tên Cuội tình cờ có được cây đa thần chữa được bách bệnh, mang về trồng và dặn vợ tuyệt đối không tưới nước bẩn. Một hôm vợ quên lời dặn, cây đa bật gốc bay lên trời, Cuội vội ôm gốc cây níu lại nhưng bị kéo theo lên tận cung trăng. Từ đó mỗi đêm rằm tháng Tám, nhìn lên mặt trăng người Việt vẫn thấy bóng chú Cuội ngồi gốc cây đa nhớ vợ con — và trẻ em rước đèn ông sao dưới trăng, ăn bánh nướng bánh dẻo để chia sẻ nỗi nhớ ấy.",
     schedule: [
       { time: "Đầu tháng 8 ÂL", activity: "Làm đèn ông sao, đèn kéo quân, bày mâm cỗ trông trăng." },
       { time: "14/8 ÂL", activity: "Múa lân sư rồng khắp phố phường." },
@@ -135,6 +146,8 @@ const festivals: Festival[] = [
     img: hoiGiongImg,
     meaning:
       "Hội Gióng tái hiện chiến công của Thánh Gióng — một trong Tứ Bất Tử của tín ngưỡng dân gian Việt Nam. Lễ hội biểu trưng cho tinh thần chống ngoại xâm, sức mạnh phi thường của dân tộc và khát vọng hòa bình. Được UNESCO ghi danh năm 2010.",
+    story:
+      "Đời Hùng Vương thứ sáu, giặc Ân kéo sang xâm lược, vua sai sứ giả đi khắp nước tìm người tài cứu nước. Tại làng Phù Đổng, có cậu bé lên ba không biết nói biết cười, nghe tiếng loa sứ giả bỗng cất tiếng xin vua cho ngựa sắt, roi sắt, áo giáp sắt để đánh giặc. Từ ngày ấy cậu lớn nhanh như thổi, ăn bao nhiêu cũng không no, dân làng góp gạo nuôi. Khi giặc đến chân núi Trâu, Gióng vươn vai thành tráng sĩ khổng lồ, cưỡi ngựa sắt phun lửa đánh tan giặc, roi sắt gãy thì nhổ tre đằng ngà quật giặc tả tơi — rồi cả người và ngựa bay thẳng lên trời tại đỉnh núi Sóc, không màng công danh.",
     schedule: [
       { time: "6/4 ÂL", activity: "Lễ rước nước, bao sái tượng Thánh." },
       { time: "8/4 ÂL", activity: "Lễ rước cờ, rước cỗ chay từ các thôn về đền Thượng." },
@@ -163,7 +176,7 @@ export const Festivals = () => {
   const allTexts = useMemo(() => {
     const arr: string[] = [];
     festivals.forEach((f) => {
-      arr.push(f.name, f.place, f.desc, f.meaning);
+      arr.push(f.name, f.place, f.desc, f.meaning, f.story);
       f.schedule.forEach((s) => arr.push(s.time, s.activity));
       f.locations.forEach((loc) => arr.push(loc));
     });
@@ -179,6 +192,7 @@ export const Festivals = () => {
         place: tr[i++] ?? f.place,
         desc: tr[i++] ?? f.desc,
         meaning: tr[i++] ?? f.meaning,
+        story: tr[i++] ?? f.story,
         schedule: f.schedule.map((s) => ({
           time: tr[i++] ?? s.time,
           activity: tr[i++] ?? s.activity,
@@ -293,6 +307,15 @@ export const Festivals = () => {
                     </h4>
                     <p className="text-foreground/80 leading-relaxed font-serif-vn">
                       {selectedI18n.meaning}
+                    </p>
+                  </section>
+
+                  <section>
+                    <h4 className="flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-vermilion mb-3">
+                      <ScrollText className="w-3.5 h-3.5" /> {t("Câu chuyện", "Story")}
+                    </h4>
+                    <p className="text-foreground/80 leading-relaxed font-serif-vn italic">
+                      {selectedI18n.story}
                     </p>
                   </section>
 
