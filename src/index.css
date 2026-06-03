@@ -188,3 +188,13 @@
 .animate-float { animation: float-up 6s ease-in-out infinite; }
 .animate-fade-up { animation: fade-in-up 1s var(--ease-bronze) both; }
 .animate-ripple { animation: ripple 3s ease-out infinite; }
+
+/* Smooth scroll + offset cho nav anchor (fix scroll-padding) */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
