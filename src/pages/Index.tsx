@@ -15,6 +15,7 @@ const Timeline = lazy(() => import("@/components/Timeline").then(m => ({ default
 const HeritageGrid = lazy(() => import("@/components/HeritageGrid").then(m => ({ default: m.HeritageGrid })));
 const Regions = lazy(() => import("@/components/Regions").then(m => ({ default: m.Regions })));
 const Festivals = lazy(() => import("@/components/Festivals").then(m => ({ default: m.Festivals })));
+const HistoryQuiz = lazy(() => import("@/components/HistoryQuiz").then(m => ({ default: m.HistoryQuiz })));
 const SiteFeedback = lazy(() => import("@/components/SiteFeedback").then(m => ({ default: m.SiteFeedback })));
 
 const Index = () => {
@@ -54,6 +55,9 @@ const Index = () => {
       </Suspense>
       <Suspense fallback={<FestivalsSkeleton />}>
         <Festivals />
+      </Suspense>
+      <Suspense fallback={null}>
+        <HistoryQuiz />
       </Suspense>
       <Suspense fallback={null}>
         <SiteFeedback />

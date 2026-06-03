@@ -8,6 +8,7 @@ const sections = [
   { id: "heritage", labelVi: "Di sản", labelEn: "Heritage" },
   { id: "regions", labelVi: "Vùng miền", labelEn: "Regions" },
   { id: "festivals", labelVi: "Lễ hội", labelEn: "Festivals" },
+  { id: "minigame", labelVi: "Minigame", labelEn: "Minigame" },
   { id: "gop-y", labelVi: "Góp ý", labelEn: "Feedback" },
 ];
 
