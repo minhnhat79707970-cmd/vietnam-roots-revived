@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.tsx";
 import RegionDetail from "./pages/RegionDetail.tsx";
 import HeritageDetail from "./pages/HeritageDetail.tsx";
 import ScrollToTop from "./components/ScrollToTop";
+import { AIAssistantProvider } from "./components/AIAssistant";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <AIAssistantProvider />
         </BrowserRouter>
       </TooltipProvider>
     </LanguageProvider>
