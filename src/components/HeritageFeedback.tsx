@@ -53,7 +53,8 @@ export const HeritageFeedback = ({ heritageTitle, heritageSlug }: HeritageFeedba
     });
     setSubmitting(false);
     if (error) {
-      toast({ title: "Không gửi được", description: error.message, variant: "destructive" });
+      console.error("heritage_feedback insert error:", error);
+      toast({ title: "Không gửi được", description: "Vui lòng thử lại sau.", variant: "destructive" });
       return;
     }
     toast({

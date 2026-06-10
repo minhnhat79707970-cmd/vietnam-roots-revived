@@ -65,7 +65,12 @@ export const SiteFeedback = () => {
       message: message.trim(),
     });
     if (error) {
-      toast({ title: t("Không gửi được", "Failed to send"), description: error.message, variant: "destructive" });
+      console.error("site_feedback insert error:", error);
+      toast({
+        title: t("Không gửi được", "Failed to send"),
+        description: t("Vui lòng thử lại sau.", "Please try again later."),
+        variant: "destructive",
+      });
       return;
     }
     const newComment: Comment = {
