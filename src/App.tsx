@@ -11,7 +11,18 @@ import HeritageDetail from "./pages/HeritageDetail.tsx";
 import ScrollToTop from "./components/ScrollToTop";
 import { AIAssistantProvider } from "./components/AIAssistant";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      gcTime: 10 * 60 * 1000,
+      retry: 1,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: true,
+    },
+    mutations: { retry: 0 },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
