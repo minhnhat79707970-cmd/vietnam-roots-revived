@@ -2,6 +2,8 @@
 // Body: { texts: string[], target: "en" | string }
 // Trả về: { translations: string[] }
 
+import { createClient } from "npm:@supabase/supabase-js@2";
+
 const headers = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -22,6 +24,27 @@ Deno.serve(async (req) => {
   }
 
   try {
+    // Require an authenticated Supabase user — prevents anonymous abuse of paid AI credits.
+    const authHeader = req.headers.get("Authorization") ?? "";
+    const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+    if (!token) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { ...headers, "Content-Type": "application/json" },
+      });
+    }
+    const supabase = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_ANON_KEY")!,
+    );
+    const { data: claimsData, error: claimsError } = await supabase.auth.getClaims(token);
+    if (claimsError || !claimsData?.claims) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { ...headers, "Content-Type": "application/json" },
+      });
+    }
+
     const { texts, target } = await req.json();
     if (!Array.isArray(texts) || texts.length === 0) {
       return new Response(JSON.stringify({ translations: [] }), {
