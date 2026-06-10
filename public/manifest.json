@@ -1,0 +1,19 @@
+{
+  "name": "Hồn Việt — Bảo tàng số Di sản Văn hoá Việt Nam",
+  "short_name": "Hồn Việt",
+  "description": "Hành trình qua bốn nghìn năm văn hiến: lịch sử các triều đại, di sản phi vật thể UNESCO.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0a00",
+  "theme_color": "#8B1A1A",
+  "lang": "vi",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "64x64", "type": "image/x-icon" }
+  ],
+  "categories": ["education", "history", "culture"],
+  "shortcuts": [
+    { "name": "Dòng thời gian", "url": "/#timeline", "description": "Xem lịch sử 4000 năm" },
+    { "name": "Di sản", "url": "/#heritage", "description": "Khám phá di sản UNESCO" }
+  ]
+}
