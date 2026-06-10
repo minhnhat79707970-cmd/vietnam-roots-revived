@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Footer } from "@/components/Footer";
 import { SectionNav } from "@/components/SectionNav";
 import { SEO } from "@/components/SEO";
+import { SkipNav } from "@/components/ui/SkipNav";
 import {
   TimelineSkeleton,
   HeritageGridSkeleton,
@@ -20,7 +21,8 @@ const SiteFeedback = lazy(() => import("@/components/SiteFeedback").then(m => ({
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main id="main-content" className="min-h-screen bg-background">
+      <SkipNav targetId="main-content" />
       <SEO
         title="Hồn Việt — Bảo tàng số di sản văn hoá & lịch sử Việt Nam"
         description="Hành trình qua bốn nghìn năm văn hiến: lịch sử các triều đại, 15 di sản phi vật thể UNESCO, lễ hội và bản đồ di sản ba miền Việt Nam."
