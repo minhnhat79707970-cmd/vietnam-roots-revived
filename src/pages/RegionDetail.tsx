@@ -18,6 +18,11 @@ import imgBaBe from "@/assets/landmarks/ba-be-lake.jpg";
 import imgHaGiang from "@/assets/landmarks/ha-giang.jpg";
 import imgMuCangChai from "@/assets/landmarks/mu-cang-chai.jpg";
 import imgChuaHuong from "@/assets/landmarks/chua-huong.jpg";
+import imgHoangThanh from "@/assets/landmarks/hoang-thanh-thang-long.jpg";
+import imgVanMieu from "@/assets/landmarks/van-mieu.jpg";
+import imgCoLoa from "@/assets/landmarks/co-loa.jpg";
+import imgChuaMotCot from "@/assets/landmarks/chua-mot-cot.jpg";
+import imgTamCoc from "@/assets/landmarks/tam-coc.jpg";
 // Trung
 import imgHue from "@/assets/landmarks/hue-citadel.jpg";
 import imgHoiAn from "@/assets/landmarks/hoi-an.jpg";
@@ -46,6 +51,11 @@ const landmarkImages: Record<string, string> = {
   "ha-giang": imgHaGiang,
   "mu-cang-chai": imgMuCangChai,
   "chua-huong": imgChuaHuong,
+  "hoang-thanh-thang-long": imgHoangThanh,
+  "van-mieu": imgVanMieu,
+  "co-loa": imgCoLoa,
+  "chua-mot-cot": imgChuaMotCot,
+  "tam-coc": imgTamCoc,
   "hue-citadel": imgHue,
   "hoi-an": imgHoiAn,
   "son-doong": imgSonDoong,
