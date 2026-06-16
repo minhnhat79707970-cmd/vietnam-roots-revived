@@ -32,6 +32,8 @@ import imgHaiVan from "@/assets/landmarks/hai-van-lang-co.jpg";
 import imgMuiNe from "@/assets/landmarks/mui-ne.jpg";
 import imgDaLat from "@/assets/landmarks/da-lat.jpg";
 import imgNhaTrang from "@/assets/landmarks/nha-trang.jpg";
+import imgMySon from "@/assets/landmarks/my-son.jpg";
+import imgThanhNhaHo from "@/assets/landmarks/thanh-nha-ho.jpg";
 // Nam
 import imgSaigon from "@/assets/landmarks/saigon.jpg";
 import imgPhuQuoc from "@/assets/landmarks/phu-quoc.jpg";
@@ -41,6 +43,8 @@ import imgCaMau from "@/assets/landmarks/ca-mau.jpg";
 import imgNuiBaDen from "@/assets/landmarks/nui-ba-den.jpg";
 import imgTraSu from "@/assets/landmarks/tra-su.jpg";
 import imgCuChi from "@/assets/landmarks/cu-chi.jpg";
+import imgDinhDocLap from "@/assets/landmarks/dinh-doc-lap.jpg";
+import imgNhaThoDucBa from "@/assets/landmarks/nha-tho-duc-ba.jpg";
 
 const landmarkImages: Record<string, string> = {
   "hanoi-old-quarter": imgHanoi,
@@ -64,6 +68,8 @@ const landmarkImages: Record<string, string> = {
   "mui-ne": imgMuiNe,
   "da-lat": imgDaLat,
   "nha-trang": imgNhaTrang,
+  "my-son": imgMySon,
+  "thanh-nha-ho": imgThanhNhaHo,
   "saigon": imgSaigon,
   "phu-quoc": imgPhuQuoc,
   "con-dao": imgConDao,
@@ -72,6 +78,8 @@ const landmarkImages: Record<string, string> = {
   "nui-ba-den": imgNuiBaDen,
   "tra-su": imgTraSu,
   "cu-chi": imgCuChi,
+  "dinh-doc-lap": imgDinhDocLap,
+  "nha-tho-duc-ba": imgNhaThoDucBa,
 };
 
 const categoryColors: Record<string, string> = {
