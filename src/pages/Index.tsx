@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { SectionNav } from "@/components/SectionNav";
 import { SEO } from "@/components/SEO";
 import { SkipNav } from "@/components/ui/SkipNav";
+import { SectionTransition } from "@/components/SectionTransition";
 import {
   TimelineSkeleton,
   HeritageGridSkeleton,
@@ -46,24 +47,36 @@ const Index = () => {
       />
       <SectionNav />
       <Hero />
-      <Suspense fallback={<TimelineSkeleton />}>
-        <Timeline />
-      </Suspense>
-      <Suspense fallback={<HeritageGridSkeleton />}>
-        <HeritageGrid />
-      </Suspense>
-      <Suspense fallback={<RegionsSkeleton />}>
-        <Regions />
-      </Suspense>
-      <Suspense fallback={<FestivalsSkeleton />}>
-        <Festivals />
-      </Suspense>
-      <Suspense fallback={null}>
-        <HistoryQuiz />
-      </Suspense>
-      <Suspense fallback={null}>
-        <SiteFeedback />
-      </Suspense>
+      <SectionTransition variant="slide-up" speed="normal">
+        <Suspense fallback={<TimelineSkeleton />}>
+          <Timeline />
+        </Suspense>
+      </SectionTransition>
+      <SectionTransition variant="slide-left" speed="slow">
+        <Suspense fallback={<HeritageGridSkeleton />}>
+          <HeritageGrid />
+        </Suspense>
+      </SectionTransition>
+      <SectionTransition variant="zoom" speed="normal">
+        <Suspense fallback={<RegionsSkeleton />}>
+          <Regions />
+        </Suspense>
+      </SectionTransition>
+      <SectionTransition variant="slide-right" speed="slow">
+        <Suspense fallback={<FestivalsSkeleton />}>
+          <Festivals />
+        </Suspense>
+      </SectionTransition>
+      <SectionTransition variant="fade" speed="normal">
+        <Suspense fallback={null}>
+          <HistoryQuiz />
+        </Suspense>
+      </SectionTransition>
+      <SectionTransition variant="slide-up" speed="fast">
+        <Suspense fallback={null}>
+          <SiteFeedback />
+        </Suspense>
+      </SectionTransition>
       <Footer />
     </main>
   );
