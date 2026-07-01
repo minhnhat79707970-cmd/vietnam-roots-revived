@@ -98,7 +98,7 @@ const FeaturedArticle = ({
 const RevealChip = ({ children, delay }: { children: React.ReactNode; delay: 1 | 2 | 3 }) => {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <div ref={ref} data-reveal-delay={delay} className="contents">
+    <div ref={ref} data-reveal-delay={delay} className="inline-flex">
       {children}
     </div>
   );
