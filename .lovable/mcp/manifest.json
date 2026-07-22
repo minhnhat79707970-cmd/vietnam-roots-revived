@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "hon-viet-mcp",
+      "version": "0.1.0",
+      "title": "Hồn Việt — Vietnamese Heritage"
+    },
+    "tools": [
+      {
+        "name": "list_heritages",
+        "title": "List Vietnamese heritages",
+        "description": "List Vietnamese cultural and natural heritage entries from the Hồn Việt database (title, slug, region, UNESCO type, year, short description). Optional filter by region (bac/trung/nam) or unesco_type.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "region": {
+              "type": "string",
+              "enum": [
+                "bac",
+                "trung",
+                "nam"
+              ],
+              "description": "Filter by region: bac (North), trung (Central), nam (South)."
+            },
+            "unesco_type": {
+              "type": "string",
+              "description": "Filter by UNESCO type substring, e.g. 'vật thể', 'phi vật thể', 'thiên nhiên'."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "description": "Max rows to return (default 50)."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "search_heritages",
+        "title": "Search heritages",
+        "description": "Search Vietnamese heritages by keyword across title, subtitle, and short description (case-insensitive).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Free-text keyword, e.g. 'ca trù', 'Hội An', 'Chăm'."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_heritage",
+        "title": "Get heritage detail",
+        "description": "Fetch the full detail of a single Vietnamese heritage entry by slug — including history, characteristics, origin, preservation status, references, and long description.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Heritage slug, e.g. 'hoi-an', 'nha-nhac-cung-dinh-hue'."
+            }
+          },
+          "required": [
+            "slug"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_regions",
+        "title": "List Vietnamese cultural regions",
+        "description": "List the three cultural regions of Vietnam (North / Central / South) with summaries.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_region",
+        "title": "Get region detail",
+        "description": "Fetch the full detail of one Vietnamese cultural region by slug — geography, history, tangible & intangible heritages, cuisine, landmarks.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Region slug, e.g. 'mien-bac', 'mien-trung', 'mien-nam'."
+            }
+          },
+          "required": [
+            "slug"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
