@@ -105,13 +105,13 @@ const HeritageDetail = () => {
       <HeritageTOC items={tocItems} />
 
       {/* Hero — toàn màn hình hình ảnh */}
-      <header className="relative h-[88vh] min-h-[600px] overflow-hidden bg-patina-deep">
+      <header className="group relative h-[88vh] min-h-[600px] overflow-hidden bg-patina-deep">
         <img
           src={heritage.img}
           alt={heritage.title}
           width={1280}
           height={896}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-patina-deep via-patina-deep/40 to-patina-deep/70" />
 

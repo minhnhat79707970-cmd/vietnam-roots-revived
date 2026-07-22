@@ -330,11 +330,11 @@ const RegionDetail = () => {
           {storyLandmark && (
             <>
               {storyLandmark.image && landmarkImages[storyLandmark.image] && (
-                <div className="relative aspect-[16/8] overflow-hidden">
+                <div className="group relative aspect-[16/8] overflow-hidden">
                   <img
                     src={landmarkImages[storyLandmark.image]}
                     alt={storyLandmark.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
                 </div>
