@@ -6,6 +6,8 @@ import { DrumOrnament } from "./DrumOrnament";
 import { useT } from "@/contexts/LanguageContext";
 import { useAutoTranslate } from "@/hooks/useAutoTranslate";
 import { cn } from "@/lib/utils";
+import { TimelineSort } from "./minigames/TimelineSort";
+import { HeritageMatch } from "./minigames/HeritageMatch";
 
 type Question = {
   q: string;
@@ -112,7 +114,7 @@ const shuffle = <T,>(arr: T[]) => {
 
 const ROUND_SIZE = 6;
 
-export const HistoryQuiz = () => {
+const QuizGame = () => {
   const t = useT();
   const [seed, setSeed] = useState(0);
   const round = useMemo(() => shuffle(QUESTIONS).slice(0, ROUND_SIZE), [seed]);
@@ -158,29 +160,7 @@ export const HistoryQuiz = () => {
   const progressVal = (idx / round.length) * 100;
 
   return (
-    <section
-      id="minigame"
-      className="relative py-32 px-6 paper-texture overflow-hidden scroll-mt-20"
-    >
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-xs tracking-[0.2em] uppercase text-vermilion font-medium">
-            {t("Tầng V · Minigame", "Floor V · Minigame")}
-          </span>
-          <h2 className="font-display text-5xl md:text-6xl mt-6 text-gradient-patina tracking-tight">
-            {t("Thử tài", "Test your")}{" "}
-            <span className="italic">{t("sử Việt", "Vietnamese history")}</span>
-          </h2>
-          <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
-          <p className="text-foreground/70 mt-6 max-w-xl mx-auto">
-            {t(
-              "Bộ câu hỏi trắc nghiệm về bốn nghìn năm dựng nước. Mỗi lượt 6 câu được chọn ngẫu nhiên.",
-              "A quiz on four thousand years of Vietnamese history. Each round picks 6 random questions.",
-            )}
-          </p>
-        </div>
-
-        <div className="relative rounded-lg border border-gold/30 bg-card/60 backdrop-blur-sm shadow-sm p-8 md:p-10">
+    <div>
           {!finished ? (
             <>
               <div className="flex items-center justify-between text-xs uppercase tracking-[0.15em] text-muted-foreground mb-3">
@@ -285,6 +265,66 @@ export const HistoryQuiz = () => {
               </Button>
             </div>
           )}
+    </div>
+  );
+};
+
+type GameKey = "quiz" | "timeline" | "match";
+
+export const HistoryQuiz = () => {
+  const t = useT();
+  const [tab, setTab] = useState<GameKey>("quiz");
+
+  const tabs: { key: GameKey; vi: string; en: string }[] = [
+    { key: "quiz", vi: "Trắc nghiệm sử Việt", en: "History Quiz" },
+    { key: "timeline", vi: "Sắp xếp niên đại", en: "Timeline Sort" },
+    { key: "match", vi: "Nối di sản – vùng miền", en: "Heritage Match" },
+  ];
+
+  return (
+    <section
+      id="minigame"
+      className="relative py-32 px-6 paper-texture overflow-hidden scroll-mt-20"
+    >
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="text-xs tracking-[0.2em] uppercase text-vermilion font-medium">
+            {t("Tầng V · Minigame", "Floor V · Minigame")}
+          </span>
+          <h2 className="font-display text-5xl md:text-6xl mt-6 text-gradient-patina tracking-tight">
+            {t("Thử tài", "Test your")}{" "}
+            <span className="italic">{t("sử Việt", "Vietnamese history")}</span>
+          </h2>
+          <DrumOrnament className="text-gold w-48 h-5 mx-auto mt-8" />
+          <p className="text-foreground/70 mt-6 max-w-xl mx-auto">
+            {t(
+              "Ba minigame khám phá lịch sử và di sản Việt Nam: trắc nghiệm, sắp xếp niên đại và nối di sản với vùng miền.",
+              "Three minigames to explore Vietnamese history and heritage: quiz, chronology, and heritage-by-region matching.",
+            )}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {tabs.map((tb) => (
+            <button
+              key={tb.key}
+              onClick={() => setTab(tb.key)}
+              className={cn(
+                "px-4 py-2 rounded-full text-xs md:text-sm tracking-wide border transition-all",
+                tab === tb.key
+                  ? "border-gold bg-gold/15 text-patina-deep"
+                  : "border-gold/25 hover:border-gold/60 hover:bg-gold/5 text-foreground/70",
+              )}
+            >
+              {t(tb.vi, tb.en)}
+            </button>
+          ))}
+        </div>
+
+        <div className="relative rounded-lg border border-gold/30 bg-card/60 backdrop-blur-sm shadow-sm p-8 md:p-10">
+          {tab === "quiz" && <QuizGame />}
+          {tab === "timeline" && <TimelineSort />}
+          {tab === "match" && <HeritageMatch />}
         </div>
       </div>
     </section>
