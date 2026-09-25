@@ -1,4 +1,5 @@
 import { DrumOrnament } from "./DrumOrnament";
+import { SectionTransition } from "./SectionTransition";
 import { useT } from "@/contexts/LanguageContext";
 import { useAutoTranslate } from "@/hooks/useAutoTranslate";
 import { useMemo } from "react";
@@ -104,8 +105,13 @@ export const Timeline = () => {
 
           <div className="space-y-20">
             {erasI18n.map((era, i) => (
-              <div
+              <SectionTransition
                 key={era.name}
+                variant={i % 2 === 0 ? "slide-right" : "slide-left"}
+                speed="normal"
+                once={false}
+              >
+              <div
                 className={`relative grid md:grid-cols-2 gap-8 items-center ${
                   i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
                 }`}
@@ -146,6 +152,7 @@ export const Timeline = () => {
                   </div>
                 </div>
               </div>
+              </SectionTransition>
             ))}
           </div>
         </div>
