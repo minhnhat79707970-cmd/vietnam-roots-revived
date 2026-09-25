@@ -2,7 +2,9 @@ import { DrumOrnament } from "./DrumOrnament";
 import { SectionTransition } from "./SectionTransition";
 import { useT } from "@/contexts/LanguageContext";
 import { useAutoTranslate } from "@/hooks/useAutoTranslate";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { timelineEvents } from "@/data/timelineEvents";
+import { TimelineEraDialog } from "./TimelineEraDialog";
 
 const eras = [
   {
@@ -65,6 +67,7 @@ const eras = [
 
 export const Timeline = () => {
   const t = useT();
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
   // Gom tất cả chuỗi cần dịch theo thứ tự cố định để dùng cache hiệu quả
   const allTexts = useMemo(
     () =>
@@ -140,7 +143,7 @@ export const Timeline = () => {
                   <p className="text-foreground/80 leading-relaxed mb-4">
                     {era.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 ${i % 2 === 0 ? '' : 'md:justify-end'}">
+                  <div className={`flex flex-wrap gap-2 ${i % 2 === 0 ? "" : "md:justify-end"}`}>
                     {era.legacy.split(" · ").map((tag) => (
                       <span
                         key={tag}
@@ -150,6 +153,23 @@ export const Timeline = () => {
                       </span>
                     ))}
                   </div>
+                  {timelineEvents[i]?.length ? (
+                    <div className={`mt-5 flex items-center gap-3 ${i % 2 === 0 ? "" : "md:justify-end"}`}>
+                      <div className="flex -space-x-3">
+                        {timelineEvents[i].slice(0, 3).map((ev) => (
+                          <img key={ev.title} src={ev.image} alt="" loading="lazy"
+                            className="w-10 h-10 rounded-full object-cover border-2 border-background" />
+                        ))}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setOpenIdx(i)}
+                        className="text-sm font-medium text-vermilion hover:underline underline-offset-4"
+                      >
+                        {t(`Xem ${timelineEvents[i].length} sự kiện & câu chuyện →`, `See ${timelineEvents[i].length} events & stories →`)}
+                      </button>
+                    </div>
+                  ) : null}
                 </div>
               </div>
               </SectionTransition>
@@ -157,6 +177,15 @@ export const Timeline = () => {
           </div>
         </div>
       </div>
+      {openIdx !== null && (
+        <TimelineEraDialog
+          open
+          onOpenChange={(o) => !o && setOpenIdx(null)}
+          eraName={erasI18n[openIdx].name}
+          period={erasI18n[openIdx].period}
+          events={timelineEvents[openIdx]}
+        />
+      )}
     </section>
   );
 };
