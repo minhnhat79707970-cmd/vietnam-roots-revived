@@ -8,6 +8,14 @@ import { TimelineEraDialog } from "./TimelineEraDialog";
 
 const eras = [
   {
+    period: "~500.000 — 2879 TCN",
+    name: "Thời tiền sử",
+    rulers: "Văn hoá Sơn Vi · Hoà Bình · Bắc Sơn · Phùng Nguyên",
+    description:
+      "Con người đã sinh sống trên dải đất này từ thời đồ đá cũ. Từ hang động Tràng An đến nền nông nghiệp sơ khai của văn hoá Hoà Bình, cư dân dần chuyển sang trồng lúa, làm gốm, mở đường cho các nền văn hoá đồ đồng.",
+    legacy: "Rìu đá Bắc Sơn · Hang Con Moong · Gốm Phùng Nguyên",
+  },
+  {
     period: "2879 TCN — 258 TCN",
     name: "Văn Lang — Âu Lạc",
     rulers: "Vua Hùng · An Dương Vương",
@@ -62,6 +70,22 @@ const eras = [
     description:
       "Triều đại cuối cùng. Cố đô Huế với Đại Nội nguy nga, Nhã nhạc cung đình — di sản thế giới. Mở mang bờ cõi đến mũi Cà Mau.",
     legacy: "Quần thể Huế · Nhã nhạc · Áo dài",
+  },
+  {
+    period: "1945 — 1975",
+    name: "Độc lập & thống nhất",
+    rulers: "Hồ Chí Minh · Võ Nguyên Giáp",
+    description:
+      "Cách mạng Tháng Tám khai sinh nước Việt Nam Dân chủ Cộng hoà. Ba mươi năm kháng chiến qua Điện Biên Phủ đến mùa xuân 1975, non sông thu về một mối.",
+    legacy: "Tuyên ngôn độc lập · Điện Biên Phủ · Dinh Độc Lập",
+  },
+  {
+    period: "1976 — nay",
+    name: "Đổi mới & hội nhập",
+    rulers: "Cộng hoà XHCN Việt Nam",
+    description:
+      "Từ Đại hội VI (1986), công cuộc Đổi mới đưa đất nước thoát khỏi khủng hoảng, gia nhập ASEAN, WTO, trở thành nền kinh tế năng động với nhiều di sản được UNESCO vinh danh.",
+    legacy: "Đổi mới 1986 · ASEAN 1995 · WTO 2007",
   },
 ];
 
