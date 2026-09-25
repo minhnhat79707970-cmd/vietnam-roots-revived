@@ -14,6 +14,15 @@ import viGiam from "@/assets/vi-giam.jpg";
 import hue from "@/assets/landmarks/hue-citadel.jpg";
 import nhaNhac from "@/assets/nha-nhac.jpg";
 import caMau from "@/assets/landmarks/ca-mau.jpg";
+import sonDoong from "@/assets/landmarks/son-doong.jpg";
+import gomCham from "@/assets/gom-cham.jpg";
+import haGiang from "@/assets/landmarks/ha-giang.jpg";
+import conDao from "@/assets/landmarks/con-dao.jpg";
+import cuChi from "@/assets/landmarks/cu-chi.jpg";
+import dinhDocLap from "@/assets/landmarks/dinh-doc-lap.jpg";
+import saigon from "@/assets/landmarks/saigon.jpg";
+import hanoi from "@/assets/landmarks/hanoi-old-quarter.jpg";
+import halongB from "@/assets/landmarks/halong-bay.jpg";
 
 export type TimelineEvent = {
   year: string;
@@ -22,8 +31,16 @@ export type TimelineEvent = {
   story: string;
 };
 
-/** Sự kiện chi tiết theo từng thời kỳ (thứ tự khớp mảng `eras` trong Timeline). */
+/** Sự kiện chi tiết theo từng thời kỳ (thứ tự khớp mảng `eras` trong Timeline). Nguồn tham khảo: Wikipedia "Lịch sử Việt Nam". */
 export const timelineEvents: TimelineEvent[][] = [
+  [
+    { year: "~500.000 năm trước", title: "Dấu vết người cổ ở núi Đọ", image: sonDoong,
+      story: "Công cụ đá ghè đẽo thô sơ ở núi Đọ (Thanh Hoá) cho thấy người tối cổ đã sống trên đất Việt từ thời đồ đá cũ. Các di chỉ hang Thẩm Khuyên, Thẩm Hai (Lạng Sơn) còn lưu răng người vượn." },
+    { year: "~20.000 – 8.000 năm trước", title: "Văn hoá Hoà Bình – Bắc Sơn", image: trangAn,
+      story: "Cư dân sống trong hang động đá vôi, săn bắt, hái lượm và bắt đầu trồng trọt sơ khai. Tên 'Hoabinhian' được giới khảo cổ quốc tế dùng cho cả Đông Nam Á. Hang Con Moong và Tràng An lưu giữ nhiều tầng văn hoá liên tục." },
+    { year: "~2000 TCN", title: "Văn hoá Phùng Nguyên", image: gomCham,
+      story: "Ở vùng trung du Phú Thọ, người xưa làm gốm hoa văn tinh xảo, biết trồng lúa nước và bắt đầu luyện đồng — tiền đề trực tiếp của văn hoá Đông Sơn và nhà nước Văn Lang." },
+  ],
   [
     { year: "~2879 TCN", title: "Vua Hùng lập nước Văn Lang", image: hungVuong,
       story: "Theo truyền thuyết, Lạc Long Quân và Âu Cơ sinh bọc trăm trứng; người con trưởng lên ngôi Hùng Vương, đóng đô ở Phong Châu (Phú Thọ), đặt quốc hiệu Văn Lang. Ngày Giỗ Tổ 10/3 âm lịch nay là quốc lễ, và Tín ngưỡng thờ cúng Hùng Vương được UNESCO ghi danh năm 2012." },
